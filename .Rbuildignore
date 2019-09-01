@@ -3,3 +3,7 @@
 ^\.github$
 ^README\.Rmd$
 ^LICENSE\.md$
+^\.travis\.yml$
+^codecov\.yml$
+^\.covrignore$
+^cran-comments\.md$
