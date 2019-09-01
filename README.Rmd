@@ -1,0 +1,87 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# prismatic
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of prismatic is to provide color manipulation tools in R, in a intuitive, low-dependency and functional way.
+
+- **intuitive** All the working functions are prefixed with `clr_` (**c**o**l**o**r**) allowing for easy autocompletion.
+- **low-dependency** Only depends on [farver](https://github.com/thomasp85/farver).
+- **functional** All functions have consistant inputs and outputes and are thus fully pipeable.
+
+## Installation
+
+~~You can install the released version of prismatic from [CRAN](https://CRAN.R-project.org) with:~~
+
+``` r
+install.packages("prismatic")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("EmilHvitfeldt/prismatic")
+```
+## Examples
+
+All **prismatic** functions returns a `color` object, which includes a new printing method and plotting method for quickly visualizing the colors.
+
+```{r, dpi=320}
+library(prismatic)
+library(magrittr)
+
+terrain10 <- terrain.colors(10)
+
+terrain10
+
+terrain_color <- color(terrain10)
+
+terrain_color
+
+plot(terrain_color)
+```
+
+
+```{r, dpi=320}
+library(prismatic)
+library(magrittr)
+ddd <- color(terrain.colors(10))
+
+ddd
+
+plot(ddd)
+clr_grayscale(ddd) %>% plot()
+clr_lighten(ddd, 0.7) %>% plot()
+clr_darken(ddd, 0.5) %>% plot()
+clr_saturate(ddd, 0.5) %>% plot()
+clr_desaturate(ddd, 0.5) %>% plot()
+clr_negate(ddd) %>% plot()
+clr_rotate(ddd, 180) %>% plot()
+
+clr_protan(ddd) %>% plot()
+clr_tritan(ddd) %>% plot()
+clr_deutan(ddd) %>% plot()
+```
+
+## Related work
+
+This package is hugely inspired by the JavaScript library [Qix-/color](https://github.com/Qix-/color).
+
+## Code of Conduct
+
+Please note that the 'prismatic' project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
