@@ -7,3 +7,6 @@
 ^codecov\.yml$
 ^\.covrignore$
 ^cran-comments\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
