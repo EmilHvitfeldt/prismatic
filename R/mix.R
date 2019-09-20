@@ -18,6 +18,8 @@
 #'
 #' plot(clr_mix(rainbow(10), "#5500EE"))
 clr_mix <- function(col, mix_in, ratio = 0.5) {
+  col <- color(col)
+  mix_in <- color(mix_in)
   if (length(mix_in) != 1) {
     stop("`mix_in` must be of length 1.")
   }
