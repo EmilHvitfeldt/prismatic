@@ -13,6 +13,7 @@
 #'
 #' plot(clr_grayscale(hcl.colors(10, palette = "viridis")))
 clr_grayscale <- function(col) {
+  col <- color(col)
   value <- matrix(c(0.2989, 0.5870, 0.1140), nrow = 1) %*% col2rgb(col) / 256
   color(rgb(value, value, value))
 }
