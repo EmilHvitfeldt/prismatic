@@ -25,6 +25,11 @@
 #' # Using exponential shifts
 #' plot(clr_lighten(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
 clr_lighten <- function(col, shift = 0.5) {
+  col <- color(col)
+  if (!(length(shift) == 1 || (length(shift) == length(col)))) {
+    stop("`shift` must be of length 1 or the same length as `col`.")
+  }
+
   hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
   hsl[, 3] <- pro_transform(hsl[, 3], 100, shift)
 
@@ -59,6 +64,11 @@ clr_lighten <- function(col, shift = 0.5) {
 #' # Using exponential shifts
 #' plot(clr_darken(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
 clr_darken <- function(col, shift = 0.5) {
+  col <- color(col)
+  if (!(length(shift) == 1 || (length(shift) == length(col)))) {
+    stop("`shift` must be of length 1 or the same length as `col`.")
+  }
+
   hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
   hsl[, 3] <- pro_transform(hsl[, 3], 0, shift)
 

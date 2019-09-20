@@ -35,6 +35,16 @@ test_that("it if the length  of `severity` isn't 1.", {
   expect_error(clr_deutan(rainbow(10), rep(1, 2)))
   expect_error(clr_deutan(rainbow(10), rep(1, 3)))
   expect_error(clr_deutan(rainbow(10), rep(1, 10)))
+
+  expect_visible(clr_protan(rainbow(10), rep(1, 1)))
+  expect_error(clr_protan(rainbow(10), rep(1, 2)))
+  expect_error(clr_protan(rainbow(10), rep(1, 3)))
+  expect_error(clr_protan(rainbow(10), rep(1, 10)))
+
+  expect_visible(clr_tritan(rainbow(10), rep(1, 1)))
+  expect_error(clr_tritan(rainbow(10), rep(1, 2)))
+  expect_error(clr_tritan(rainbow(10), rep(1, 3)))
+  expect_error(clr_tritan(rainbow(10), rep(1, 10)))
 })
 
 
