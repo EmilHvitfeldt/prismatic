@@ -22,6 +22,11 @@ test_that("it complains when col type is wrong.", {
   expect_error(clr_mix(character()))
 })
 
+test_that("it complains mix_in is wrong length", {
+  expect_error(clr_mix(rainbow(10), character()))
+  expect_error(clr_mix(rainbow(10), rep("black", 2)))
+})
+
 test_that("it if the length  of `severity` isn't 1.", {
   expect_visible(clr_mix(rainbow(10), rep(1, 1)))
   expect_error(clr_mix(rainbow(10), seq(0, 1, length.out = 2)))

@@ -10,6 +10,16 @@ test_that("output has color class", {
   expect_s3_class(clr_tritan(rainbow(10)), "color")
 })
 
+test_that("setting severity outside range gives error", {
+  expect_error(clr_deutan(rainbow(10), severity = -1))
+  expect_error(clr_protan(rainbow(10), severity = -1))
+  expect_error(clr_tritan(rainbow(10), severity = -1))
+
+  expect_error(clr_deutan(rainbow(10), severity = 2))
+  expect_error(clr_protan(rainbow(10), severity = 2))
+  expect_error(clr_tritan(rainbow(10), severity = 2))
+})
+
 test_that("setting severity = 0 leaves input unchanged", {
   expect_equal(clr_deutan(rainbow(10), severity = 0), color(rainbow(10)))
   expect_equal(clr_protan(rainbow(10), severity = 0), color(rainbow(10)))
