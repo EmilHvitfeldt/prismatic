@@ -27,6 +27,11 @@
 #'
 #' plot(clr_saturate(rep("firebrick", 11), shift = seq(0, 1, 0.1)))
 clr_saturate <- function(col, shift = 0.5) {
+  col <- color(col)
+  if (!(length(shift) == 1 || (length(shift) == length(col)))) {
+    stop("`shift` must be of length 1 or the same length as `col`.")
+  }
+
   hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
   hsl[, 2] <- pro_transform(hsl[, 2], 100, shift)
 
@@ -62,7 +67,12 @@ clr_saturate <- function(col, shift = 0.5) {
 #' plot(clr_desaturate(terrain.colors(10), shift = 0.9))
 #'
 #' plot(clr_desaturate(rep("firebrick", 11), shift = seq(0, 1, 0.1)))
-clr_desaturate <- function(col, shift) {
+clr_desaturate <- function(col, shift = 0.5) {
+  col <- color(col)
+  if (!(length(shift) == 1 || (length(shift) == length(col)))) {
+    stop("`shift` must be of length 1 or the same length as `col`.")
+  }
+
   hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
   hsl[, 2] <- pro_transform(hsl[, 2], 0, shift)
 

@@ -7,7 +7,7 @@
 \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
 }
 \usage{
-clr_desaturate(col, shift)
+clr_desaturate(col, shift = 0.5)
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
