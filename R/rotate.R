@@ -20,6 +20,10 @@
 #'
 #' plot(clr_rotate(rep("magenta", 11), degrees = seq(0, 360, length.out =  11)))
 clr_rotate <- function(col, degrees) {
+  col <- color(col)
+  if (!(length(degrees) == 1 || (length(degrees) == length(col)))) {
+    stop("`degrees` must be of length 1 or the same length as `col`.")
+  }
   hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
   hsl[, 1] <- (hsl[, 1] + degrees) %% 360
 

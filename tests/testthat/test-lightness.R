@@ -1,9 +1,4 @@
 
-expect_equal_color <- function(object, expected, tol = 0) {
-  res <- all(abs(col2rgb(object) - col2rgb(expected)) <= tol)
-  expect_true(res)
-}
-
 test_that("Length is preserved", {
   expect_length(clr_lighten(rainbow(10)), 10)
   expect_length(clr_darken(rainbow(10)), 10)
