@@ -23,9 +23,9 @@ Alpha values will be automatically  added to hexcodes. If none at
 present it will default to no alpha (FF).
 }
 \examples{
-terrain_10 <- color(terrain.colors(15))
+terrain_10 <- color(terrain.colors(10))
 
-terrain_10
+terrain_10[1:4]
 
 plot(terrain_10)
 }

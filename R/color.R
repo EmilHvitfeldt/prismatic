@@ -12,9 +12,9 @@
 #' @export
 #'
 #' @examples
-#' terrain_10 <- color(terrain.colors(15))
+#' terrain_10 <- color(terrain.colors(10))
 #'
-#' terrain_10
+#' terrain_10[1:4]
 #'
 #' plot(terrain_10)
 color <- function(col) {
@@ -25,11 +25,26 @@ color <- function(col) {
   col
 }
 
+#' Test if the object is a color
+#'
+#' @param x An object
+#'
+#' @return TRUE if the object inherits from the color class.
+#' @export
+is_color <- function(x) {
+  inherits(x, "color")
+}
+
+#' @export
+`[.color` <- function(x, i) {
+  x <- unclass(x)
+  color(x[i])
+}
+
 #' @export
 print.color <- function(x, ...) {
-  cat("color\n")
-  cat(as.character(x))
-  invisible(x)
+  cat("<color>\n")
+  print(unclass(x))
 }
 
 #' @export
