@@ -19,4 +19,5 @@ BugReports: https://github.com/EmilHvitfeldt/prismatic/issues
 Depends: 
     R (>= 3.2)
 Suggests: 
-    covr
+    covr,
+    testthat (>= 2.1.0)

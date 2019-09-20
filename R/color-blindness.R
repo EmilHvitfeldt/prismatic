@@ -23,6 +23,12 @@
 #' plot(clr_deutan(viridis_colors))
 #' plot(clr_tritan(viridis_colors))
 clr_protan <- function(col, severity = 1) {
+  col <- color(col)
+  range_check(severity)
+  if (!(length(severity) == 1)) {
+    stop("`severity` must be of length 1.")
+  }
+
   rgb <- (diag(3)*(1-severity) + protan_matrix * (severity)) %*% col2rgb(col)
   color(rgb2col(rgb_norn(rgb)))
 }
@@ -30,6 +36,12 @@ clr_protan <- function(col, severity = 1) {
 #' @rdname colorblindness
 #' @export
 clr_deutan <- function(col, severity = 1) {
+  col <- color(col)
+  range_check(severity)
+  if (!(length(severity) == 1)) {
+    stop("`severity` must be of length 1.")
+  }
+
   rgb <- (diag(3)*(1-severity) + deutan_matrix * (severity)) %*% col2rgb(col)
   color(rgb2col(rgb_norn(rgb)))
 }
@@ -37,9 +49,23 @@ clr_deutan <- function(col, severity = 1) {
 #' @rdname colorblindness
 #' @export
 clr_tritan <- function(col, severity = 1) {
+  col <- color(col)
+  range_check(severity)
+  if (!(length(severity) == 1)) {
+    stop("`severity` must be of length 1.")
+  }
+
   rgb <- (diag(3)*(1-severity) + tritan_matrix * (severity)) %*% col2rgb(col)
   color(rgb2col(rgb_norn(rgb)))
 }
+
+range_check <- function(x) {
+  if (!all(x >= 0 & x <= 1))
+    stop("`severity` must be between 0 and 1.")
+
+}
+
+
 
 protan_matrix <- matrix(nrow = 3, byrow = TRUE,
                         c(0.152286,	 1.052583, -0.204868,

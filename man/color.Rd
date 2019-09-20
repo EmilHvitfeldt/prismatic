@@ -18,6 +18,10 @@ a color object.
 \description{
 Turn vector to color vector
 }
+\details{
+Alpha values will be automatically  added to hexcodes. If none at
+present it will default to no alpha (FF).
+}
 \examples{
 terrain_10 <- color(terrain.colors(15))
 

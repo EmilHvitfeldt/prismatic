@@ -1,5 +1,8 @@
 #' Turn vector to color vector
 #'
+#' @details Alpha values will be automatically  added to hexcodes. If none at
+#' present it will default to no alpha (FF).
+#'
 #' @param col a color object or vector of any of the three kinds of R color
 #' specifications, i.e., either a color name (as listed by colors()), a
 #' hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
@@ -15,6 +18,9 @@
 #'
 #' plot(terrain_10)
 color <- function(col) {
+  if (is.list(col)) stop("`col` must not be a list.")
+  if (length(col) < 1) stop("The length of `col` must be positive.")
+  col <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
   attr(col, "class") <- "color"
   col
 }
