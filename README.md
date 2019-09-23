@@ -56,7 +56,7 @@ terrain10
 terrain_color <- color(terrain10)
 
 terrain_color
-#> color
+#> <color>
 #> #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF
 
 plot(terrain_color)
@@ -64,13 +64,18 @@ plot(terrain_color)
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
+If [crayon](https://github.com/r-lib/crayon) is available the print
+method will do its best to represent the colors.
+
+![](man/figures/sceenshot.png)
+
 ``` r
 library(prismatic)
 library(magrittr)
 ddd <- color(terrain.colors(10))
 
 ddd
-#> color
+#> <color>
 #> #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF
 
 plot(ddd)

@@ -42,16 +42,40 @@ is_color <- function(x) {
 }
 
 #' @export
-print.color <- function(x, ...) {
-  cat("<color>\n")
-  print(unclass(x))
-}
-
-#' @export
 #' @importFrom graphics plot rect
 plot.color <- function(x, ...) {
-  plot(0,type='n',axes=FALSE,ann=FALSE, xlim = c(0, length(x) + 1), ylim = c(-0.1, 1.1))
+  plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
+       ylim = c(-0.1, 1.1))
   rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
        ytop = 1, col = x, border = NA)
   rect(xleft = 0.5, ybottom = 0, xright = length(x) + 0.5, ytop = 1)
+}
+
+color_styler <- function(x) {
+  color_lightness <- farver::convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
+
+  text <- crayon::make_style(
+    ifelse(color_lightness > 31,
+           "#000000",
+           "#FFFFFF"),
+    bg = FALSE)
+
+  background <- crayon::make_style(x, bg = TRUE, colors = 256, grey = FALSE)
+
+  crayon::combine_styles(text, background)(x)
+}
+
+pretty_print <- function(x) {
+  cols <- vapply(x, color_styler, FUN.VALUE = character(1), USE.NAMES = FALSE)
+  cat(paste(c(cols, "\n"), collapse = " "))
+}
+
+#' @export
+print.color <- function(x, ...) {
+  cat("<color>\n")
+  if (requireNamespace("crayon", quietly = TRUE)) {
+    pretty_print(x)
+  } else {
+    print(unclass(x))
+  }
 }

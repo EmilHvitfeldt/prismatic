@@ -20,4 +20,5 @@ Depends:
     R (>= 3.2)
 Suggests: 
     covr,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    crayon

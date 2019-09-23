@@ -58,6 +58,9 @@ terrain_color
 plot(terrain_color)
 ```
 
+If [crayon](https://github.com/r-lib/crayon) is available the print method will do its best to represent the colors.
+
+![](man/figures/sceenshot.png)
 
 ```{r, dpi=320}
 library(prismatic)
