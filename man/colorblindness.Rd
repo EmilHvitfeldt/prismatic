@@ -5,6 +5,9 @@
 \alias{clr_deutan}
 \alias{clr_tritan}
 \title{Simulate color vision deficiency}
+\source{
+\url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}
+}
 \usage{
 clr_protan(col, severity = 1)
 
@@ -28,6 +31,10 @@ a color object of same length as col.
 \description{
 Simulate color vision deficiency
 }
+\details{
+The matrices uses to perform transformations have been taken as the
+ 1.0 value in table 1 in \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}.
+}
 \examples{
 rainbow_colors <- color(rainbow(10))
 
@@ -40,4 +47,10 @@ viridis_colors <- color(hcl.colors(10, palette = "viridis"))
 plot(clr_protan(viridis_colors))
 plot(clr_deutan(viridis_colors))
 plot(clr_tritan(viridis_colors))
+}
+\references{
+Gustavo M. Machado, Manuel M. Oliveira, and Leandro A. F. Fernandes "A
+ Physiologically-based Model for Simulation of Color Vision Deficiency". IEEE
+ Transactions on Visualization and Computer Graphics. Volume 15 (2009),
+ Number 6, November/December 2009. pp. 1291-1298.
 }

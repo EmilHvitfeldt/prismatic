@@ -1,5 +1,8 @@
 #' Simulate color vision deficiency
 #'
+#' @details The matrices uses to perform transformations have been taken as the
+#'  1.0 value in table 1 in \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}.
+#'
 #' @rdname colorblindness
 #'
 #' @inheritParams color
@@ -9,6 +12,14 @@
 #'
 #' @return a color object of same length as col.
 #' @export
+#'
+#' @source \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}
+#'
+#' @references
+#'  Gustavo M. Machado, Manuel M. Oliveira, and Leandro A. F. Fernandes "A
+#'  Physiologically-based Model for Simulation of Color Vision Deficiency". IEEE
+#'  Transactions on Visualization and Computer Graphics. Volume 15 (2009),
+#'  Number 6, November/December 2009. pp. 1291-1298.
 #'
 #' @examples
 #' rainbow_colors <- color(rainbow(10))
@@ -64,7 +75,6 @@ range_check <- function(x) {
     stop("`severity` must be between 0 and 1.")
 
 }
-
 
 
 protan_matrix <- matrix(nrow = 3, byrow = TRUE,
