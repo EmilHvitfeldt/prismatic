@@ -3,20 +3,45 @@
 \name{clr_grayscale}
 \alias{clr_grayscale}
 \title{Transform colors to greyscale}
+\source{
+\url{https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
+
+\url{https://en.wikipedia.org/wiki/Luma}
+}
 \usage{
-clr_grayscale(col)
+clr_grayscale(col, method = c("luma", "averaging", "min_decomp",
+  "max_decomp", "red_channel", "green_channel", "blue_channel"))
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
 specifications, i.e., either a color name (as listed by colors()), a
 hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
+
+\item{method}{character string specifying the grayscaling method. Can be one
+of "luma", "averaging", "min_decomp",  "max_decomp", "red_channel",
+"green_channel" and "blue_channel". Defaults to "luma".}
 }
 \value{
 a color object of same length as col.
 }
 \description{
-Transform colors to greyscale
+This function has a selection of different methods to turn colors into
+grayscale.
+}
+\details{
+if method = "averaging" then the red, green and blue have been
+averaged together to create the grey value. This method does a poor job of
+representing the way the  human eye sees color.
+If method = "luma" (the default) then then a weighted average is used to
+calculate the grayscale values. The BT. 709 method from the ITU
+Radiocommunication Sector have determined the weights.
+It method = "min_decomp" or method = "max_decomp", then a decomposition
+method is used where the minimum or maximum color value have been selected
+for the color value. So the color rgb(60, 120, 40) would have the min_decomp
+value of 40 and max_decomp value of 120.
+If method is "red_channel", "green_channel" or "blue_channel", then the
+corresponding color channel been selected for the values of grayscale.
 }
 \examples{
 
@@ -24,5 +49,11 @@ plot(clr_grayscale(rainbow(10)))
 
 plot(clr_grayscale(terrain.colors(10)))
 
-plot(clr_grayscale(hcl.colors(10, palette = "viridis")))
+plot(clr_grayscale(hcl.colors(10), method = "luma"))
+plot(clr_grayscale(hcl.colors(10), method = "averaging"))
+plot(clr_grayscale(hcl.colors(10), method = "min_decomp"))
+plot(clr_grayscale(hcl.colors(10), method = "max_decomp"))
+plot(clr_grayscale(hcl.colors(10), method = "red_channel"))
+plot(clr_grayscale(hcl.colors(10), method = "green_channel"))
+plot(clr_grayscale(hcl.colors(10), method = "blue_channel"))
 }

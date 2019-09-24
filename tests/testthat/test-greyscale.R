@@ -7,10 +7,21 @@ test_that("output has color class", {
 })
 
 test_that("result is grayscale", {
-  res  <- col2rgb(clr_grayscale(rainbow(10)))
+  methods <- c("luma", "averaging", "min_decomp",
+               "max_decomp", "red_channel",
+               "green_channel", "blue_channel")
 
-  expect_equal(res[1, ], res[2, ])
-  expect_equal(res[1, ], res[3, ])
+  for (method in methods) {
+    res  <- col2rgb(clr_grayscale(rainbow(10), method))
+
+    expect_equal(res[1, ], res[2, ])
+    expect_equal(res[1, ], res[3, ])
+  }
+})
+
+test_that("errors when method is  wrongly specified", {
+
+  expect_error(clr_grayscale(rainbow(10), "111"))
 })
 
 test_that("it complains when col type is wrong.", {
@@ -20,4 +31,5 @@ test_that("it complains when col type is wrong.", {
 
   expect_error(clr_grayscale(character()))
 })
+
 
