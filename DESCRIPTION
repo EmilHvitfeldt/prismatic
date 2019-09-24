@@ -1,5 +1,5 @@
 Package: prismatic
-Title: What the Package Does (One Line, Title Case)
+Title: Color Manipulation Tools
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Emil",
@@ -7,18 +7,19 @@ Authors@R:
            role = c("aut", "cre"),
            email = "emilhhvitfeldt@gmail.com",
            comment = c(ORCID = "0000-0002-0679-1945"))
-Description: What the package does (one paragraph).
+Description: Color manipulation tools in a intuitive, low-dependency and 
+    functional way.
 License: MIT + file LICENSE
-Imports: 
-    farver (>= 1.1.0)
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 6.1.1
 URL: https://github.com/EmilHvitfeldt/prismatic
 BugReports: https://github.com/EmilHvitfeldt/prismatic/issues
 Depends: 
     R (>= 3.2)
+Imports: 
+    farver (>= 1.1.0)
 Suggests: 
     covr,
-    testthat (>= 2.1.0),
-    crayon
+    crayon,
+    testthat (>= 2.1.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
