@@ -4,6 +4,8 @@ test_that("Length is preserved", {
   expect_length(clr_darken(rainbow(10), space = "HSL"), 10)
   expect_length(clr_lighten(rainbow(10), space = "HCL"), 10)
   expect_length(clr_darken(rainbow(10), space = "HCL"), 10)
+  expect_length(clr_lighten(rainbow(10), space = "combined"), 10)
+  expect_length(clr_darken(rainbow(10), space = "combined"), 10)
 })
 
 test_that("output has color class", {
@@ -11,6 +13,8 @@ test_that("output has color class", {
   expect_s3_class(clr_darken(rainbow(10), space = "HSL"), "color")
   expect_s3_class(clr_lighten(rainbow(10), space = "HCL"), "color")
   expect_s3_class(clr_darken(rainbow(10), space = "HCL"), "color")
+  expect_s3_class(clr_lighten(rainbow(10), space = "combined"), "color")
+  expect_s3_class(clr_darken(rainbow(10), space = "combined"), "color")
 })
 
 test_that("setting shift = 0 leaves input unchanged", {
@@ -24,6 +28,9 @@ test_that("setting shift = 1 leaves result complete black or white", {
 
   expect_equal_color(clr_lighten(rainbow(10), shift = 1, space = "HCL"), color(rep("white", 10)), 1)
   expect_equal(clr_darken(rainbow(10), shift = 1, space = "HCL"), color(rep("black", 10)))
+
+  expect_equal_color(clr_lighten(rainbow(10), shift = 1, space = "combined"), color(rep("white", 10)), 1)
+  expect_equal(clr_darken(rainbow(10), shift = 1, space = "combined"), color(rep("black", 10)))
 })
 
 test_that("it complains when col type is wrong.", {

@@ -9,17 +9,24 @@
 #'  lightness be set to the halfway point between 0.6 and 1 which is 0.8.
 #'
 #' @details If space = "HSL" then the colors are transformed to HSL space where
-#' the lightness value L is adjusted. If space = "HCL" then the colors are
-#' transformed to Cylindrical HCL space where the luminance value L is adjusted.
+#'   the lightness value L is adjusted. If space = "HCL" then the colors are
+#'   transformed to Cylindrical HCL space where the luminance value L is
+#'   adjusted. If space = "combined" then the colors are tranformed into HSL and
+#'   Cylindrical HCL space. Where the color adjusting is happening HLS is copied
+#'   tto the values in the HCL tranformation. Thus the "combined" transformation
+#'   adjusts the luminance in HCL space and chroma in HSL space. For more
+#'   information regarding use of color spaces, please refer to eh colorspace
+#'   paper \url{https://arxiv.org/abs/1903.06490}.
 #'
 #' @source \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
 #' @source \url{https://en.wikipedia.org/wiki/CIELUV}
+#' @source \url{https://arxiv.org/abs/1903.06490}
 #'
 #' @inheritParams color
 #' @param shift Numeric between 0 and 1, 0 will do zero lightening, 1 will do
 #'    complete lightening turning the color to white. Defaults to 0.5.
 #' @param space character string specifying the color space in which adjustment
-#'    happens. Can be either "HLS" or "HCL". Defaults to "HSL".
+#'    happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".
 #'
 #' @return a color object of same length as col.
 #' @export
@@ -32,7 +39,7 @@
 #'
 #' # Using exponential shifts
 #' plot(clr_lighten(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
-clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL")) {
+clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
   col <- color(col)
   if (!(length(shift) == 1 || (length(shift) == length(col)))) {
     stop("`shift` must be of length 1 or the same length as `col`.")
@@ -61,6 +68,27 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL")) {
     # correction for black to work from luv
     luv[luv[, "l"] == 0, "l"] <- luv[luv[, "l"] == 0, "l"] + 0.00000001
     rgb <- t(farver::convert_colour(luv, "luv", "rgb"))
+  } else {
+    hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
+    hsl[, "l"] <- (shift >= 0) * (1 - (1 - hsl[, "l"]) *
+                         (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
+    hsl[, "l"] <- pmin(100, pmax(0, hsl[, "l"]))
+    luv_hsl <- farver::convert_colour(hsl, "hsl", "luv")
+    luv_hsl <- luv_to_polarluv(luv_hsl)
+
+    luv <- farver::convert_colour(t(col2rgb(col)), "rgb", "luv")
+    luv <- luv_to_polarluv(luv)
+    luv[, "l"] <- pmin(100, pmax(0, luv[, "l"]))
+    luv[, "l"] <- (shift >= 0) * (100 - (100 - luv[, "l"]) * (1 - shift)) +
+        (shift < 0) * luv[, "l"] * (1 + shift)
+    luv[, "l"] <- pmin(100, pmax(0, luv[, "l"]))
+    luv[, 2] <- luv_hsl[, 2]
+    luv[, 2] <- pmin(max_chroma(luv[, 3], luv[, 1], floor = TRUE), luv[, 2])
+
+    luv <- polarluv_to_luv(luv)
+    # correction for black to work from luv
+    luv[luv[, "l"] == 0, "l"] <- luv[luv[, "l"] == 0, "l"] + 0.00000001
+    rgb <- t(farver::convert_colour(luv, "luv", "rgb"))
   }
   color(rgb2col(rgb_norn(rgb)))
 }
@@ -77,11 +105,18 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL")) {
 #'  lightness be set to the halfway point between 0.6 and 0, which is 0.3.
 #'
 #' @details If space = "HSL" then the colors are transformed to HSL space where
-#' the lightness value L is adjusted. If space = "HCL" then the colors are
-#' transformed to Cylindrical HCL space where the luminance value L is adjusted.
+#'   the lightness value L is adjusted. If space = "HCL" then the colors are
+#'   transformed to Cylindrical HCL space where the luminance value L is
+#'   adjusted. If space = "combined" then the colors are tranformed into HSL and
+#'   Cylindrical HCL space. Where the color adjusting is happening HLS is copied
+#'   tto the values in the HCL tranformation. Thus the "combined" transformation
+#'   adjusts the luminance in HCL space and chroma in HSL space. For more
+#'   information regarding use of color spaces, please refer to eh colorspace
+#'   paper \url{https://arxiv.org/abs/1903.06490}.
 #'
 #' @source \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
 #' @source \url{https://en.wikipedia.org/wiki/CIELUV}
+#' @source \url{https://arxiv.org/abs/1903.06490}
 #'
 #' @inheritParams color
 #' @inheritParams clr_lighten
@@ -98,7 +133,7 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL")) {
 #'
 #' # Using exponential shifts
 #' plot(clr_darken(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
-clr_darken <- function(col, shift = 0.5, space = c("HSL", "HCL")) {
+clr_darken <- function(col, shift = 0.5, space = c("HSL")) {
   clr_lighten(col, -1 * shift, space)
 }
 

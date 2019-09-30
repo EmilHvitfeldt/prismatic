@@ -7,9 +7,11 @@
 \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
 
 \url{https://en.wikipedia.org/wiki/CIELUV}
+
+\url{https://arxiv.org/abs/1903.06490}
 }
 \usage{
-clr_darken(col, shift = 0.5, space = c("HSL", "HCL"))
+clr_darken(col, shift = 0.5, space = c("HSL"))
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
@@ -21,7 +23,7 @@ positive integer i meaning palette()[i].}
 complete darkening turning the color to black. Defaults to 0.5.}
 
 \item{space}{character string specifying the color space in which adjustment
-happens. Can be either "HLS" or "HCL". Defaults to "HSL".}
+happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".}
 }
 \value{
 a color object of same length as col.
@@ -39,8 +41,14 @@ The colors will be trainsformed to HSL color space (hue, saturation,
  lightness be set to the halfway point between 0.6 and 0, which is 0.3.
 
 If space = "HSL" then the colors are transformed to HSL space where
-the lightness value L is adjusted. If space = "HCL" then the colors are
-transformed to Cylindrical HCL space where the luminance value L is adjusted.
+  the lightness value L is adjusted. If space = "HCL" then the colors are
+  transformed to Cylindrical HCL space where the luminance value L is
+  adjusted. If space = "combined" then the colors are tranformed into HSL and
+  Cylindrical HCL space. Where the color adjusting is happening HLS is copied
+  tto the values in the HCL tranformation. Thus the "combined" transformation
+  adjusts the luminance in HCL space and chroma in HSL space. For more
+  information regarding use of color spaces, please refer to eh colorspace
+  paper \url{https://arxiv.org/abs/1903.06490}.
 }
 \examples{
 # Using linear shift
