@@ -5,9 +5,11 @@
 \title{Make a color more dark}
 \source{
 \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
+
+\url{https://en.wikipedia.org/wiki/CIELUV}
 }
 \usage{
-clr_darken(col, shift = 0.5)
+clr_darken(col, shift = 0.5, space = c("HSL", "HCL"))
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
@@ -17,6 +19,9 @@ positive integer i meaning palette()[i].}
 
 \item{shift}{Numeric between 0 and 1, 0 will do zero darkening, 1 will do
 complete darkening turning the color to black. Defaults to 0.5.}
+
+\item{space}{character string specifying the color space in which adjustment
+happens. Can be either "HLS" or "HCL". Defaults to "HSL".}
 }
 \value{
 a color object of same length as col.
@@ -32,6 +37,10 @@ The colors will be trainsformed to HSL color space (hue, saturation,
  means that the lightness stays unchanged and 1 means completely black. As an
  example, if the lightness of the color is 0.6 and shift is 0.5, then the
  lightness be set to the halfway point between 0.6 and 0, which is 0.3.
+
+If space = "HSL" then the colors are transformed to HSL space where
+the lightness value L is adjusted. If space = "HCL" then the colors are
+transformed to Cylindrical HCL space where the luminance value L is adjusted.
 }
 \examples{
 # Using linear shift

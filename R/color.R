@@ -56,13 +56,14 @@ color_styler <- function(x) {
 
   text <- crayon::make_style(
     ifelse(color_lightness > 31,
-           "#000000",
+           "#010101",
            "#FFFFFF"),
     bg = FALSE)
 
   background <- crayon::make_style(x, bg = TRUE, colors = 256, grey = FALSE)
 
   crayon::combine_styles(text, background)(x)
+
 }
 
 pretty_print <- function(x) {
