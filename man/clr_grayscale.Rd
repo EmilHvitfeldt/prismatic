@@ -2,6 +2,7 @@
 % Please edit documentation in R/greyscale.R
 \name{clr_grayscale}
 \alias{clr_grayscale}
+\alias{clr_greyscale}
 \title{Transform colors to greyscale}
 \source{
 \url{https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
@@ -10,6 +11,9 @@
 }
 \usage{
 clr_grayscale(col, method = c("luma", "averaging", "min_decomp",
+  "max_decomp", "red_channel", "green_channel", "blue_channel"))
+
+clr_greyscale(col, method = c("luma", "averaging", "min_decomp",
   "max_decomp", "red_channel", "green_channel", "blue_channel"))
 }
 \arguments{

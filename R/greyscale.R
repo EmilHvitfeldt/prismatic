@@ -24,6 +24,8 @@
 #' @source \url{https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
 #' @source \url{https://en.wikipedia.org/wiki/Luma}
 #'
+#' @rdname clr_grayscale
+#'
 #' @return a color object of same length as col.
 #' @export
 #'
@@ -57,6 +59,19 @@ clr_grayscale <- function(col, method = c("luma", "averaging", "min_decomp",
   )
 
   color(colors)
+}
+
+#' @rdname clr_grayscale
+#' @export
+clr_greyscale <- function(col, method = c("luma", "averaging", "min_decomp",
+                                           "max_decomp", "red_channel",
+                                           "green_channel", "blue_channel")) {
+
+  col <- color(col)
+
+  method <- match.arg(method)
+
+  clr_grayscale(col, method)
 }
 
 grayscale_averaging <- function(col) {

@@ -11,6 +11,8 @@
 #' @return a color object.
 #' @export
 #'
+#' @rdname color
+#'
 #' @examples
 #' terrain_10 <- color(terrain.colors(10))
 #'
@@ -23,6 +25,12 @@ color <- function(col) {
   col <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
   attr(col, "class") <- "color"
   col
+}
+
+#' @rdname color
+#' @export
+colour <- function(col) {
+  color(col)
 }
 
 #' Test if the object is a color
@@ -45,7 +53,7 @@ is_color <- function(x) {
 #' @importFrom graphics plot rect
 plot.color <- function(x, ...) {
   plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
-       ylim = c(-0.1, 1.1))
+       ylim = c(-0.1, 1.1), mar = rep(0, 4))
   rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
        ytop = 1, col = x, border = NA)
   rect(xleft = 0.5, ybottom = 0, xright = length(x) + 0.5, ytop = 1)

@@ -2,9 +2,12 @@
 % Please edit documentation in R/color.R
 \name{color}
 \alias{color}
+\alias{colour}
 \title{Turn vector to color vector}
 \usage{
 color(col)
+
+colour(col)
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
