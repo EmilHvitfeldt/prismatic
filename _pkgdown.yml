@@ -1,1 +1,33 @@
 destination: docs
+
+reference:
+  - title: "Main color functions"
+    contents:
+      - color
+      - is_color
+  - title: "Saturation"
+    contents:
+      - clr_saturate
+      - clr_desaturate
+  - title: "Lightness"
+    contents:
+      - clr_lighten
+      - clr_darken
+  - title: "Greyscale"
+    contents:
+      - clr_greyscale
+      - clr_grayscale
+  - title: "Negation"
+    contents:
+      - clr_negate
+  - title: "Mixing"
+    contents:
+      - clr_mix
+  - title: "Rotate in  RGB"
+    contents:
+      - clr_rotate
+  - title: "Color blindness approximations"
+    contents:
+      - clr_protan
+      - clr_tritan
+      - clr_deutan

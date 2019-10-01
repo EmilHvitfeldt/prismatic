@@ -39,7 +39,7 @@ devtools::install_github("EmilHvitfeldt/prismatic")
 
 ## Examples
 
-All **prismatic** functions returns a `color` object, which includes a
+All **prismatic** functions returns a `colors` object, which includes a
 new printing method and plotting method for quickly visualizing the
 colors.
 
@@ -56,7 +56,7 @@ terrain10
 terrain_color <- color(terrain10)
 
 terrain_color
-#> <color>
+#> <colors>
 #> #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF
 
 plot(terrain_color)
@@ -75,7 +75,7 @@ library(magrittr)
 ddd <- color(terrain.colors(10))
 
 ddd
-#> <color>
+#> <colors>
 #> #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF
 
 plot(ddd)
@@ -152,5 +152,6 @@ This package is hugely inspired by the JavaScript library
 ## Code of Conduct
 
 Please note that the ‘prismatic’ project is released with a [Contributor
-Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
-project, you agree to abide by its terms.
+Code of
+Conduct](https://github.com/EmilHvitfeldt/prismatic/blob/master/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
