@@ -11,3 +11,5 @@
 ^docs$
 ^pkgdown$
 ^data-raw$
+^CRAN-RELEASE$
+^CODE_OF_CONDUCT\.md$
