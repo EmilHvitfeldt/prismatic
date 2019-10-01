@@ -8,7 +8,7 @@
 #' hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 #' positive integer i meaning palette()[i].
 #'
-#' @return a color object.
+#' @return a colors object.
 #' @export
 #'
 #' @rdname color
@@ -23,7 +23,7 @@ color <- function(col) {
   if (is.list(col)) stop("`col` must not be a list.")
   if (length(col) < 1) stop("The length of `col` must be positive.")
   col <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
-  attr(col, "class") <- "color"
+  attr(col, "class") <- "colors"
   col
 }
 
@@ -40,18 +40,18 @@ colour <- function(col) {
 #' @return TRUE if the object inherits from the color class.
 #' @export
 is_color <- function(x) {
-  inherits(x, "color")
+  inherits(x, "colors")
 }
 
 #' @export
-`[.color` <- function(x, i) {
+`[.colors` <- function(x, i) {
   x <- unclass(x)
   color(x[i])
 }
 
 #' @export
 #' @importFrom graphics plot rect
-plot.color <- function(x, ...) {
+plot.colors <- function(x, ...) {
   plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
        ylim = c(-0.1, 1.1), mar = rep(0, 4))
   rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
@@ -80,8 +80,8 @@ pretty_print <- function(x) {
 }
 
 #' @export
-print.color <- function(x, ...) {
-  cat("<color>\n")
+print.colors <- function(x, ...) {
+  cat("<colors>\n")
   if (requireNamespace("crayon", quietly = TRUE)) {
     pretty_print(x)
   } else {

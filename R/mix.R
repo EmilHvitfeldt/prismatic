@@ -8,7 +8,7 @@
 #'     in all the colors turning to mix_in.
 #' @inheritParams color
 #'
-#' @return a color object
+#' @return a colors object
 #' @export
 #'
 #' @examples

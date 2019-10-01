@@ -21,7 +21,7 @@ positive integer i meaning palette()[i].}
 in all the colors turning to mix_in.}
 }
 \value{
-a color object
+a colors object
 }
 \description{
 Mixes a color into

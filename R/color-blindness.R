@@ -10,7 +10,7 @@
 #' between 0 and 1. 0 means no deficiency, 1 means complete deficiency. Defaults
 #'  to 1.
 #'
-#' @return a color object of same length as col.
+#' @return a colors object of same length as col.
 #' @export
 #'
 #' @source \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}

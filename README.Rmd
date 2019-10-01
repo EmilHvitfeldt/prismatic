@@ -42,7 +42,7 @@ devtools::install_github("EmilHvitfeldt/prismatic")
 ```
 ## Examples
 
-All **prismatic** functions returns a `color` object, which includes a new printing method and plotting method for quickly visualizing the colors.
+All **prismatic** functions returns a `colors` object, which includes a new printing method and plotting method for quickly visualizing the colors.
 
 ```{r, dpi=320}
 library(prismatic)

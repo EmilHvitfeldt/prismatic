@@ -19,7 +19,7 @@ positive integer i meaning palette()[i].}
 complete desaturation. Defaults to 0.5.}
 }
 \value{
-a color object of same length as col.
+a colors object of same length as col.
 }
 \description{
 Make a color more desaturated

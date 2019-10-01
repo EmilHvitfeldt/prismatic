@@ -28,7 +28,7 @@
 #' @param space character string specifying the color space in which adjustment
 #'    happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".
 #'
-#' @return a color object of same length as col.
+#' @return a colors object of same length as col.
 #' @export
 #'
 #' @seealso clr_darken

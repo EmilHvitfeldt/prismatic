@@ -27,7 +27,7 @@ of "luma", "averaging", "min_decomp",  "max_decomp", "red_channel",
 "green_channel" and "blue_channel". Defaults to "luma".}
 }
 \value{
-a color object of same length as col.
+a colors object of same length as col.
 }
 \description{
 This function has a selection of different methods to turn colors into

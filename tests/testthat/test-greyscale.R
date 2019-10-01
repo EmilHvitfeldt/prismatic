@@ -4,8 +4,8 @@ test_that("Length is preserved", {
 })
 
 test_that("output has color class", {
-  expect_s3_class(clr_grayscale(rainbow(10)), "color")
-  expect_s3_class(clr_greyscale(rainbow(10)), "color")
+  expect_s3_class(clr_grayscale(rainbow(10)), "colors")
+  expect_s3_class(clr_greyscale(rainbow(10)), "colors")
 })
 
 test_that("result is grayscale", {

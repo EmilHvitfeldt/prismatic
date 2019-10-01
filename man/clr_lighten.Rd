@@ -26,7 +26,7 @@ complete lightening turning the color to white. Defaults to 0.5.}
 happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".}
 }
 \value{
-a color object of same length as col.
+a colors object of same length as col.
 }
 \description{
 Make a color more light

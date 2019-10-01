@@ -26,7 +26,7 @@ between 0 and 1. 0 means no deficiency, 1 means complete deficiency. Defaults
  to 1.}
 }
 \value{
-a color object of same length as col.
+a colors object of same length as col.
 }
 \description{
 Simulate color vision deficiency

@@ -3,7 +3,7 @@ test_that("Length is preserved", {
 })
 
 test_that("output has color class", {
-  expect_s3_class(clr_negate(rainbow(10)), "color")
+  expect_s3_class(clr_negate(rainbow(10)), "colors")
 })
 
 test_that("it complains when col type is wrong.", {

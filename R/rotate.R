@@ -9,7 +9,7 @@
 #' @param degrees Numeric between 0 and 360, denotion the about of degrees the
 #' colors should be rotated.
 #'
-#' @return a color object of same length as col.
+#' @return a colors object of same length as col.
 #' @export
 #'
 #' @examples

@@ -19,7 +19,7 @@ positive integer i meaning palette()[i].}
 colors should be rotated.}
 }
 \value{
-a color object of same length as col.
+a colors object of same length as col.
 }
 \description{
 Rotate the colors around the hue wheel

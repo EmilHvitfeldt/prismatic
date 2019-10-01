@@ -56,7 +56,7 @@ clr_saturate <- function(col, shift = 0.5) {
 #' @param shift Numeric between 0 and 1, 0 will do zero desaturation, 1 will do
 #'    complete desaturation. Defaults to 0.5.
 #'
-#' @return a color object of same length as col.
+#' @return a colors object of same length as col.
 #' @export
 #'
 #' @seealso clr_saturate

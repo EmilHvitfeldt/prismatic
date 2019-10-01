@@ -26,7 +26,7 @@
 #'
 #' @rdname clr_grayscale
 #'
-#' @return a color object of same length as col.
+#' @return a colors object of same length as col.
 #' @export
 #'
 #' @examples

@@ -16,7 +16,7 @@ hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
 }
 \value{
-a color object.
+a colors object.
 }
 \description{
 Turn vector to color vector

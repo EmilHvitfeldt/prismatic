@@ -13,7 +13,7 @@ hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
 }
 \value{
-a color object of same length as col.
+a colors object of same length as col.
 }
 \description{
 Negates colors in RGB space

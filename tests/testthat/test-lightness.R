@@ -9,12 +9,12 @@ test_that("Length is preserved", {
 })
 
 test_that("output has color class", {
-  expect_s3_class(clr_lighten(rainbow(10), space = "HSL"), "color")
-  expect_s3_class(clr_darken(rainbow(10), space = "HSL"), "color")
-  expect_s3_class(clr_lighten(rainbow(10), space = "HCL"), "color")
-  expect_s3_class(clr_darken(rainbow(10), space = "HCL"), "color")
-  expect_s3_class(clr_lighten(rainbow(10), space = "combined"), "color")
-  expect_s3_class(clr_darken(rainbow(10), space = "combined"), "color")
+  expect_s3_class(clr_lighten(rainbow(10), space = "HSL"), "colors")
+  expect_s3_class(clr_darken(rainbow(10), space = "HSL"), "colors")
+  expect_s3_class(clr_lighten(rainbow(10), space = "HCL"), "colors")
+  expect_s3_class(clr_darken(rainbow(10), space = "HCL"), "colors")
+  expect_s3_class(clr_lighten(rainbow(10), space = "combined"), "colors")
+  expect_s3_class(clr_darken(rainbow(10), space = "combined"), "colors")
 })
 
 test_that("setting shift = 0 leaves input unchanged", {

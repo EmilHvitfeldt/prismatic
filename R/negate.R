@@ -7,7 +7,7 @@
 #' rgb(255, 165, 0), then we negate by taking the oppesite number on the scale
 #' from 0 to 255, leaving us wih rgb(0, 90, 255) which is a shade of blue.
 #'
-#' @return a color object of same length as col.
+#' @return a colors object of same length as col.
 #' @export
 #'
 #' @importFrom grDevices col2rgb rgb

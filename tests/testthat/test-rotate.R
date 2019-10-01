@@ -3,7 +3,7 @@ test_that("Length is preserved", {
 })
 
 test_that("output has color class", {
-  expect_s3_class(clr_rotate(rainbow(10), 0), "color")
+  expect_s3_class(clr_rotate(rainbow(10), 0), "colors")
 })
 
 test_that("setting shift = 0 leaves input unchanged", {

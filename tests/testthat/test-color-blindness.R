@@ -5,9 +5,9 @@ test_that("Length is preserved", {
 })
 
 test_that("output has color class", {
-  expect_s3_class(clr_deutan(rainbow(10)), "color")
-  expect_s3_class(clr_protan(rainbow(10)), "color")
-  expect_s3_class(clr_tritan(rainbow(10)), "color")
+  expect_s3_class(clr_deutan(rainbow(10)), "colors")
+  expect_s3_class(clr_protan(rainbow(10)), "colors")
+  expect_s3_class(clr_tritan(rainbow(10)), "colors")
 })
 
 test_that("setting severity outside range gives error", {
