@@ -11,6 +11,7 @@ status](https://travis-ci.org/EmilHvitfeldt/prismatic.svg?branch=master)](https:
 coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badge.svg)](https://codecov.io/gh/EmilHvitfeldt/prismatic?branch=master)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/prismatic)](https://CRAN.R-project.org/package=prismatic)
 [![Downloads](http://cranlogs.r-pkg.org/badges/prismatic)](https://CRAN.R-project.org/package=prismatic)
+[![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/badge/latestdoi/205078698)
 <!-- badges: end -->
 
 The goal of prismatic is to provide color manipulation tools in R, in a
