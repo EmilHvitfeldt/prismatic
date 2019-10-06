@@ -1,6 +1,6 @@
 Package: prismatic
 Title: Color Manipulation Tools
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person(given = "Emil",
            family = "Hvitfeldt",
