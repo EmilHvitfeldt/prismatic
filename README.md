@@ -9,6 +9,8 @@
 status](https://travis-ci.org/EmilHvitfeldt/prismatic.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/prismatic)
 [![Codecov test
 coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badge.svg)](https://codecov.io/gh/EmilHvitfeldt/prismatic?branch=master)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/prismatic)](https://CRAN.R-project.org/package=prismatic)
+[![Downloads](http://cranlogs.r-pkg.org/badges/prismatic)](https://CRAN.R-project.org/package=prismatic)
 <!-- badges: end -->
 
 The goal of prismatic is to provide color manipulation tools in R, in a
@@ -23,8 +25,8 @@ intuitive, low-dependency and functional way.
 
 ## Installation
 
-~~You can install the released version of prismatic from
-[CRAN](https://CRAN.R-project.org) with:~~
+You can install the released version of prismatic from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("prismatic")
