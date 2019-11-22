@@ -26,6 +26,9 @@ reference:
   - title: "Rotate in  RGB"
     contents:
       - clr_rotate
+  - title: "Tranparency"
+    contents:
+      - clr_alpha
   - title: "Color blindness approximations"
     contents:
       - clr_protan
