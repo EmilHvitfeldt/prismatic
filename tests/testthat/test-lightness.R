@@ -30,6 +30,14 @@ test_severity(function(x, y) clr_darken(x, space = "HSL", y))
 test_severity(function(x, y) clr_darken(x, space = "HCL", y))
 test_severity(function(x, y) clr_darken(x, space = "combined", y))
 
+test_severity_range(function(x, y) clr_lighten(x, space = "HSL", y))
+test_severity_range(function(x, y) clr_lighten(x, space = "HCL", y))
+test_severity_range(function(x, y) clr_lighten(x, space = "combined", y))
+
+test_severity_range(function(x, y) clr_darken(x, space = "HSL", y))
+test_severity_range(function(x, y) clr_darken(x, space = "HCL", y))
+test_severity_range(function(x, y) clr_darken(x, space = "combined", y))
+
 test_that("setting shift = 0 leaves input unchanged", {
   expect_equal_color(clr_lighten(rainbow(10), shift = 0), color(rainbow(10)), 1)
   expect_equal_color(clr_darken(rainbow(10), shift = 0), color(rainbow(10)), 1)
@@ -45,4 +53,3 @@ test_that("setting shift = 1 leaves result complete black or white", {
   expect_equal_color(clr_lighten(rainbow(10), shift = 1, space = "combined"), color(rep("white", 10)), 1)
   expect_equal(clr_darken(rainbow(10), shift = 1, space = "combined"), color(rep("black", 10)))
 })
-

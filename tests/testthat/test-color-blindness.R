@@ -14,15 +14,9 @@ test_severity_1(clr_deutan)
 test_severity_1(clr_protan)
 test_severity_1(clr_tritan)
 
-test_that("setting severity outside range gives error", {
-  expect_error(clr_deutan(rainbow(10), severity = -1))
-  expect_error(clr_protan(rainbow(10), severity = -1))
-  expect_error(clr_tritan(rainbow(10), severity = -1))
-
-  expect_error(clr_deutan(rainbow(10), severity = 2))
-  expect_error(clr_protan(rainbow(10), severity = 2))
-  expect_error(clr_tritan(rainbow(10), severity = 2))
-})
+test_severity_range(clr_deutan)
+test_severity_range(clr_protan)
+test_severity_range(clr_tritan)
 
 test_that("setting severity = 0 leaves input unchanged", {
   expect_equal(clr_deutan(rainbow(10), severity = 0), color(rainbow(10)))
