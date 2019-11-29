@@ -32,3 +32,26 @@ test_color_class <- function(clr_) {
     expect_s3_class(clr_(rainbow(10)), "colors")
   })
 }
+
+test_severity <- function(clr_) {
+  test_that(paste0("test_severity: ",
+                   deparse(substitute(clr_)),
+                   "()' if the length  of `severity` isn't 1"), {
+    expect_visible(clr_(rainbow(10), rep(1, 1)))
+    expect_error(clr_(rainbow(10), seq(0, 1, length.out = 2)))
+    expect_error(clr_(rainbow(10), seq(0, 1, length.out = 3)))
+    expect_visible(clr_(rainbow(10), seq(0, 1, length.out = 10)))
+  })
+}
+
+test_severity_1 <- function(clr_) {
+  test_that(paste0("test_severity_1: ",
+                   deparse(substitute(clr_)),
+                   "()' if the length  of `severity` isn't 1"), {
+                     expect_visible(clr_(rainbow(10), rep(1, 1)))
+                     expect_error(clr_(rainbow(10), seq(0, 1, length.out = 2)))
+                     expect_error(clr_(rainbow(10), seq(0, 1, length.out = 3)))
+                     expect_error(clr_(rainbow(10), seq(0, 1, length.out = 10)))
+                   })
+}
+
