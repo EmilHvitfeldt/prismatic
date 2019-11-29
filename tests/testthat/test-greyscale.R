@@ -17,7 +17,7 @@ test_that("result is grayscale", {
   }
 })
 
-test_that("errors when method is  wrongly specified", {
+test_that("errors when method is wrongly specified", {
 
   expect_error(clr_grayscale(rainbow(10), "111"))
 })

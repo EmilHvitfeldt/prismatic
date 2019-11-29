@@ -2,6 +2,8 @@ test_length(function(x) clr_mix(x, "blue"))
 
 test_color_class(function(x) clr_mix(x, "blue"))
 
+test_wrong_input(clr_mix)
+
 test_that("setting shift = 0 leaves input unchanged", {
   expect_equal(clr_mix(rainbow(10), "blue", ratio = 0), color(rainbow(10)), 1)
 })
@@ -9,8 +11,6 @@ test_that("setting shift = 0 leaves input unchanged", {
 test_that("setting shift = 1 leaves input completely changed", {
   expect_equal(clr_mix(rainbow(10), "blue", ratio = 1), color(rep("blue", 10)))
 })
-
-test_wrong_input(clr_mix)
 
 test_that("it complains mix_in is wrong length", {
   expect_error(clr_mix(rainbow(10), character()))
@@ -23,5 +23,3 @@ test_that("it if the length  of `severity` isn't 1.", {
   expect_error(clr_mix(rainbow(10), seq(0, 1, length.out = 3)))
   expect_error(clr_mix(rainbow(10), seq(0, 1, length.out = 10)))
 })
-
-

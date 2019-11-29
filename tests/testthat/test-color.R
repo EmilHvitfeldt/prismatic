@@ -4,11 +4,6 @@ test_color_class(colour)
 test_length(color)
 test_length(colour)
 
-test_that("complains when  the length is 0", {
-  expect_error(color(character(0)))
-  expect_error(colour(character(0)))
-})
-
 test_that("is_color is working", {
   expect_true(is_color(color(rainbow(10))))
   expect_false(is_color(rainbow(10)))
