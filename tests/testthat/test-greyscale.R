@@ -26,12 +26,4 @@ test_that("errors when method is  wrongly specified", {
   expect_error(clr_grayscale(rainbow(10), "111"))
 })
 
-test_that("it complains when col type is wrong.", {
-  expect_error(clr_grayscale("not a color"))
-
-  expect_error(clr_grayscale(list(pal = "#000000")))
-
-  expect_error(clr_grayscale(character()))
-})
-
-
+test_wrong_input(clr_grayscale)

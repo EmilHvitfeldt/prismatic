@@ -14,13 +14,7 @@ test_that("setting shift = 1 leaves input completely changed", {
   expect_equal(clr_mix(rainbow(10), "blue", ratio = 1), color(rep("blue", 10)))
 })
 
-test_that("it complains when col type is wrong.", {
-  expect_error(clr_mix("not a color"))
-
-  expect_error(clr_mix(list(pal = "#000000")))
-
-  expect_error(clr_mix(character()))
-})
+test_wrong_input(clr_mix)
 
 test_that("it complains mix_in is wrong length", {
   expect_error(clr_mix(rainbow(10), character()))

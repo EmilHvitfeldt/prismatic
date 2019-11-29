@@ -10,11 +10,17 @@
 \url{https://en.wikipedia.org/wiki/Luma}
 }
 \usage{
-clr_grayscale(col, method = c("luma", "averaging", "min_decomp",
-  "max_decomp", "red_channel", "green_channel", "blue_channel"))
+clr_grayscale(
+  col,
+  method = c("luma", "averaging", "min_decomp", "max_decomp", "red_channel",
+    "green_channel", "blue_channel")
+)
 
-clr_greyscale(col, method = c("luma", "averaging", "min_decomp",
-  "max_decomp", "red_channel", "green_channel", "blue_channel"))
+clr_greyscale(
+  col,
+  method = c("luma", "averaging", "min_decomp", "max_decomp", "red_channel",
+    "green_channel", "blue_channel")
+)
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color

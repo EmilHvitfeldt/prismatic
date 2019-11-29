@@ -33,16 +33,8 @@ test_that("setting shift = 1 leaves result complete black or white", {
   expect_equal(clr_darken(rainbow(10), shift = 1, space = "combined"), color(rep("black", 10)))
 })
 
-test_that("it complains when col type is wrong.", {
-  expect_error(clr_lighten("not a color"))
-  expect_error(clr_darken("not a color"))
-
-  expect_error(clr_lighten(list(pal = "#000000")))
-  expect_error(clr_darken(list(pal = "#000000")))
-
-  expect_error(clr_lighten(character()))
-  expect_error(clr_darken(character()))
-})
+test_wrong_input(clr_lighten)
+test_wrong_input(clr_darken)
 
 test_that("it if the length  of `severity` isn't 1.", {
   expect_visible(clr_lighten(rainbow(10), rep(1, 1)))

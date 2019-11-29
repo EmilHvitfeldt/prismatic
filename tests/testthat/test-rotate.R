@@ -11,13 +11,7 @@ test_that("setting shift = 0 leaves input unchanged", {
   expect_equal_color(clr_rotate(rainbow(10), degrees = 360), color(rainbow(10)), 1)
 })
 
-test_that("it complains when col type is wrong.", {
-  expect_error(clr_rotate("not a color"))
-
-  expect_error(clr_rotate(list(pal = "#000000")))
-
-  expect_error(clr_rotate(character()))
-})
+test_wrong_input(clr_rotate)
 
 test_that("it if the length  of `severity` isn't 1.", {
   expect_visible(clr_rotate(rainbow(10), rep(1, 1)))
