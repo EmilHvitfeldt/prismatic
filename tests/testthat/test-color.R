@@ -1,7 +1,5 @@
-test_that("output has color class", {
-  expect_s3_class(color(rainbow(10)), "colors")
-  expect_s3_class(colour(rainbow(10)), "colors")
-})
+test_color_class(color)
+test_color_class(colour)
 
 test_length(color)
 test_length(colour)

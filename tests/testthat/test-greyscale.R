@@ -1,10 +1,8 @@
 test_length(clr_grayscale)
 test_length(clr_greyscale)
 
-test_that("output has color class", {
-  expect_s3_class(clr_grayscale(rainbow(10)), "colors")
-  expect_s3_class(clr_greyscale(rainbow(10)), "colors")
-})
+test_color_class(clr_grayscale)
+test_color_class(clr_greyscale)
 
 test_that("result is grayscale", {
   methods <- c("luma", "averaging", "min_decomp",

@@ -6,14 +6,13 @@ test_length(function(x) clr_darken(x, space = "HSL"))
 test_length(function(x) clr_darken(x, space = "HCL"))
 test_length(function(x) clr_darken(x, space = "combined"))
 
-test_that("output has color class", {
-  expect_s3_class(clr_lighten(rainbow(10), space = "HSL"), "colors")
-  expect_s3_class(clr_darken(rainbow(10), space = "HSL"), "colors")
-  expect_s3_class(clr_lighten(rainbow(10), space = "HCL"), "colors")
-  expect_s3_class(clr_darken(rainbow(10), space = "HCL"), "colors")
-  expect_s3_class(clr_lighten(rainbow(10), space = "combined"), "colors")
-  expect_s3_class(clr_darken(rainbow(10), space = "combined"), "colors")
-})
+test_color_class(function(x) clr_lighten(x, space = "HSL"))
+test_color_class(function(x) clr_lighten(x, space = "HCL"))
+test_color_class(function(x) clr_lighten(x, space = "combined"))
+
+test_color_class(function(x) clr_darken(x, space = "HSL"))
+test_color_class(function(x) clr_darken(x, space = "HCL"))
+test_color_class(function(x) clr_darken(x, space = "combined"))
 
 test_that("setting shift = 0 leaves input unchanged", {
   expect_equal_color(clr_lighten(rainbow(10), shift = 0), color(rainbow(10)), 1)

@@ -1,8 +1,6 @@
 test_length(function(x) clr_mix(x, "blue"))
 
-test_that("output has color class", {
-  expect_s3_class(clr_mix(rainbow(10), "blue"), "colors")
-})
+test_color_class(function(x) clr_mix(x, "blue"))
 
 test_that("setting shift = 0 leaves input unchanged", {
   expect_equal(clr_mix(rainbow(10), "blue", ratio = 0), color(rainbow(10)), 1)

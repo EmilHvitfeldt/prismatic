@@ -1,8 +1,6 @@
 test_length(clr_rotate)
 
-test_that("output has color class", {
-  expect_s3_class(clr_rotate(rainbow(10), 0), "colors")
-})
+test_color_class(clr_rotate)
 
 test_that("setting shift = 0 leaves input unchanged", {
   expect_equal_color(clr_rotate(rainbow(10), degrees = 0), color(rainbow(10)), 1)

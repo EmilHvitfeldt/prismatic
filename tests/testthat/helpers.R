@@ -24,3 +24,11 @@ test_length <- function(clr_) {
     expect_length(clr_(rainbow(10)), 10)
   })
 }
+
+test_color_class <- function(clr_) {
+  test_that(paste0("test_color_class: ",
+                   deparse(substitute(clr_)),
+                   "()'s output has colors class"), {
+    expect_s3_class(clr_(rainbow(10)), "colors")
+  })
+}

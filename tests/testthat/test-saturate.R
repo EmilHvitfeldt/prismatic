@@ -1,10 +1,8 @@
 test_length(clr_saturate)
 test_length(clr_desaturate)
 
-test_that("output has color class", {
-  expect_s3_class(clr_saturate(rainbow(10)), "colors")
-  expect_s3_class(clr_desaturate(rainbow(10)), "colors")
-})
+test_color_class(clr_saturate)
+test_color_class(clr_desaturate)
 
 test_that("setting shift = 0 leaves input unchanged", {
   expect_equal_color(clr_saturate(rainbow(10), shift = 0), color(rainbow(10)), 1)

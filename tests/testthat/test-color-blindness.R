@@ -2,11 +2,9 @@ test_length(clr_deutan)
 test_length(clr_protan)
 test_length(clr_tritan)
 
-test_that("output has color class", {
-  expect_s3_class(clr_deutan(rainbow(10)), "colors")
-  expect_s3_class(clr_protan(rainbow(10)), "colors")
-  expect_s3_class(clr_tritan(rainbow(10)), "colors")
-})
+test_color_class(clr_deutan)
+test_color_class(clr_protan)
+test_color_class(clr_tritan)
 
 test_that("setting severity outside range gives error", {
   expect_error(clr_deutan(rainbow(10), severity = -1))

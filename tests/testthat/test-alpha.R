@@ -1,8 +1,5 @@
 test_length(clr_alpha)
-
-test_that("output has color class", {
-  expect_s3_class(clr_alpha(rainbow(10), 0.4), "colors")
-})
+test_color_class(clr_alpha)
 
 test_that("setting alpha = 1 leaves input completely unchanged", {
   expect_equal(clr_alpha(rainbow(10), alpha = 1), color(rainbow(10)))
