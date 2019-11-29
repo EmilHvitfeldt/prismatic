@@ -7,7 +7,7 @@
 \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
 }
 \usage{
-clr_rotate(col, degrees)
+clr_rotate(col, degrees = 0)
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
@@ -16,7 +16,7 @@ hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
 
 \item{degrees}{Numeric between 0 and 360, denotion the about of degrees the
-colors should be rotated.}
+colors should be rotated. Now defaults to 0.}
 }
 \value{
 a colors object of same length as col.
@@ -29,6 +29,7 @@ The colors will be trainsformed to HSL color space (hue, saturation,
  lightness) where the hue of the color will be rotation.
 }
 \examples{
+plot(clr_rotate(terrain.colors(10)))
 
 plot(clr_rotate(terrain.colors(10), degrees = 90))
 
