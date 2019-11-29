@@ -1,6 +1,4 @@
-test_that("Length is preserved", {
-  expect_length(clr_mix(rainbow(10), "blue"), 10)
-})
+test_length(function(x) clr_mix(x, "blue"))
 
 test_that("output has color class", {
   expect_s3_class(clr_mix(rainbow(10), "blue"), "colors")

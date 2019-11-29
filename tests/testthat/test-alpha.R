@@ -1,6 +1,4 @@
-test_that("Length is preserved", {
-  expect_length(clr_alpha(rainbow(10), 0.5), 10)
-})
+test_length(clr_alpha)
 
 test_that("output has color class", {
   expect_s3_class(clr_alpha(rainbow(10), 0.4), "colors")

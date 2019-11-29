@@ -1,7 +1,5 @@
-test_that("Length is preserved", {
-  expect_length(clr_grayscale(rainbow(10)), 10)
-  expect_length(clr_greyscale(rainbow(10)), 10)
-})
+test_length(clr_grayscale)
+test_length(clr_greyscale)
 
 test_that("output has color class", {
   expect_s3_class(clr_grayscale(rainbow(10)), "colors")
@@ -27,3 +25,4 @@ test_that("errors when method is  wrongly specified", {
 })
 
 test_wrong_input(clr_grayscale)
+test_wrong_input(clr_greyscale)

@@ -11,6 +11,16 @@ test_wrong_input <- function(clr_) {
 
   expect_error(clr_(list(pal = "#000000")))
 
-  expect_error(clr_("pinkly"))
+  expect_error(clr_(rainbow(0)))
+  })
+}
+
+test_length <- function(clr_) {
+  test_that(paste0("test_length: ",
+                   deparse(substitute(clr_)),
+                   "() perserves length"), {
+    expect_length(clr_(rainbow(1)), 1)
+
+    expect_length(clr_(rainbow(10)), 10)
   })
 }

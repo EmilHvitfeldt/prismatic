@@ -1,8 +1,6 @@
-test_that("Length is preserved", {
-  expect_length(clr_deutan(rainbow(10)), 10)
-  expect_length(clr_protan(rainbow(10)), 10)
-  expect_length(clr_tritan(rainbow(10)), 10)
-})
+test_length(clr_deutan)
+test_length(clr_protan)
+test_length(clr_tritan)
 
 test_that("output has color class", {
   expect_s3_class(clr_deutan(rainbow(10)), "colors")

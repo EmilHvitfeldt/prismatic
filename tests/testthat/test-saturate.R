@@ -1,8 +1,5 @@
-
-test_that("Length is preserved", {
-  expect_length(clr_saturate(rainbow(10)), 10)
-  expect_length(clr_desaturate(rainbow(10)), 10)
-})
+test_length(clr_saturate)
+test_length(clr_desaturate)
 
 test_that("output has color class", {
   expect_s3_class(clr_saturate(rainbow(10)), "colors")
