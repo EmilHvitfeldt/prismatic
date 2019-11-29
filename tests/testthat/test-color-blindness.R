@@ -18,8 +18,6 @@ test_severity_range(clr_deutan)
 test_severity_range(clr_protan)
 test_severity_range(clr_tritan)
 
-test_that("setting severity = 0 leaves input unchanged", {
-  expect_equal(clr_deutan(rainbow(10), severity = 0), color(rainbow(10)))
-  expect_equal(clr_protan(rainbow(10), severity = 0), color(rainbow(10)))
-  expect_equal(clr_tritan(rainbow(10), severity = 0), color(rainbow(10)))
-})
+test_severity_0(clr_deutan)
+test_severity_0(clr_protan)
+test_severity_0(clr_tritan)

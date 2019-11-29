@@ -45,6 +45,10 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
     stop("`shift` must be of length 1 or the same length as `col`.")
   }
 
+  if (all(shift == 0)) {
+    return(col)
+  }
+
   space <- match.arg(space)
 
   if (space == "HSL") {

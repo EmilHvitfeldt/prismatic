@@ -64,13 +64,10 @@ test_severity_range <- function(clr_) {
   })
 }
 
-test_severity_0 <- function(clr_) {
-  test_that(paste0("test_severity_1: ",
+test_severity_0 <- function(clr_, tol = 0) {
+  test_that(paste0("test_severity_0: ",
                    deparse(substitute(clr_)),
-                   "()' if the length  of `severity` isn't 1"), {
-                     expect_visible(clr_(rainbow(10), rep(1, 1)))
-                     expect_error(clr_(rainbow(10), seq(0, 1, length.out = 2)))
-                     expect_error(clr_(rainbow(10), seq(0, 1, length.out = 3)))
-                     expect_error(clr_(rainbow(10), seq(0, 1, length.out = 10)))
-                   })
+                   "() setting severity = 0 leaves input unchanged"), {
+   expect_equal_color(clr_(rainbow(10), 0), color(rainbow(10)), tol)
+ })
 }
