@@ -141,7 +141,7 @@ clr_darken <- function(col, shift = 0.5, space = c("HSL")) {
   clr_lighten(col, -1 * shift, space)
 }
 
-max_chroma <- function (h, l, floor = FALSE) {
+max_chroma <- function(h, l, floor = FALSE) {
   n <- max(c(length(h), length(l)))
   h <- rep_len(h, n)
   l <- rep_len(l, n)

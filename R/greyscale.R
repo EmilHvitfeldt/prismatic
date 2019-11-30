@@ -93,5 +93,3 @@ grayscale_channel <- function(col, channel) {
   value <- (col2rgb(col) / 256)[channel, ]
   rgb(value, value, value)
 }
-
-

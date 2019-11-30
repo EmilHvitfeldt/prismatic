@@ -40,7 +40,8 @@ clr_protan <- function(col, severity = 1) {
     stop("`severity` must be of length 1.")
   }
 
-  rgb <- (diag(3)*(1-severity) + protan_matrix * (severity)) %*% col2rgb(col)
+  rgb <- (diag(3) * (1 - severity) + protan_matrix * (severity)) %*%
+    col2rgb(col)
   color(rgb2col(rgb_norn(rgb)))
 }
 
@@ -53,7 +54,8 @@ clr_deutan <- function(col, severity = 1) {
     stop("`severity` must be of length 1.")
   }
 
-  rgb <- (diag(3)*(1-severity) + deutan_matrix * (severity)) %*% col2rgb(col)
+  rgb <- (diag(3) * (1 - severity) + deutan_matrix * (severity)) %*%
+    col2rgb(col)
   color(rgb2col(rgb_norn(rgb)))
 }
 
@@ -66,7 +68,8 @@ clr_tritan <- function(col, severity = 1) {
     stop("`severity` must be of length 1.")
   }
 
-  rgb <- (diag(3)*(1-severity) + tritan_matrix * (severity)) %*% col2rgb(col)
+  rgb <- (diag(3) * (1 - severity) + tritan_matrix * (severity)) %*%
+    col2rgb(col)
   color(rgb2col(rgb_norn(rgb)))
 }
 
