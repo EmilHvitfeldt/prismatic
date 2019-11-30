@@ -1,5 +1,5 @@
 rgb2col <- function(x, alpha = FALSE) {
-  if(alpha) {
+  if (alpha) {
     rgb(x[1, ], x[2, ], x[3, ], alpha = x[4, ], maxColorValue = 255)
   } else {
     rgb(x[1, ], x[2, ], x[3, ], maxColorValue = 255)
@@ -7,7 +7,9 @@ rgb2col <- function(x, alpha = FALSE) {
 }
 
 rgb_norn <- function(x) {
-  apply(apply(x, 2, pmin, 255), 2, pmax, 0)
+  x[x > 255] <- 255
+  x[x < 0] <- 0
+  x
 }
 
 pro_transform <- function(data, value, ratio) {

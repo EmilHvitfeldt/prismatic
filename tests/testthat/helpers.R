@@ -20,7 +20,6 @@ test_length <- function(clr_) {
                    deparse(substitute(clr_)),
                    "() perserves length"), {
     expect_length(clr_(rainbow(1)), 1)
-
     expect_length(clr_(rainbow(10)), 10)
   })
 }

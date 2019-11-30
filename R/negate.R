@@ -22,6 +22,5 @@
 #' plot(clr_negate(terr))
 clr_negate <- function(col) {
   col <- color(col)
-  value <- abs(col2rgb(col) - 255) / 255
-  color(rgb(value[1, ], value[2, ], value[3, ]))
+  color(encode_colour(abs(decode_colour(col) - 255)))
 }

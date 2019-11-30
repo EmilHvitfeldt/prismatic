@@ -15,7 +15,7 @@ BugReports: https://github.com/EmilHvitfeldt/prismatic/issues
 Depends: 
     R (>= 3.2)
 Imports: 
-    farver (>= 1.1.0)
+    farver (>= 2.0.1)
 Suggests: 
     covr,
     crayon,

@@ -56,7 +56,7 @@ is_color <- function(x) {
 #' @export
 #' @importFrom graphics plot rect text
 plot.colors <- function(x, labels = FALSE, ...) {
-  plot(0, type = 'n', axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
+  plot(0, type = "n", axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
        ylim = c(-0.1, 1.1), mar = rep(0, 4))
   rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
        ytop = 1, col = x, border = NA)
