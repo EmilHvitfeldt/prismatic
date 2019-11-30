@@ -20,7 +20,7 @@ clr_alpha <- function(col, alpha = 0.5) {
     stop("`alpha` must be of length 1 or the same length as `col`.")
   }
 
-  rgba <- farver::decode_colour(col)
+  rgba <- decode_colour(col)
 
-  color(farver::encode_colour(rgba, alpha = alpha))
+  color(encode_colour(rgba, alpha = alpha))
 }

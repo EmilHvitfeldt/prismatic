@@ -52,13 +52,13 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
   space <- match.arg(space)
 
   if (space == "HSL") {
-    hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
+    hsl <- decode_colour(col, to = "hsl")
 
     hsl[, "l"] <- pro_transform(hsl[, "l"], (shift >= 0) * 100, abs(shift))
 
-    rgb <- t(farver::convert_colour(hsl, "hsl", "rgb"))
+    rgb <- farver::convert_colour(hsl, "hsl", "rgb")
   } else if (space == "HCL") {
-    luv <- farver::convert_colour(t(col2rgb(col)), "rgb", "luv")
+    luv <- decode_colour(col, to = "luv")
     luv <- luv_to_polarluv(luv)
 
     luv[, 1] <- pmin(100, pmax(0, luv[, 1]))
@@ -71,16 +71,16 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
     luv <- polarluv_to_luv(luv)
     # correction for black to work from luv
     luv[luv[, "l"] == 0, "l"] <- luv[luv[, "l"] == 0, "l"] + 0.00000001
-    rgb <- t(farver::convert_colour(luv, "luv", "rgb"))
+    rgb <- farver::convert_colour(luv, "luv", "rgb")
   } else {
-    hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
+    hsl <- decode_colour(col, to = "hsl")
     hsl[, "l"] <- (shift >= 0) * (1 - (1 - hsl[, "l"]) *
                          (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
     hsl[, "l"] <- pmin(100, pmax(0, hsl[, "l"]))
     luv_hsl <- farver::convert_colour(hsl, "hsl", "luv")
     luv_hsl <- luv_to_polarluv(luv_hsl)
 
-    luv <- farver::convert_colour(t(col2rgb(col)), "rgb", "luv")
+    luv <- decode_colour(col, to = "luv")
     luv <- luv_to_polarluv(luv)
     luv[, "l"] <- pmin(100, pmax(0, luv[, "l"]))
     luv[, "l"] <- (shift >= 0) * (100 - (100 - luv[, "l"]) * (1 - shift)) +
@@ -92,9 +92,9 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
     luv <- polarluv_to_luv(luv)
     # correction for black to work from luv
     luv[luv[, "l"] == 0, "l"] <- luv[luv[, "l"] == 0, "l"] + 0.00000001
-    rgb <- t(farver::convert_colour(luv, "luv", "rgb"))
+    rgb <- farver::convert_colour(luv, "luv", "rgb")
   }
-  color(rgb2col(rgb_norn(rgb)))
+  color(encode_colour(rgb_norn(rgb)))
 }
 
 

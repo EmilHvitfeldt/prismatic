@@ -32,11 +32,11 @@ clr_saturate <- function(col, shift = 0.5) {
     stop("`shift` must be of length 1 or the same length as `col`.")
   }
 
-  hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
+  hsl <- decode_colour(col, to = "hsl")
   hsl[, 2] <- pro_transform(hsl[, 2], 100, shift)
 
-  rgb <- t(farver::convert_colour(hsl, "hsl", "rgb"))
-  color(rgb2col(rgb_norn(rgb)))
+  rgb <- farver::convert_colour(hsl, "hsl", "rgb")
+  color(encode_colour(rgb_norn(rgb)))
 }
 
 #' Make a color more desaturated
@@ -73,9 +73,9 @@ clr_desaturate <- function(col, shift = 0.5) {
     stop("`shift` must be of length 1 or the same length as `col`.")
   }
 
-  hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
+  hsl <- decode_colour(col, to = "hsl")
   hsl[, 2] <- pro_transform(hsl[, 2], 0, shift)
 
-  rgb <- t(farver::convert_colour(hsl, "hsl", "rgb"))
-  color(rgb2col(rgb_norn(rgb)))
+  rgb <- farver::convert_colour(hsl, "hsl", "rgb")
+  color(encode_colour(rgb_norn(rgb)))
 }

@@ -32,7 +32,7 @@ clr_mix <- function(col, mix_in, ratio = 0.5) {
   }
 
   ratio_mat <- matrix(ratio, nrow = 3, ncol = length(col), byrow = TRUE)
-  rgb <- pro_transform(col2rgb(col), rowSums(col2rgb(mix_in)), ratio_mat)
+  rgb <- pro_transform(t(decode_colour(col)), rowSums(col2rgb(mix_in)), ratio_mat)
 
-  color(rgb2col(rgb))
+  color(encode_colour(t(rgb)))
 }

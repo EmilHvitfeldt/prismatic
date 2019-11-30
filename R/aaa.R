@@ -7,7 +7,9 @@ rgb2col <- function(x, alpha = FALSE) {
 }
 
 rgb_norn <- function(x) {
-  apply(apply(x, 2, pmin, 255), 2, pmax, 0)
+  x[x > 255] <- 255
+  x[x < 0] <- 0
+  x
 }
 
 pro_transform <- function(data, value, ratio) {
