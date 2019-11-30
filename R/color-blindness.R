@@ -21,6 +21,7 @@
 #'  Transactions on Visualization and Computer Graphics. Volume 15 (2009),
 #'  Number 6, November/December 2009. pp. 1291-1298.
 #'
+#' @importFrom farver encode_colour decode_colour
 #' @examples
 #' rainbow_colors <- color(rainbow(10))
 #'
@@ -40,8 +41,9 @@ clr_protan <- function(col, severity = 1) {
     stop("`severity` must be of length 1.")
   }
 
-  rgb <- (diag(3)*(1-severity) + protan_matrix * (severity)) %*% col2rgb(col)
-  color(rgb2col(rgb_norn(rgb)))
+  rgb <- decode_colour(col) %*%
+    t((diag(3) * (1 - severity) + protan_matrix * (severity)))
+  color(encode_colour(rgb_norn(rgb)))
 }
 
 #' @rdname colorblindness
@@ -53,8 +55,9 @@ clr_deutan <- function(col, severity = 1) {
     stop("`severity` must be of length 1.")
   }
 
-  rgb <- (diag(3)*(1-severity) + deutan_matrix * (severity)) %*% col2rgb(col)
-  color(rgb2col(rgb_norn(rgb)))
+  rgb <- decode_colour(col) %*%
+    t((diag(3) * (1 - severity) + deutan_matrix * (severity)))
+  color(encode_colour(rgb_norn(rgb)))
 }
 
 #' @rdname colorblindness
@@ -66,8 +69,9 @@ clr_tritan <- function(col, severity = 1) {
     stop("`severity` must be of length 1.")
   }
 
-  rgb <- (diag(3)*(1-severity) + tritan_matrix * (severity)) %*% col2rgb(col)
-  color(rgb2col(rgb_norn(rgb)))
+  rgb <- decode_colour(col) %*%
+    t((diag(3) * (1 - severity) + tritan_matrix * (severity)))
+  color(encode_colour(rgb_norn(rgb)))
 }
 
 range_check <- function(x) {

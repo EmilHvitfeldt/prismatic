@@ -25,9 +25,9 @@ clr_rotate <- function(col, degrees = 0) {
   if (!(length(degrees) == 1 || (length(degrees) == length(col)))) {
     stop("`degrees` must be of length 1 or the same length as `col`.")
   }
-  hsl <- farver::convert_colour(t(col2rgb(col)), "rgb", "hsl")
+  hsl <- decode_colour(col, to = "hsl")
   hsl[, 1] <- (hsl[, 1] + degrees) %% 360
 
-  rgb <- t(farver::convert_colour(hsl, "hsl", "rgb"))
-  color(rgb2col(rgb_norn(rgb)))
+  rgb <- farver::convert_colour(hsl, "hsl", "rgb")
+  color(encode_colour(rgb_norn(rgb)))
 }
