@@ -1,17 +1,8 @@
-test_that("output has color class", {
-  expect_s3_class(color(rainbow(10)), "colors")
-  expect_s3_class(colour(rainbow(10)), "colors")
-})
+test_color_class(color)
+test_color_class(colour)
 
-test_that("Length is preserved", {
-  expect_length(color(rainbow(10)), 10)
-  expect_length(colour(rainbow(10)), 10)
-})
-
-test_that("complains when  the length is 0", {
-  expect_error(color(character(0)))
-  expect_error(colour(character(0)))
-})
+test_length(color)
+test_length(colour)
 
 test_that("is_color is working", {
   expect_true(is_color(color(rainbow(10))))
@@ -34,3 +25,6 @@ test_that("subsetting works", {
   expect_length(colors[1:4], 4)
   expect_s3_class(colors[6:8], "colors")
 })
+
+test_wrong_input(color)
+test_wrong_input(colour)

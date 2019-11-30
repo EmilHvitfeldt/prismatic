@@ -18,7 +18,8 @@ hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
 
 \item{ratio}{Numeric between 0 and 1. 0 will result on no mixing. 1 results
-in all the colors turning to mix_in.}
+in all the colors turning to mix_in. Must be of length 1 or same length
+as col.}
 }
 \value{
 a colors object
@@ -32,4 +33,6 @@ plot(clr_mix(rainbow(10), "blue"))
 plot(clr_mix(rainbow(10), "red"))
 
 plot(clr_mix(rainbow(10), "#5500EE"))
+
+plot(clr_mix(rainbow(10), "black", seq(1, 0, length.out = 10)))
 }
