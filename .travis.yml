@@ -3,11 +3,6 @@
 language: R
 cache: packages
 
-os:
-  - windows
-  - linux
-  - osx
-
 matrix:
   include:
   - r: devel
