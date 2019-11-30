@@ -21,3 +21,7 @@ test_severity_range(clr_tritan)
 test_severity_0(clr_deutan)
 test_severity_0(clr_protan)
 test_severity_0(clr_tritan)
+
+test_that("plotting returns the data invisibly", {
+  expect_invisible(check_color_blindness(rainbow(10)))
+})
