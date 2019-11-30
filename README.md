@@ -12,6 +12,8 @@ coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badg
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/prismatic)](https://CRAN.R-project.org/package=prismatic)
 [![Downloads](http://cranlogs.r-pkg.org/badges/prismatic)](https://CRAN.R-project.org/package=prismatic)
 [![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/badge/latestdoi/205078698)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/EmilHvitfeldt/prismatic?branch=master&svg=true)](https://ci.appveyor.com/project/EmilHvitfeldt/prismatic)
 <!-- badges: end -->
 
 The goal of prismatic is to provide color manipulation tools in R, in a
@@ -53,8 +55,8 @@ library(magrittr)
 terrain10 <- terrain.colors(10)
 
 terrain10
-#>  [1] "#00A600FF" "#2DB600FF" "#63C600FF" "#A0D600FF" "#E6E600FF"
-#>  [6] "#E8C32EFF" "#EBB25EFF" "#EDB48EFF" "#F0C9C0FF" "#F2F2F2FF"
+#>  [1] "#00A600FF" "#2DB600FF" "#63C600FF" "#A0D600FF" "#E6E600FF" "#E8C32EFF"
+#>  [7] "#EBB25EFF" "#EDB48EFF" "#F0C9C0FF" "#F2F2F2FF"
 
 terrain_color <- color(terrain10)
 
