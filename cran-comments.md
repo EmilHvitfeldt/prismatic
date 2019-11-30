@@ -1,13 +1,8 @@
 ## Test environments
-
-* local: darwin15.6.0-3.6.0
-* travis: release, devel
-* r-hub: windows-x86_64-devel, ubuntu-gcc-release, fedora-clang-devel
-* win-builder: windows-x86_64-devel
-  
+* local OS X install, R 3.6.0
+* ubuntu 14.04 (on travis-ci), R 3.6.0
+* win-builder (devel and release)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+0 errors | 0 warnings | 0 note

@@ -34,3 +34,4 @@ reference:
       - clr_protan
       - clr_tritan
       - clr_deutan
+      - check_color_blindness
