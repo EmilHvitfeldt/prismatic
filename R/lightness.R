@@ -69,8 +69,6 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
                        pmax(0, luv[, 2]))
 
     luv <- polarluv_to_luv(luv)
-    # correction for black to work from luv
-    luv[luv[, "l"] == 0, "l"] <- luv[luv[, "l"] == 0, "l"] + 0.00000001
     rgb <- farver::convert_colour(luv, "luv", "rgb")
   } else {
     hsl <- decode_colour(col, to = "hsl")
@@ -90,8 +88,6 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
     luv[, 2] <- pmin(max_chroma(luv[, 3], luv[, 1], floor = TRUE), luv[, 2])
 
     luv <- polarluv_to_luv(luv)
-    # correction for black to work from luv
-    luv[luv[, "l"] == 0, "l"] <- luv[luv[, "l"] == 0, "l"] + 0.00000001
     rgb <- farver::convert_colour(luv, "luv", "rgb")
   }
   color(encode_colour(rgb_norn(rgb)))
