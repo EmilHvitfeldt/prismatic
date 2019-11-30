@@ -13,3 +13,4 @@
 ^data-raw$
 ^CRAN-RELEASE$
 ^CODE_OF_CONDUCT\.md$
+^azure-pipelines\.yml$
