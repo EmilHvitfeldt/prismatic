@@ -59,11 +59,15 @@ plot(clr_grayscale(rainbow(10)))
 
 plot(clr_grayscale(terrain.colors(10)))
 
-plot(clr_grayscale(hcl.colors(10), method = "luma"))
-plot(clr_grayscale(hcl.colors(10), method = "averaging"))
-plot(clr_grayscale(hcl.colors(10), method = "min_decomp"))
-plot(clr_grayscale(hcl.colors(10), method = "max_decomp"))
-plot(clr_grayscale(hcl.colors(10), method = "red_channel"))
-plot(clr_grayscale(hcl.colors(10), method = "green_channel"))
-plot(clr_grayscale(hcl.colors(10), method = "blue_channel"))
+viridis_colors <- c("#4B0055FF", "#422C70FF", "#185086FF", "#007094FF",
+                    "#008E98FF", "#00A890FF", "#00BE7DFF", "#6CD05EFF",
+                    "#BBDD38FF", "#FDE333FF")
+
+plot(clr_grayscale(viridis_colors, method = "luma"))
+plot(clr_grayscale(viridis_colors, method = "averaging"))
+plot(clr_grayscale(viridis_colors, method = "min_decomp"))
+plot(clr_grayscale(viridis_colors, method = "max_decomp"))
+plot(clr_grayscale(viridis_colors, method = "red_channel"))
+plot(clr_grayscale(viridis_colors, method = "green_channel"))
+plot(clr_grayscale(viridis_colors, method = "blue_channel"))
 }

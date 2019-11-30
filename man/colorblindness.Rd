@@ -42,7 +42,9 @@ plot(clr_protan(rainbow_colors))
 plot(clr_deutan(rainbow_colors))
 plot(clr_tritan(rainbow_colors))
 
-viridis_colors <- color(hcl.colors(10, palette = "viridis"))
+viridis_colors <- c("#4B0055FF", "#422C70FF", "#185086FF", "#007094FF",
+                    "#008E98FF", "#00A890FF", "#00BE7DFF", "#6CD05EFF",
+                    "#BBDD38FF", "#FDE333FF")
 
 plot(clr_protan(viridis_colors))
 plot(clr_deutan(viridis_colors))
