@@ -13,4 +13,8 @@
 ^data-raw$
 ^CRAN-RELEASE$
 ^CODE_OF_CONDUCT\.md$
+<<<<<<< HEAD
 ^appveyor\.yml$
+=======
+^azure-pipelines\.yml$
+>>>>>>> d6eec9a6e36f33d20667bb295603f275b7041332
