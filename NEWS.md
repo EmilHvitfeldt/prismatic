@@ -1,3 +1,5 @@
+# prismatic (development version)
+
 # prismatic 0.2.0
 
 * Added `clr_alpha()` function to specify transparency. (#9)
