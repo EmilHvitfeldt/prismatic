@@ -28,7 +28,7 @@ The goal of prismatic is to provide color manipulation tools in R, in a intuitiv
 
 - **intuitive** All the working functions are prefixed with `clr_` (**c**o**l**o**r**) allowing for easy autocompletion.
 - **low-dependency** Only depends on [farver](https://github.com/thomasp85/farver).
-- **functional** All functions have consistant inputs and outputes and are thus fully pipeable.
+- **functional** All functions have consistant inputs and outputs and are thus fully pipeable.
 
 ## Installation
 
