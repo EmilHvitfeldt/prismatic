@@ -5,15 +5,16 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/EmilHvitfeldt/prismatic.svg?branch=master)](https://travis-ci.org/EmilHvitfeldt/prismatic)
+[![R build
+status](https://github.com/EmilHvitfeldt/prismatic/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/prismatic/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badge.svg)](https://codecov.io/gh/EmilHvitfeldt/prismatic?branch=master)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/prismatic)](https://CRAN.R-project.org/package=prismatic)
+[![CRAN
+status](http://www.r-pkg.org/badges/version/prismatic)](https://CRAN.R-project.org/package=prismatic)
 [![Downloads](http://cranlogs.r-pkg.org/badges/prismatic)](https://CRAN.R-project.org/package=prismatic)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/badge/latestdoi/205078698)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/EmilHvitfeldt/prismatic?branch=master&svg=true)](https://ci.appveyor.com/project/EmilHvitfeldt/prismatic)
 <!-- badges: end -->
 
 The goal of prismatic is to provide color manipulation tools in R, in a
@@ -23,7 +24,7 @@ intuitive, low-dependency and functional way.
     (**c**o**l**o**r**) allowing for easy autocompletion.
   - **low-dependency** Only depends on
     [farver](https://github.com/thomasp85/farver).
-  - **functional** All functions have consistant inputs and outputes and
+  - **functional** All functions have consistant inputs and outputs and
     are thus fully pipeable.
 
 ## Installation
