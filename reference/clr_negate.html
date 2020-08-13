@@ -24,16 +24,20 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
+
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -62,7 +66,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -97,7 +101,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/EmilHvitfeldt/prismatic">
+  <a href="https://github.com/EmilHvitfeldt/prismatic/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -124,7 +128,7 @@
     <p>Negates colors in RGB space</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clr_negate</span>(<span class='no'>col</span>)</pre>
+    <pre class="usage"><span class='fu'>clr_negate</span>(<span class='kw'>col</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,22 +153,17 @@ rgb(255, 165, 0), then we negate by taking the oppesite number on the scale
 from 0 to 255, leaving us with rgb(0, 90, 255) which is a shade of blue.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>terr</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='color.html'>color</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>))
+    <pre class="examples"><div class='input'><span class='kw'>terr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='color.html'>color</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span>(<span class='fl'>10</span>))
 
-<span class='no'>terr</span></div><div class='output co'>#&gt; &lt;colors&gt;
-#&gt; <span style='color: #000000;background-color: #00AF00;'>#00A600FF</span><span> </span><span style='color: #000000;background-color: #5FD700;'>#2DB600FF</span><span> </span><span style='color: #000000;background-color: #87D700;'>#63C600FF</span><span> </span><span style='color: #000000;background-color: #AFFF00;'>#A0D600FF</span><span> </span><span style='color: #000000;background-color: #FFFF00;'>#E6E600FF</span><span> </span><span style='color: #000000;background-color: #FFD75F;'>#E8C32EFF</span><span> </span><span style='color: #000000;background-color: #FFD787;'>#EBB25EFF</span><span> </span><span style='color: #000000;background-color: #FFD7AF;'>#EDB48EFF</span><span> </span><span style='color: #000000;background-color: #FFD7D7;'>#F0C9C0FF</span><span> </span><span style='color: #000000;background-color: #E4E4E4;'>#F2F2F2FF</span><span> </div><div class='input'><span class='fu'>clr_negate</span>(<span class='no'>terr</span>)</div><div class='output co'>#&gt; &lt;colors&gt;
+<span class='kw'>terr</span></div><div class='output co'>#&gt; &lt;colors&gt;
+#&gt; <span style='color: #000000;background-color: #00AF00;'>#00A600FF</span><span> </span><span style='color: #000000;background-color: #5FD700;'>#2DB600FF</span><span> </span><span style='color: #000000;background-color: #87D700;'>#63C600FF</span><span> </span><span style='color: #000000;background-color: #AFFF00;'>#A0D600FF</span><span> </span><span style='color: #000000;background-color: #FFFF00;'>#E6E600FF</span><span> </span><span style='color: #000000;background-color: #FFD75F;'>#E8C32EFF</span><span> </span><span style='color: #000000;background-color: #FFD787;'>#EBB25EFF</span><span> </span><span style='color: #000000;background-color: #FFD7AF;'>#EDB48EFF</span><span> </span><span style='color: #000000;background-color: #FFD7D7;'>#F0C9C0FF</span><span> </span><span style='color: #000000;background-color: #E4E4E4;'>#F2F2F2FF</span><span> </div><div class='input'><span class='fu'>clr_negate</span>(<span class='kw'>terr</span>)</div><div class='output co'>#&gt; &lt;colors&gt;
 #&gt; </span><span style='color: #000000;background-color: #FF87FF;'>#FF59FFFF</span><span> </span><span style='color: #000000;background-color: #D75FFF;'>#D249FFFF</span><span> </span><span style='color: #000000;background-color: #AF5FFF;'>#9C39FFFF</span><span> </span><span style='color: #000000;background-color: #8700FF;'>#5F29FFFF</span><span> </span><span style='color: #000000;background-color: #0000FF;'>#1919FFFF</span><span> </span><span style='color: #000000;background-color: #005FD7;'>#173CD1FF</span><span> </span><span style='color: #000000;background-color: #005FAF;'>#144DA1FF</span><span> </span><span style='color: #BBBBBB;background-color: #005F87;'>#124B71FF</span><span> </span><span style='color: #BBBBBB;background-color: #005F5F;'>#0F363FFF</span><span> </span><span style='color: #BBBBBB;background-color: #121212;'>#0D0D0DFF</span><span> </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>terr</span>)</div><div class='img'><img src='clr_negate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='fu'>clr_negate</span>(<span class='no'>terr</span>))</div><div class='img'><img src='clr_negate-2.png' alt='' width='700' height='433' /></div></span></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>terr</span>)</div><div class='img'><img src='clr_negate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='fu'>clr_negate</span>(<span class='kw'>terr</span>))</div><div class='img'><img src='clr_negate-2.png' alt='' width='700' height='433' /></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -175,7 +174,7 @@ from 0 to 255, leaving us with rgb(0, 90, 255) which is a shade of blue.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

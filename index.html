@@ -13,9 +13,10 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" integrity="sha256-PbSmjxuVAzJ6FPvNYsrXygfGhNJYyZ2GktDbkMBqQZg=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/v4-shims.min.css" integrity="sha256-A6jcAdwFD48VMjlI3GDxUd+eCQa7/KWy6G9oe/ovaPA=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Color Manipulation Tools">
 <meta property="og:description" content="Manipulate and visualize colors in a intuitive, low-dependency and 
     functional way. ">
@@ -25,7 +26,7 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -59,7 +60,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/EmilHvitfeldt/prismatic">
+  <a href="https://github.com/EmilHvitfeldt/prismatic/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -95,64 +96,92 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of prismatic from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"prismatic"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"prismatic"</span>)
+</pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"EmilHvitfeldt/prismatic"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># install.packages("devtools")</span>
+<span class="kw">devtools</span>::<span class="fu">install_github</span>(<span class="st">"EmilHvitfeldt/prismatic"</span>)
+</pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
 <p>All <strong>prismatic</strong> functions returns a <code>colors</code> object, which includes a new printing method and plotting method for quickly visualizing the colors.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(prismatic)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>terrain10 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/palettes.html">terrain.colors</a></span>(<span class="dv">10</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a>terrain10</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;  [1] "#00A600FF" "#2DB600FF" "#63C600FF" "#A0D600FF" "#E6E600FF" "#E8C32EFF"</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;  [7] "#EBB25EFF" "#EDB48EFF" "#F0C9C0FF" "#F2F2F2FF"</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a>terrain_color &lt;-<span class="st"> </span><span class="kw"><a href="reference/color.html">color</a></span>(terrain10)</span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-12"><a href="#cb3-12"></a>terrain_color</span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; &lt;colors&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(terrain_color)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/EmilHvitfeldt/prismatic">prismatic</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">magrittr</span>)
+
+<span class="kw">terrain10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">terrain.colors</a></span>(<span class="fl">10</span>)
+
+<span class="kw">terrain10</span>
+<span class="co">#&gt;  [1] "#00A600FF" "#2DB600FF" "#63C600FF" "#A0D600FF" "#E6E600FF" "#E8C32EFF"</span>
+<span class="co">#&gt;  [7] "#EBB25EFF" "#EDB48EFF" "#F0C9C0FF" "#F2F2F2FF"</span>
+
+<span class="kw">terrain_color</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/color.html">color</a></span>(<span class="kw">terrain10</span>)
+
+<span class="kw">terrain_color</span>
+<span class="co">#&gt; &lt;colors&gt;</span>
+<span class="co">#&gt; #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">terrain_color</span>)
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 <p>If <a href="https://github.com/r-lib/crayon">crayon</a> is available the print method will do its best to represent the colors.</p>
 <p><img src="reference/figures/sceenshot.png"></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(prismatic)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>ddd &lt;-<span class="st"> </span><span class="kw"><a href="reference/color.html">color</a></span>(<span class="kw"><a href="https://rdrr.io/r/grDevices/palettes.html">terrain.colors</a></span>(<span class="dv">10</span>))</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>ddd</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; &lt;colors&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(ddd)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/EmilHvitfeldt/prismatic">prismatic</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">magrittr</span>)
+<span class="kw">ddd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/color.html">color</a></span>(<span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html">terrain.colors</a></span>(<span class="fl">10</span>))
+
+<span class="kw">ddd</span>
+<span class="co">#&gt; &lt;colors&gt;</span>
+<span class="co">#&gt; #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">ddd</span>)
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="reference/clr_grayscale.html">clr_grayscale</a></span>(ddd) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="reference/clr_grayscale.html">clr_grayscale</a></span>(<span class="kw">ddd</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-2.png" width="100%"></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="reference/clr_lighten.html">clr_lighten</a></span>(ddd, <span class="fl">0.7</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="reference/clr_lighten.html">clr_lighten</a></span>(<span class="kw">ddd</span>, <span class="fl">0.7</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-3.png" width="100%"></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="reference/clr_darken.html">clr_darken</a></span>(ddd, <span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="reference/clr_darken.html">clr_darken</a></span>(<span class="kw">ddd</span>, <span class="fl">0.5</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-4.png" width="100%"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="reference/clr_saturate.html">clr_saturate</a></span>(ddd, <span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="reference/clr_saturate.html">clr_saturate</a></span>(<span class="kw">ddd</span>, <span class="fl">0.5</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-5.png" width="100%"></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="reference/clr_desaturate.html">clr_desaturate</a></span>(ddd, <span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="fu"><a href="reference/clr_desaturate.html">clr_desaturate</a></span>(<span class="kw">ddd</span>, <span class="fl">0.5</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-6.png" width="100%"></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw"><a href="reference/clr_negate.html">clr_negate</a></span>(ddd) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="fu"><a href="reference/clr_negate.html">clr_negate</a></span>(<span class="kw">ddd</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-7.png" width="100%"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="reference/clr_rotate.html">clr_rotate</a></span>(ddd, <span class="dv">180</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="fu"><a href="reference/clr_rotate.html">clr_rotate</a></span>(<span class="kw">ddd</span>, <span class="fl">180</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-8.png" width="100%"></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="kw"><a href="reference/colorblindness.html">clr_protan</a></span>(ddd) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit">
+
+<span class="fu"><a href="reference/clr_protan.html">clr_protan</a></span>(<span class="kw">ddd</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-9.png" width="100%"></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw"><a href="reference/colorblindness.html">clr_tritan</a></span>(ddd) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="fu"><a href="reference/clr_protan.html">clr_tritan</a></span>(<span class="kw">ddd</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-10.png" width="100%"></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw"><a href="reference/colorblindness.html">clr_deutan</a></span>(ddd) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="reference/clr_protan.html">clr_deutan</a></span>(<span class="kw">ddd</span>) <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>()
+</pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-11.png" width="100%"></p>
 </div>
 <div id="related-work" class="section level2">
@@ -174,7 +203,7 @@
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=prismatic">https://​cloud.r-project.org/​package=prismatic</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/EmilHvitfeldt/prismatic">https://​github.com/​EmilHvitfeldt/​prismatic</a>
+<li>Browse source code at <br><a href="https://github.com/EmilHvitfeldt/prismatic/">https://​github.com/​EmilHvitfeldt/​prismatic/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/EmilHvitfeldt/prismatic/issues">https://​github.com/​EmilHvitfeldt/​prismatic/​issues</a>
 </li>
@@ -220,7 +249,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
