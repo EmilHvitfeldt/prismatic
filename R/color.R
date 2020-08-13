@@ -25,7 +25,7 @@
 #' plot(color(gray.colors(10)), labels = TRUE)
 color <- function(col) {
   if (is.list(col)) stop("`col` must not be a list.")
-  if (length(col) < 1) stop("The length of `col` must be positive.")
+  if (length(col) < 0) stop("The length of `col` must be positive.")
   col <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
   attr(col, "class") <- "colors"
   col

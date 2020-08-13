@@ -15,3 +15,6 @@ test_severity_range(clr_desaturate)
 
 test_severity_0(clr_saturate, tol = 1)
 test_severity_0(clr_desaturate, tol = 1)
+
+test_zero_length_input(clr_saturate)
+test_zero_length_input(clr_desaturate)

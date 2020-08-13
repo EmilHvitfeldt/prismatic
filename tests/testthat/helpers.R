@@ -10,9 +10,11 @@ test_wrong_input <- function(clr_) {
   expect_error(clr_("not a color"))
 
   expect_error(clr_(list(pal = "#000000")))
-
-  expect_error(clr_(rainbow(0)))
   })
+}
+
+test_zero_length_input <- function(clr_) {
+  expect_error(clr_(rainbow(0)), NA)
 }
 
 test_length <- function(clr_) {

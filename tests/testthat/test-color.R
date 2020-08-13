@@ -4,6 +4,9 @@ test_color_class(colour)
 test_length(color)
 test_length(colour)
 
+test_zero_length_input(color)
+test_zero_length_input(colour)
+
 test_that("is_color is working", {
   expect_true(is_color(color(rainbow(10))))
   expect_false(is_color(rainbow(10)))
