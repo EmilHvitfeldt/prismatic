@@ -29,5 +29,5 @@ clr_rotate <- function(col, degrees = 0) {
   hsl[, 1] <- (hsl[, 1] + degrees) %% 360
 
   rgb <- farver::convert_colour(hsl, "hsl", "rgb")
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }

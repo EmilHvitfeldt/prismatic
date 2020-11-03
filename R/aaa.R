@@ -6,7 +6,7 @@ rgb2col <- function(x, alpha = FALSE) {
   }
 }
 
-rgb_norn <- function(x) {
+rgb_norm <- function(x) {
   x[x > 255] <- 255
   x[x < 0] <- 0
   x

@@ -45,7 +45,7 @@ clr_protan <- function(col, severity = 1) {
 
   rgb <- decode_colour(col) %*%
     t((diag(3) * (1 - severity) + protan_matrix * (severity)))
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }
 
 #' @rdname colorblindness
@@ -59,7 +59,7 @@ clr_deutan <- function(col, severity = 1) {
 
   rgb <- decode_colour(col) %*%
     t((diag(3) * (1 - severity) + deutan_matrix * (severity)))
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }
 
 #' @rdname colorblindness
@@ -73,7 +73,7 @@ clr_tritan <- function(col, severity = 1) {
 
   rgb <- decode_colour(col) %*%
     t((diag(3) * (1 - severity) + tritan_matrix * (severity)))
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }
 
 range_check <- function(x) {

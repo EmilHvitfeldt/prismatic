@@ -36,7 +36,7 @@ clr_saturate <- function(col, shift = 0.5) {
   hsl[, 2] <- pro_transform(hsl[, 2], 100, shift)
 
   rgb <- farver::convert_colour(hsl, "hsl", "rgb")
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }
 
 #' Make a color more desaturated
@@ -77,5 +77,5 @@ clr_desaturate <- function(col, shift = 0.5) {
   hsl[, 2] <- pro_transform(hsl[, 2], 0, shift)
 
   rgb <- farver::convert_colour(hsl, "hsl", "rgb")
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }

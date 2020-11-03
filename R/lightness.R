@@ -90,7 +90,7 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
     luv <- polarluv_to_luv(luv)
     rgb <- farver::convert_colour(luv, "luv", "rgb")
   }
-  color(encode_colour(rgb_norn(rgb)))
+  color(encode_colour(rgb_norm(rgb)))
 }
 
 
