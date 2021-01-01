@@ -22,7 +22,11 @@
 #'
 #' plot(terrain_10, labels = TRUE)
 #'
-#' plot(color(gray.colors(10)), labels = TRUE)
+#' grey_10 <- color(gray.colors(10, start = 0, end = 1))
+#'
+#' grey_10
+#'
+#' plot(grey_10, labels = TRUE)
 color <- function(col) {
   if (is.list(col)) stop("`col` must not be a list.")
   if (length(col) < 0) stop("The length of `col` must be positive.")
@@ -60,23 +64,18 @@ plot.colors <- function(x, labels = FALSE, ...) {
   rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
        ytop = 1, col = x, border = NA)
   if (labels) {
-    color_light <- convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
-    label_col <- ifelse(color_light > 31,
-                        "#010101",
-                        "#FFFFFF")
+    label_col <- vapply(x, best_contrast, FUN.VALUE = character(1))
     text(x = seq_along(x), y = 0.5, labels = x, srt = 90, col = label_col)
   }
   rect(xleft = 0.5, ybottom = 0, xright = length(x) + 0.5, ytop = 1)
 }
 
 color_styler <- function(x) {
-  color_lightness <- convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
 
   text <- crayon::make_style(
-    ifelse(color_lightness > 31,
-           "#010101",
-           "#FFFFFF"),
-    bg = FALSE)
+    best_contrast(x),
+    bg = FALSE
+  )
 
   background <- crayon::make_style(x, bg = TRUE, colors = 256, grey = FALSE)
 

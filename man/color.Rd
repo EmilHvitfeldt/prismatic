@@ -34,5 +34,9 @@ plot(terrain_10)
 
 plot(terrain_10, labels = TRUE)
 
-plot(color(gray.colors(10)), labels = TRUE)
+grey_10 <- color(gray.colors(10, start = 0, end = 1))
+
+grey_10
+
+plot(grey_10, labels = TRUE)
 }
