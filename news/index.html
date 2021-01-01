@@ -86,12 +86,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -101,7 +95,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/EmilHvitfeldt/prismatic/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -129,6 +123,16 @@
 <ul>
 <li>All functions now accepts zero length input.</li>
 </ul>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>
+<code><a href="../reference/clr_rotate.html">clr_rotate()</a></code> now uses HCL instead of HSL as its color space for rotation. (<a href='https://github.com/EmilHvitfeldt/prismatic/issues/19'>#19</a>)</li>
+<li>
+<code>clr_lightness()</code> and <code><a href="../reference/clr_darken.html">clr_darken()</a></code> now uses HCL instead of HSL as its default color space. (<a href='https://github.com/EmilHvitfeldt/prismatic/issues/19'>#19</a>)</li>
+</ul>
+</div>
 </div>
     <div id="prismatic-020" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.0">
@@ -169,7 +173,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
