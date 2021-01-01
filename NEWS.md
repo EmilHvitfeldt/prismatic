@@ -2,6 +2,10 @@
 
 * All functions now accepts zero length input.
 
+## Breaking changes
+
+* `clr-rotate()` now uses HCL instead of HSL as its color space for rotation.
+
 # prismatic 0.2.0
 
 * Added `clr_alpha()` function to specify transparency. (#9)

@@ -4,7 +4,7 @@
 \alias{clr_rotate}
 \title{Rotate the colors around the hue wheel}
 \source{
-\url{https://en.wikipedia.org/wiki/HSL_and_HSV}
+\url{https://en.wikipedia.org/wiki/HCL_color_space}
 }
 \usage{
 clr_rotate(col, degrees = 0)
@@ -15,8 +15,8 @@ specifications, i.e., either a color name (as listed by colors()), a
 hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
 
-\item{degrees}{Numeric between 0 and 360, denotion the about of degrees the
-colors should be rotated. Now defaults to 0.}
+\item{degrees}{Numeric between 0 and 360, denoting the amount of degrees the
+colors should be rotated. Defaults to 0.}
 }
 \value{
 a colors object of same length as col.
@@ -25,8 +25,8 @@ a colors object of same length as col.
 Rotate the colors around the hue wheel
 }
 \details{
-The colors will be trainsformed to HSL color space (hue, saturation,
- lightness) where the hue of the color will be rotation.
+The colors will be transformed to HCL color space
+(Hue-Chroma-Luminance) where the hue of the color will be rotation.
 }
 \examples{
 plot(clr_rotate(terrain.colors(10)))
