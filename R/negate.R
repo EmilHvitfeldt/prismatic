@@ -10,8 +10,6 @@
 #' @return a colors object of same length as col.
 #' @export
 #'
-#' @importFrom grDevices col2rgb rgb
-#'
 #' @examples
 #' terr <- color(terrain.colors(10))
 #'

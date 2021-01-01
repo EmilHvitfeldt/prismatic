@@ -35,7 +35,7 @@ clr_saturate <- function(col, shift = 0.5) {
   hsl <- decode_colour(col, to = "hsl")
   hsl[, 2] <- pro_transform(hsl[, 2], 100, shift)
 
-  rgb <- farver::convert_colour(hsl, "hsl", "rgb")
+  rgb <- convert_colour(hsl, "hsl", "rgb")
   color(encode_colour(rgb_norm(rgb)))
 }
 
@@ -76,6 +76,6 @@ clr_desaturate <- function(col, shift = 0.5) {
   hsl <- decode_colour(col, to = "hsl")
   hsl[, 2] <- pro_transform(hsl[, 2], 0, shift)
 
-  rgb <- farver::convert_colour(hsl, "hsl", "rgb")
+  rgb <- convert_colour(hsl, "hsl", "rgb")
   color(encode_colour(rgb_norm(rgb)))
 }

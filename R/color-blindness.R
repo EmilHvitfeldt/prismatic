@@ -21,7 +21,6 @@
 #'  Transactions on Visualization and Computer Graphics. Volume 15 (2009),
 #'  Number 6, November/December 2009. pp. 1291-1298.
 #'
-#' @importFrom farver encode_colour decode_colour
 #' @examples
 #' rainbow_colors <- color(rainbow(10))
 #'

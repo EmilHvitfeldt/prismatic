@@ -28,6 +28,6 @@ clr_rotate <- function(col, degrees = 0) {
   hcl <- decode_colour(col, to = "hcl")
   hcl[, 1] <- (hcl[, 1] + degrees) %% 360
 
-  rgb <- farver::convert_colour(hcl, "hcl", "rgb")
+  rgb <- convert_colour(hcl, "hcl", "rgb")
   color(encode_colour(rgb_norm(rgb)))
 }

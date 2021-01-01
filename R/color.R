@@ -54,14 +54,13 @@ is_color <- function(x) {
 }
 
 #' @export
-#' @importFrom graphics plot rect text
 plot.colors <- function(x, labels = FALSE, ...) {
   plot(0, type = "n", axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
        ylim = c(-0.1, 1.1), mar = rep(0, 4))
   rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
        ytop = 1, col = x, border = NA)
   if (labels) {
-    color_light <- farver::convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
+    color_light <- convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
     label_col <- ifelse(color_light > 31,
                         "#010101",
                         "#FFFFFF")
@@ -71,7 +70,7 @@ plot.colors <- function(x, labels = FALSE, ...) {
 }
 
 color_styler <- function(x) {
-  color_lightness <- farver::convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
+  color_lightness <- convert_colour(t(col2rgb(x)), "rgb", "hsl")[, "l"]
 
   text <- crayon::make_style(
     ifelse(color_lightness > 31,

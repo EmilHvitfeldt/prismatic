@@ -56,7 +56,7 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
 
     hsl[, "l"] <- pro_transform(hsl[, "l"], (shift >= 0) * 100, abs(shift))
 
-    rgb <- farver::convert_colour(hsl, "hsl", "rgb")
+    rgb <- convert_colour(hsl, "hsl", "rgb")
   } else if (space == "HCL") {
     luv <- decode_colour(col, to = "luv")
     luv <- luv_to_polarluv(luv)
@@ -69,13 +69,13 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
                        pmax(0, luv[, 2]))
 
     luv <- polarluv_to_luv(luv)
-    rgb <- farver::convert_colour(luv, "luv", "rgb")
+    rgb <- convert_colour(luv, "luv", "rgb")
   } else {
     hsl <- decode_colour(col, to = "hsl")
     hsl[, "l"] <- (shift >= 0) * (1 - (1 - hsl[, "l"]) *
                          (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
     hsl[, "l"] <- pmin(100, pmax(0, hsl[, "l"]))
-    luv_hsl <- farver::convert_colour(hsl, "hsl", "luv")
+    luv_hsl <- convert_colour(hsl, "hsl", "luv")
     luv_hsl <- luv_to_polarluv(luv_hsl)
 
     luv <- decode_colour(col, to = "luv")
@@ -88,7 +88,7 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
     luv[, 2] <- pmin(max_chroma(luv[, 3], luv[, 1], floor = TRUE), luv[, 2])
 
     luv <- polarluv_to_luv(luv)
-    rgb <- farver::convert_colour(luv, "luv", "rgb")
+    rgb <- convert_colour(luv, "luv", "rgb")
   }
   color(encode_colour(rgb_norm(rgb)))
 }
