@@ -11,7 +11,7 @@
 \url{https://arxiv.org/abs/1903.06490}
 }
 \usage{
-clr_darken(col, shift = 0.5, space = c("HSL"))
+clr_darken(col, shift = 0.5, space = c("HCL", "HSL", "combined"))
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
@@ -23,7 +23,7 @@ positive integer i meaning palette()[i].}
 complete darkening turning the color to black. Defaults to 0.5.}
 
 \item{space}{character string specifying the color space in which adjustment
-happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".}
+happens. Can be either "HCL", "HSL" or "combined". Defaults to "HCL".}
 }
 \value{
 a color object of same length as col.
@@ -53,6 +53,7 @@ If space = "HSL" then the colors are transformed to HSL space where
 \examples{
 # Using linear shift
 plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1)))
+plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1), space = "HSL"))
 
 # Using exponential shifts
 plot(clr_darken(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))

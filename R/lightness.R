@@ -26,7 +26,7 @@
 #' @param shift Numeric between 0 and 1, 0 will do zero lightening, 1 will do
 #'    complete lightening turning the color to white. Defaults to 0.5.
 #' @param space character string specifying the color space in which adjustment
-#'    happens. Can be either "HLS", "HCL" or "combined". Defaults to "HSL".
+#'    happens. Can be either "HCL", "HSL" or "combined". Defaults to "HCL".
 #'
 #' @return a colors object of same length as col.
 #' @export
@@ -35,11 +35,11 @@
 #' @examples
 #' # Using linear shift
 #' plot(clr_lighten(rep("red", 11), shift = seq(0, 1, 0.1)))
-#' plot(clr_lighten(rep("red", 11), shift = seq(0, 1, 0.1), space = "HCL"))
+#' plot(clr_lighten(rep("red", 11), shift = seq(0, 1, 0.1), space = "HSL"))
 #'
 #' # Using exponential shifts
 #' plot(clr_lighten(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
-clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
+clr_lighten <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
   col <- color(col)
   if (!(length(shift) == 1 || (length(shift) == length(col)))) {
     stop("`shift` must be of length 1 or the same length as `col`.")
@@ -130,10 +130,11 @@ clr_lighten <- function(col, shift = 0.5, space = c("HSL", "HCL", "combined")) {
 #' @examples
 #' # Using linear shift
 #' plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1)))
+#' plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1), space = "HSL"))
 #'
 #' # Using exponential shifts
 #' plot(clr_darken(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
-clr_darken <- function(col, shift = 0.5, space = c("HSL")) {
+clr_darken <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
   clr_lighten(col, -1 * shift, space)
 }
 

@@ -4,7 +4,8 @@
 
 ## Breaking changes
 
-* `clr-rotate()` now uses HCL instead of HSL as its color space for rotation.
+* `clr_rotate()` now uses HCL instead of HSL as its color space for rotation. (#19)
+* `clr_lightness()` and `clr_darken()` now uses HCL instead of HSL as its default color space. (#19)
 
 # prismatic 0.2.0
 
