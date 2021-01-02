@@ -2,6 +2,7 @@
 
 * All functions now accepts zero length input.
 * Added `contrast_ratio()` function to calculate contrast ratios between colors. (#18)
+* Added `modify_hcl()` function to modify individual HCL axes. (#20)
 
 ## Breaking changes
 
