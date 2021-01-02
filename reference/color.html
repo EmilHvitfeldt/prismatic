@@ -156,7 +156,12 @@ present it will default to no alpha (FF).</p>
 </div><div class='img'><img src='color-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>terrain_10</span>, labels <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='img'><img src='color-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'>color</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/grDevices/gray.colors.html'>gray.colors</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>, labels <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>grey_10</span> <span class='op'>&lt;-</span> <span class='fu'>color</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/grDevices/gray.colors.html'>gray.colors</a></span><span class='op'>(</span><span class='fl'>10</span>, start <span class='op'>=</span> <span class='fl'>0</span>, end <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>grey_10</span>
+</div><div class='output co'>#&gt; &lt;colors&gt;
+#&gt; </span><span style='color: #BBBBBB;background-color: #080808;'>#000000FF</span><span> </span><span style='color: #BBBBBB;background-color: #626262;'>#5E5E5EFF</span><span> </span><span style='color: #000000;background-color: #808080;'>#818181FF</span><span> </span><span style='color: #000000;background-color: #949494;'>#9B9B9BFF</span><span> </span><span style='color: #000000;background-color: #A8A8A8;'>#B0B0B0FF</span><span> </span><span style='color: #000000;background-color: #BCBCBC;'>#C3C3C3FF</span><span> </span><span style='color: #000000;background-color: #C6C6C6;'>#D4D4D4FF</span><span> </span><span style='color: #000000;background-color: #DADADA;'>#E3E3E3FF</span><span> </span><span style='color: #000000;background-color: #E4E4E4;'>#F2F2F2FF</span><span> </span><span style='color: #000000;background-color: #EEEEEE;'>#FFFFFFFF</span><span> </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>grey_10</span>, labels <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='img'><img src='color-3.png' alt='' width='700' height='433' /></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

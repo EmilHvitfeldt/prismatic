@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Negates colors in RGB space — clr_negate • prismatic</title>
+<title>Contrast Ratio Between Colors — contrast_ratio • prismatic</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,10 @@
 
 
 
-<meta property="og:title" content="Negates colors in RGB space — clr_negate" />
-<meta property="og:description" content="Negates colors in RGB space" />
+<meta property="og:title" content="Contrast Ratio Between Colors — contrast_ratio" />
+<meta property="og:description" content="Calculates the contrast ratio between `x` and the colors `y`. Contrast ratios
+can range from 1 to 21 with 1 being no contrast (same color) and 21 being
+highest contrast." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -113,50 +115,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Negates colors in RGB space</h1>
-    <small class="dont-index">Source: <a href='https://github.com/EmilHvitfeldt/prismatic/blob/master/R/negate.R'><code>R/negate.R</code></a></small>
-    <div class="hidden name"><code>clr_negate.Rd</code></div>
+    <h1>Contrast Ratio Between Colors</h1>
+    <small class="dont-index">Source: <a href='https://github.com/EmilHvitfeldt/prismatic/blob/master/R/contrast_ratio.R'><code>R/contrast_ratio.R</code></a></small>
+    <div class="hidden name"><code>contrast_ratio.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Negates colors in RGB space</p>
+    <p>Calculates the contrast ratio between `x` and the colors `y`. Contrast ratios
+can range from 1 to 21 with 1 being no contrast (same color) and 21 being
+highest contrast.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>clr_negate</span><span class='op'>(</span><span class='va'>col</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>contrast_ratio</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>col</th>
-      <td><p>a color object or vector of any of the three kinds of R color
+      <th>x</th>
+      <td><p>A color object or vector of length 1 of any of the three kinds of R
+color specifications, i.e., either a color name (as listed by colors()), a
+hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
+positive integer i meaning palette()[i].</p></td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td><p>A color object or vector of any of the three kinds of R color
 specifications, i.e., either a color name (as listed by colors()), a
 hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><a href='https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html'>https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html</a></p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a colors object of same length as col.</p>
+    <p>The elements of `y` with highest contrast to `x`.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The negation of color is happening in the red-green-blue colorspace
-RGB. Meaning that if we take the specification for Orange which is
-rgb(255, 165, 0), then we negate by taking the oppesite number on the scale
-from 0 to 255, leaving us with rgb(0, 90, 255) which is a shade of blue.</p>
+    <p>The formula for calculating contract ratio is</p>
+<p>$$(L1 + 0.05) / (L2 + 0.05)$$</p>
+<p>where</p>
+<ul>
+<li><p>L1 is the relative luminance of the lighter of the colors, and</p></li>
+<li><p>L2 is the relative luminance of the darker of the colors.</p></li>
+</ul>
+
+<p>Relative luminance is calculated according to
+<a href='https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef'>https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>terr</span> <span class='op'>&lt;-</span> <span class='fu'><a href='color.html'>color</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>terrain.colors</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='va'>terr</span>
-</div><div class='output co'>#&gt; &lt;colors&gt;
-#&gt; <span style='color: #000000;background-color: #00AF00;'>#00A600FF</span><span> </span><span style='color: #000000;background-color: #5FD700;'>#2DB600FF</span><span> </span><span style='color: #000000;background-color: #87D700;'>#63C600FF</span><span> </span><span style='color: #000000;background-color: #AFFF00;'>#A0D600FF</span><span> </span><span style='color: #000000;background-color: #FFFF00;'>#E6E600FF</span><span> </span><span style='color: #000000;background-color: #FFD75F;'>#E8C32EFF</span><span> </span><span style='color: #000000;background-color: #FFD787;'>#EBB25EFF</span><span> </span><span style='color: #000000;background-color: #FFD7AF;'>#EDB48EFF</span><span> </span><span style='color: #000000;background-color: #FFD7D7;'>#F0C9C0FF</span><span> </span><span style='color: #000000;background-color: #E4E4E4;'>#F2F2F2FF</span><span> </div><div class='input'><span class='fu'>clr_negate</span><span class='op'>(</span><span class='va'>terr</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;colors&gt;
-#&gt; </span><span style='color: #000000;background-color: #FF87FF;'>#FF59FFFF</span><span> </span><span style='color: #000000;background-color: #D75FFF;'>#D249FFFF</span><span> </span><span style='color: #BBBBBB;background-color: #AF5FFF;'>#9C39FFFF</span><span> </span><span style='color: #BBBBBB;background-color: #8700FF;'>#5F29FFFF</span><span> </span><span style='color: #BBBBBB;background-color: #0000FF;'>#1919FFFF</span><span> </span><span style='color: #BBBBBB;background-color: #005FD7;'>#173CD1FF</span><span> </span><span style='color: #BBBBBB;background-color: #005FAF;'>#144DA1FF</span><span> </span><span style='color: #BBBBBB;background-color: #005F87;'>#124B71FF</span><span> </span><span style='color: #BBBBBB;background-color: #005F5F;'>#0F363FFF</span><span> </span><span style='color: #BBBBBB;background-color: #121212;'>#0D0D0DFF</span><span> </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>terr</span><span class='op'>)</span>
-</div><div class='img'><img src='clr_negate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'>clr_negate</span><span class='op'>(</span><span class='va'>terr</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='clr_negate-2.png' alt='' width='700' height='433' /></div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>contrast_ratio</span><span class='op'>(</span><span class='st'>"red"</span>, <span class='st'>"blue"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 2.148936</div><div class='input'><span class='fu'>contrast_ratio</span><span class='op'>(</span><span class='st'>"grey20"</span>, <span class='fu'><a href='https://rdrr.io/r/grDevices/gray.colors.html'>grey.colors</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1]  1.494662  2.406117  3.332732  4.271564  5.251557  6.161825  7.168355
+#&gt;  [8]  8.109768  9.125539 10.123342</div><div class='input'><span class='fu'>contrast_ratio</span><span class='op'>(</span><span class='st'>"white"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"white"</span>, <span class='st'>"black"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]  1 21</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
