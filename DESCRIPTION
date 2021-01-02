@@ -7,8 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "emilhhvitfeldt@gmail.com",
            comment = c(ORCID = "0000-0002-0679-1945"))
-Description: Manipulate and visualize colors in a intuitive, low-dependency and 
-    functional way. 
+Description: Manipulate and visualize colors in a intuitive,
+    low-dependency and functional way.
 License: MIT + file LICENSE
 URL: https://github.com/EmilHvitfeldt/prismatic
 BugReports: https://github.com/EmilHvitfeldt/prismatic/issues
