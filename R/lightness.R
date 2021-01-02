@@ -77,15 +77,13 @@ clr_lighten <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
     hsl[, "l"] <- (shift >= 0) * (1 - (1 - hsl[, "l"]) *
                          (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
     hsl[, "l"] <- pmin(100, pmax(0, hsl[, "l"]))
-    new_c <- convert_colour(hsl, "hsl", "hcl")[, "c"]
 
     hcl <- decode_colour(col, to = "hcl")
-
     hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
     hcl[, "l"] <- (shift >= 0) * (100 - (100 - hcl[, "l"]) * (1 - shift)) +
         (shift < 0) * hcl[, "l"] * (1 + shift)
     hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
-    hcl[, "c"] <- new_c
+    hcl[, "c"] <- convert_colour(hsl, "hsl", "hcl")[, "c"]
     hcl[, "c"] <- pmin(max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
                        hcl[, "c"])
 
