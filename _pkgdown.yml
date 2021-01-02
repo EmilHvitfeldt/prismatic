@@ -29,6 +29,9 @@ reference:
   - title: "Tranparency"
     contents:
       - clr_alpha
+  - title: "Modify HCL"
+    contents:
+      - modify_hcl
   - title: "Color blindness approximations"
     contents:
       - clr_protan
