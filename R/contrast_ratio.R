@@ -59,7 +59,6 @@ contrast_ratio <- function(x, y) {
 #' best_contrast("red")
 #' best_contrast("grey20")
 #' best_contrast("white")
-#'
 #' @noRd
 best_contrast <- function(x, y = c("#010101", "#FFFFFF")) {
   constracts <- contrast_ratio(x, y)

@@ -28,9 +28,11 @@
 #' plot(clr_deutan(rainbow_colors))
 #' plot(clr_tritan(rainbow_colors))
 #'
-#' viridis_colors <- c("#4B0055FF", "#422C70FF", "#185086FF", "#007094FF",
-#'                     "#008E98FF", "#00A890FF", "#00BE7DFF", "#6CD05EFF",
-#'                     "#BBDD38FF", "#FDE333FF")
+#' viridis_colors <- c(
+#'   "#4B0055FF", "#422C70FF", "#185086FF", "#007094FF",
+#'   "#008E98FF", "#00A890FF", "#00BE7DFF", "#6CD05EFF",
+#'   "#BBDD38FF", "#FDE333FF"
+#' )
 #'
 #' plot(clr_protan(viridis_colors))
 #' plot(clr_deutan(viridis_colors))
@@ -76,25 +78,37 @@ clr_tritan <- function(col, severity = 1) {
 }
 
 range_check <- function(x) {
-  if (!all(x >= 0 & x <= 1))
+  if (!all(x >= 0 & x <= 1)) {
     stop("`severity` must be between 0 and 1.")
-
+  }
 }
 
-protan_matrix <- matrix(nrow = 3, byrow = TRUE,
-                        c(0.152286,	 1.052583, -0.204868,
-                          0.114503,	 0.786281,	0.099216,
-                         -0.003882,	-0.048116,	1.051998))
+protan_matrix <- matrix(
+  nrow = 3, byrow = TRUE,
+  c(
+    0.152286, 1.052583, -0.204868,
+    0.114503, 0.786281, 0.099216,
+    -0.003882, -0.048116, 1.051998
+  )
+)
 
-deutan_matrix <- matrix(nrow = 3, byrow = TRUE,
-                        c(0.367322,	0.860646,	-0.227968,
-                          0.280085,	0.672501,	 0.047413,
-                         -0.011820,	0.042940,	 0.968881))
+deutan_matrix <- matrix(
+  nrow = 3, byrow = TRUE,
+  c(
+    0.367322, 0.860646, -0.227968,
+    0.280085, 0.672501, 0.047413,
+    -0.011820, 0.042940, 0.968881
+  )
+)
 
-tritan_matrix <- matrix(nrow = 3, byrow = TRUE,
-                        c(1.255528,	-0.076749, -0.178779,
-                         -0.078411,	 0.930809,	0.147602,
-                          0.004733,	 0.691367,	0.303900))
+tritan_matrix <- matrix(
+  nrow = 3, byrow = TRUE,
+  c(
+    1.255528, -0.076749, -0.178779,
+    -0.078411, 0.930809, 0.147602,
+    0.004733, 0.691367, 0.303900
+  )
+)
 
 #' Visualize color vision deficiency
 #'
@@ -114,23 +128,35 @@ tritan_matrix <- matrix(nrow = 3, byrow = TRUE,
 #'
 #' check_color_blindness(terrain.colors(10))
 check_color_blindness <- function(col) {
-  plot(NULL, xlim = c(-0.1, 4.1), ylim = c(0, length(col) + 2),
-       xaxs = "i", yaxs = "i", mar = rep(0, 4), axes = FALSE, ann = FALSE)
+  plot(NULL,
+    xlim = c(-0.1, 4.1), ylim = c(0, length(col) + 2),
+    xaxs = "i", yaxs = "i", mar = rep(0, 4), axes = FALSE, ann = FALSE
+  )
 
-  rect(ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
-       xleft = 3.1, xright = 3.9, col = clr_tritan(col), border = NA)
-  rect(ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
-       xleft = 2.1, xright = 2.9, col = clr_protan(col), border = NA)
-  rect(ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
-       xleft = 1.1, xright = 1.9, col = clr_deutan(col), border = NA)
-  rect(ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
-       xleft = 0.1, xright = 0.9, col = col, border = NA)
+  rect(
+    ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
+    xleft = 3.1, xright = 3.9, col = clr_tritan(col), border = NA
+  )
+  rect(
+    ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
+    xleft = 2.1, xright = 2.9, col = clr_protan(col), border = NA
+  )
+  rect(
+    ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
+    xleft = 1.1, xright = 1.9, col = clr_deutan(col), border = NA
+  )
+  rect(
+    ybottom = seq_along(col) - 0.5, ytop = seq_along(col) + 0.5,
+    xleft = 0.1, xright = 0.9, col = col, border = NA
+  )
 
   rect(ybottom = 0.5, xleft = 0.1, ytop = length(col) + 0.5, xright = 0.9)
   rect(ybottom = 0.5, xleft = 1.1, ytop = length(col) + 0.5, xright = 1.9)
   rect(ybottom = 0.5, xleft = 2.1, ytop = length(col) + 0.5, xright = 2.9)
   rect(ybottom = 0.5, xleft = 3.1, ytop = length(col) + 0.5, xright = 3.9)
 
-  text(x = 1:4 - 0.5, y = length(col) + 1,
-       labels = c("Normal", "Deuteranopia", "Protanopia", "Tritanopia"))
+  text(
+    x = 1:4 - 0.5, y = length(col) + 1,
+    labels = c("Normal", "Deuteranopia", "Protanopia", "Tritanopia")
+  )
 }

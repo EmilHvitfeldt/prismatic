@@ -67,25 +67,28 @@ clr_lighten <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
     hcl[, "l"] <- (shift >= 0) * (100 - (100 - hcl[, "l"]) * (1 - shift)) +
       (shift < 0) * hcl[, "l"] * (1 + shift)
     hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
-    hcl[, "c"] <- pmin(max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
-                       pmax(0, hcl[, "c"]))
+    hcl[, "c"] <- pmin(
+      max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
+      pmax(0, hcl[, "c"])
+    )
 
     rgb <- convert_colour(hcl, "hcl", "rgb")
-
   } else {
     hsl <- decode_colour(col, to = "hsl")
     hsl[, "l"] <- (shift >= 0) * (1 - (1 - hsl[, "l"]) *
-                         (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
+      (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
     hsl[, "l"] <- pmin(100, pmax(0, hsl[, "l"]))
 
     hcl <- decode_colour(col, to = "hcl")
     hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
     hcl[, "l"] <- (shift >= 0) * (100 - (100 - hcl[, "l"]) * (1 - shift)) +
-        (shift < 0) * hcl[, "l"] * (1 + shift)
+      (shift < 0) * hcl[, "l"] * (1 + shift)
     hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
     hcl[, "c"] <- convert_colour(hsl, "hsl", "hcl")[, "c"]
-    hcl[, "c"] <- pmin(max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
-                       hcl[, "c"])
+    hcl[, "c"] <- pmin(
+      max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
+      hcl[, "c"]
+    )
 
     rgb <- convert_colour(hcl, "hcl", "rgb")
   }
@@ -153,12 +156,13 @@ max_chroma <- function(h, l, floor = FALSE) {
   lmax <- ceiling(l + 1e-08)
   c <- (hmax - h) * (lmax - l) *
     max_chroma_table[paste(hmin, lmin, sep = "-")] + (hmax - h) * (l - lmin) *
-    max_chroma_table[paste(hmin, lmax, sep = "-")] + (h - hmin) * (lmax - l) *
-    max_chroma_table[paste(hmax, lmin, sep = "-")] + (h - hmin) * (l - lmin) *
-    max_chroma_table[paste(hmax, lmax, sep = "-")]
+      max_chroma_table[paste(hmin, lmax, sep = "-")] + (h - hmin) * (lmax - l) *
+      max_chroma_table[paste(hmax, lmin, sep = "-")] + (h - hmin) * (l - lmin) *
+      max_chroma_table[paste(hmax, lmax, sep = "-")]
   c <- as.numeric(c)
   c[l <= 0 | l >= 100] <- 0
-  if (floor)
+  if (floor) {
     c <- floor(c)
+  }
   return(c)
 }

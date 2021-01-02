@@ -59,10 +59,14 @@ is_color <- function(x) {
 
 #' @export
 plot.colors <- function(x, labels = FALSE, ...) {
-  plot(0, type = "n", axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
-       ylim = c(-0.1, 1.1), mar = rep(0, 4))
-  rect(xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
-       ytop = 1, col = x, border = NA)
+  plot(0,
+    type = "n", axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
+    ylim = c(-0.1, 1.1), mar = rep(0, 4)
+  )
+  rect(
+    xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
+    ytop = 1, col = x, border = NA
+  )
   if (labels) {
     label_col <- vapply(x, best_contrast, FUN.VALUE = character(1))
     text(x = seq_along(x), y = 0.5, labels = x, srt = 90, col = label_col)
@@ -71,16 +75,10 @@ plot.colors <- function(x, labels = FALSE, ...) {
 }
 
 color_styler <- function(x) {
-
-  text <- crayon::make_style(
-    best_contrast(x),
-    bg = FALSE
-  )
-
+  text <- crayon::make_style(best_contrast(x), bg = FALSE)
   background <- crayon::make_style(x, bg = TRUE, colors = 256, grey = FALSE)
 
   crayon::combine_styles(text, background)(x)
-
 }
 
 pretty_print <- function(x) {

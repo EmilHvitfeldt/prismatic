@@ -19,7 +19,7 @@
 #'
 #' plot(clr_rotate(terrain.colors(10), degrees = 180))
 #'
-#' plot(clr_rotate(rep("magenta", 11), degrees = seq(0, 360, length.out =  11)))
+#' plot(clr_rotate(rep("magenta", 11), degrees = seq(0, 360, length.out = 11)))
 clr_rotate <- function(col, degrees = 0) {
   col <- color(col)
   if (!(length(degrees) == 1 || (length(degrees) == length(col)))) {
