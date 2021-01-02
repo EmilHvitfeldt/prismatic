@@ -36,6 +36,9 @@
 #' # Using linear shift
 #' plot(clr_lighten(rep("red", 11), shift = seq(0, 1, 0.1)))
 #' plot(clr_lighten(rep("red", 11), shift = seq(0, 1, 0.1), space = "HSL"))
+#' plot(clr_lighten(rep("red", 11), shift = seq(0, 1, 0.1), space = "combined"))
+#'
+#' plot(clr_lighten(terrain.colors(10)))
 #'
 #' # Using exponential shifts
 #' plot(clr_lighten(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
@@ -58,37 +61,35 @@ clr_lighten <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
 
     rgb <- convert_colour(hsl, "hsl", "rgb")
   } else if (space == "HCL") {
-    luv <- decode_colour(col, to = "luv")
-    luv <- luv_to_polarluv(luv)
+    hcl <- decode_colour(col, to = "hcl")
 
-    luv[, 1] <- pmin(100, pmax(0, luv[, 1]))
-    luv[, 1] <- (shift >= 0) * (100 - (100 - luv[, 1]) * (1 - shift)) +
-      (shift < 0) * luv[, 1] * (1 + shift)
-    luv[, 1] <- pmin(100, pmax(0, luv[, 1]))
-    luv[, 2] <- pmin(max_chroma(luv[, 3], luv[, 1], floor = TRUE),
-                       pmax(0, luv[, 2]))
+    hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
+    hcl[, "l"] <- (shift >= 0) * (100 - (100 - hcl[, "l"]) * (1 - shift)) +
+      (shift < 0) * hcl[, "l"] * (1 + shift)
+    hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
+    hcl[, "c"] <- pmin(max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
+                       pmax(0, hcl[, "c"]))
 
-    luv <- polarluv_to_luv(luv)
-    rgb <- convert_colour(luv, "luv", "rgb")
+    rgb <- convert_colour(hcl, "hcl", "rgb")
+
   } else {
     hsl <- decode_colour(col, to = "hsl")
     hsl[, "l"] <- (shift >= 0) * (1 - (1 - hsl[, "l"]) *
                          (1 - shift)) + (shift < 0) * hsl[, "l"] * (1 + shift)
     hsl[, "l"] <- pmin(100, pmax(0, hsl[, "l"]))
-    luv_hsl <- convert_colour(hsl, "hsl", "luv")
-    luv_hsl <- luv_to_polarluv(luv_hsl)
+    new_c <- convert_colour(hsl, "hsl", "hcl")[, "c"]
 
-    luv <- decode_colour(col, to = "luv")
-    luv <- luv_to_polarluv(luv)
-    luv[, "l"] <- pmin(100, pmax(0, luv[, "l"]))
-    luv[, "l"] <- (shift >= 0) * (100 - (100 - luv[, "l"]) * (1 - shift)) +
-        (shift < 0) * luv[, "l"] * (1 + shift)
-    luv[, "l"] <- pmin(100, pmax(0, luv[, "l"]))
-    luv[, 2] <- luv_hsl[, 2]
-    luv[, 2] <- pmin(max_chroma(luv[, 3], luv[, 1], floor = TRUE), luv[, 2])
+    hcl <- decode_colour(col, to = "hcl")
 
-    luv <- polarluv_to_luv(luv)
-    rgb <- convert_colour(luv, "luv", "rgb")
+    hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
+    hcl[, "l"] <- (shift >= 0) * (100 - (100 - hcl[, "l"]) * (1 - shift)) +
+        (shift < 0) * hcl[, "l"] * (1 + shift)
+    hcl[, "l"] <- pmin(100, pmax(0, hcl[, "l"]))
+    hcl[, "c"] <- new_c
+    hcl[, "c"] <- pmin(max_chroma(hcl[, "h"], hcl[, "l"], floor = TRUE),
+                       hcl[, "c"])
+
+    rgb <- convert_colour(hcl, "hcl", "rgb")
   }
   color(encode_colour(rgb_norm(rgb)))
 }
@@ -131,6 +132,9 @@ clr_lighten <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
 #' # Using linear shift
 #' plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1)))
 #' plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1), space = "HSL"))
+#' plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1), space = "combined"))
+#'
+#' plot(clr_darken(terrain.colors(10)))
 #'
 #' # Using exponential shifts
 #' plot(clr_darken(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
@@ -159,20 +163,4 @@ max_chroma <- function(h, l, floor = FALSE) {
   if (floor)
     c <- floor(c)
   return(c)
-}
-
-luv_to_polarluv <- function(luv) {
-  u <- sqrt(luv[, "u"] ^ 2 + luv[, "v"] ^ 2)
-  v <- (atan2(luv[, "v"], luv[, "u"]) * 180 /  pi) %% 360
-  luv[, "u"] <- u
-  luv[, "v"] <- v
-  luv
-}
-
-polarluv_to_luv <- function(luv) {
-  theta <- luv[, "v"] * pi / 180
-  luv_u <- luv[, "u"]
-  luv[, "u"] <- luv_u * cos(theta)
-  luv[, "v"] <- luv_u * sin(theta)
-  luv
 }

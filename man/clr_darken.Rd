@@ -54,6 +54,9 @@ If space = "HSL" then the colors are transformed to HSL space where
 # Using linear shift
 plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1)))
 plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1), space = "HSL"))
+plot(clr_darken(rep("red", 11), shift = seq(0, 1, 0.1), space = "combined"))
+
+plot(clr_darken(terrain.colors(10)))
 
 # Using exponential shifts
 plot(clr_darken(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
