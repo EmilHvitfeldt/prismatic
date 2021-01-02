@@ -35,3 +35,6 @@ reference:
       - clr_tritan
       - clr_deutan
       - check_color_blindness
+  - title: "Color Contrast"
+    contents:
+      - contrast_ratio
