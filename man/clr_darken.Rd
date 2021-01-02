@@ -32,7 +32,7 @@ a color object of same length as col.
 Make a color more dark
 }
 \details{
-The colors will be trainsformed to HSL color space (hue, saturation,
+The colors will be transformed to HSL color space (hue, saturation,
  lightness) where the lightness of the color will  be modified. The lightness
  of a color takes a value between 0 and 1, with 0 being black and 1 being
  white. The \code{shift} argument takes a value between 0 and 1, where 0
@@ -43,11 +43,11 @@ The colors will be trainsformed to HSL color space (hue, saturation,
 If space = "HSL" then the colors are transformed to HSL space where
   the lightness value L is adjusted. If space = "HCL" then the colors are
   transformed to Cylindrical HCL space where the luminance value L is
-  adjusted. If space = "combined" then the colors are tranformed into HSL and
+  adjusted. If space = "combined" then the colors are transformed into HSL and
   Cylindrical HCL space. Where the color adjusting is happening HLS is copied
-  to the values in the HCL tranformation. Thus the "combined" transformation
+  to the values in the HCL transformation. Thus the "combined" transformation
   adjusts the luminance in HCL space and chroma in HSL space. For more
-  information regarding use of color spaces, please refer to eh colorspace
+  information regarding use of color spaces, please refer to the {colorspace}
   paper \url{https://arxiv.org/abs/1903.06490}.
 }
 \examples{
