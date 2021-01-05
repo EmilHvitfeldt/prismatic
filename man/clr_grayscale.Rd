@@ -5,7 +5,7 @@
 \alias{clr_greyscale}
 \title{Transform colors to greyscale}
 \source{
-\url{https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
+\url{https://tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
 
 \url{https://en.wikipedia.org/wiki/Luma}
 }

@@ -21,7 +21,7 @@
 #' If method is "red_channel", "green_channel" or "blue_channel", then the
 #' corresponding color channel been selected for the values of grayscale.
 #'
-#' @source \url{https://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
+#' @source \url{https://tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
 #' @source \url{https://en.wikipedia.org/wiki/Luma}
 #'
 #' @rdname clr_grayscale
