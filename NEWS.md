@@ -1,4 +1,4 @@
-# prismatic (development version)
+# prismatic 1.0.0
 
 * All functions now accepts zero length input.
 * Added `contrast_ratio()` function to calculate contrast ratios between colors. (#18)
