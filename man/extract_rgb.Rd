@@ -2,9 +2,18 @@
 % Please edit documentation in R/extract.R
 \name{clr_extract_red}
 \alias{clr_extract_red}
+\alias{clr_extract_green}
+\alias{clr_extract_blue}
+\alias{clr_extract_alpha}
 \title{Extract RGB components}
 \usage{
 clr_extract_red(col)
+
+clr_extract_green(col)
+
+clr_extract_blue(col)
+
+clr_extract_alpha(col)
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
@@ -16,7 +25,7 @@ positive integer i meaning palette()[i].}
 Numeric vector of values.
 }
 \description{
-Extract RGB components
+Extract the red, green, or blue color components from a vector of colors.
 }
 \details{
 The values of the output will range between 0 and 255.
