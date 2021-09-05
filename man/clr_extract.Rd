@@ -6,7 +6,8 @@
 \usage{
 clr_extract(
   col,
-  components = c("red", "green", "blue", "hue", "saturation", "lightness")
+  components = c("red", "green", "blue", "hue_hsl", "saturation", "lightness",
+    "hue_hcl", "chroma", "luminance")
 )
 }
 \arguments{
@@ -30,9 +31,12 @@ The allowed values for `components` are
 - red
 - green
 - blue
-- hue
+- hue_hsl
 - saturation
 - lightness
+- hue_hcl
+- chroma
+- luminance
 
 This function is to be preferred if you need to extract multiple components
 at the same time, since it doesn't need repeat transformations.
@@ -40,10 +44,11 @@ at the same time, since it doesn't need repeat transformations.
 \examples{
 clr_extract(rainbow(10))
 
-clr_extract(rainbow(10), c("hue", "saturation"))
+clr_extract(rainbow(10), c("hue_hsl", "saturation"))
 }
 \seealso{
 Other Extraction: 
+\code{\link{clr_extract_chroma}()},
 \code{\link{clr_extract_hue}()},
 \code{\link{clr_extract_red}()}
 }

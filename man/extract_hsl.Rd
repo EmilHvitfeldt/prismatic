@@ -4,19 +4,25 @@
 \alias{clr_extract_hue}
 \alias{clr_extract_saturation}
 \alias{clr_extract_lightness}
+\alias{clr_extract_luminance}
 \title{Extract HSL components}
 \usage{
-clr_extract_hue(col)
+clr_extract_hue(col, space = c("HSL", "HCL"))
 
 clr_extract_saturation(col)
 
 clr_extract_lightness(col)
+
+clr_extract_luminance(col)
 }
 \arguments{
 \item{col}{a color object or vector of any of the three kinds of R color
 specifications, i.e., either a color name (as listed by colors()), a
 hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
 positive integer i meaning palette()[i].}
+
+\item{space}{character string specifying the color space where hue is
+extracted from. Can be either "HCL" or "HSL".}
 }
 \value{
 Numeric vector of values.
@@ -33,15 +39,16 @@ The range of the value are
 - saturation ranges from 0 to 100. 100 is full saturation, 0 is no saturation
 - lightness ranges from 0 to 100. 100 is full lightness, 0 is no lightness
 
-Use [clr_extract()] if you are planning to extractionn multiple components.
+Use [clr_extract()] if you are planning to extraction multiple components.
 }
 \examples{
-clr_extract_hue(rainbow(100))
+clr_extract_hue(rainbow(100), "HSL")
 clr_extract_saturation(rainbow(100))
 clr_extract_lightness(rainbow(100))
 }
 \seealso{
 Other Extraction: 
+\code{\link{clr_extract_chroma}()},
 \code{\link{clr_extract_red}()},
 \code{\link{clr_extract}()}
 }

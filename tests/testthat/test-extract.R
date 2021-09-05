@@ -28,3 +28,16 @@ test_that("extract_rgb functions work", {
 test_wrong_input(clr_extract_hue)
 test_wrong_input(clr_extract_saturation)
 test_wrong_input(clr_extract_lightness)
+
+test_that("extract_rgb functions work", {
+  colors <- topo.colors(10)
+
+  hcl_cols <- decode_colour(colors, to = "hcl")
+
+  expect_equal(clr_extract_hue(colors, space = "HCL"), hcl_cols[,"h"])
+  expect_equal(clr_extract_chroma(colors), hcl_cols[,"c"])
+  expect_equal(clr_extract_luminance(colors), hcl_cols[,"l"])
+})
+
+test_wrong_input(clr_extract_chroma)
+test_wrong_input(clr_extract_luminance)

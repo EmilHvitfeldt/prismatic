@@ -49,4 +49,6 @@ reference:
       - clr_extract_hue
       - clr_extract_saturation
       - clr_extract_lightness
+      - clr_extract_chroma
+      - clr_extract_luminance
       - clr_extract
