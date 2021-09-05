@@ -9,6 +9,10 @@
 #' @details
 #' The values of the output will range between 0 and 255.
 #'
+#' Use [clr_extract()] if you are planning to extractionn multiple components.
+#'
+#' @family Extraction
+#'
 #' @return Numeric vector of values.
 #' @export
 #'
@@ -63,6 +67,11 @@ extract_rgb <- function(col) {
 #'   near identical. 0 is red
 #' - saturation ranges from 0 to 100. 100 is full saturation, 0 is no saturation
 #' - lightness ranges from 0 to 100. 100 is full lightness, 0 is no lightness
+#'
+#' Use [clr_extract()] if you are planning to extractionn multiple components.
+#'
+#' @family Extraction
+#'
 #' @return Numeric vector of values.
 #' @export
 #'
@@ -99,6 +108,8 @@ extract_hsl <- function(col) {
 
 #' Extract Multiple Components
 #'
+#' Extract multiple color components at the same time.
+#'
 #' @inheritParams color
 #' @param components character, components that should be extracted. See details
 #'   for allowed components.
@@ -115,6 +126,8 @@ extract_hsl <- function(col) {
 #'
 #' This function is to be preferred if you need to extract multiple components
 #' at the same time, since it doesn't need repeat transformations.
+#'
+#' @family Extraction
 #'
 #' @return data.frame of components
 #' @export

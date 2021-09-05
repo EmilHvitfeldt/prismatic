@@ -22,7 +22,7 @@ for allowed components.}
 data.frame of components
 }
 \description{
-Extract Multiple Components
+Extract multiple color components at the same time.
 }
 \details{
 The allowed values for `components` are
@@ -42,3 +42,9 @@ clr_extract(rainbow(10))
 
 clr_extract(rainbow(10), c("hue", "saturation"))
 }
+\seealso{
+Other Extraction: 
+\code{\link{clr_extract_hue}()},
+\code{\link{clr_extract_red}()}
+}
+\concept{Extraction}

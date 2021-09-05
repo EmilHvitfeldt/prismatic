@@ -29,6 +29,8 @@ Extract the red, green, or blue color components from a vector of colors.
 }
 \details{
 The values of the output will range between 0 and 255.
+
+Use [clr_extract()] if you are planning to extractionn multiple components.
 }
 \examples{
 clr_extract_red(rainbow(100))
@@ -36,3 +38,9 @@ clr_extract_green(rainbow(100))
 clr_extract_blue(rainbow(100))
 clr_extract_alpha(rainbow(100))
 }
+\seealso{
+Other Extraction: 
+\code{\link{clr_extract_hue}()},
+\code{\link{clr_extract}()}
+}
+\concept{Extraction}

@@ -41,3 +41,12 @@ reference:
   - title: "Color Contrast"
     contents:
       - contrast_ratio
+  - title: "Extract Components"
+    contents:
+      - clr_extract_red
+      - clr_extract_green
+      - clr_extract_blue
+      - clr_extract_hue
+      - clr_extract_saturation
+      - clr_extract_lightness
+      - clr_extract

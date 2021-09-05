@@ -32,9 +32,17 @@ The range of the value are
   near identical. 0 is red
 - saturation ranges from 0 to 100. 100 is full saturation, 0 is no saturation
 - lightness ranges from 0 to 100. 100 is full lightness, 0 is no lightness
+
+Use [clr_extract()] if you are planning to extractionn multiple components.
 }
 \examples{
 clr_extract_hue(rainbow(100))
 clr_extract_saturation(rainbow(100))
 clr_extract_lightness(rainbow(100))
 }
+\seealso{
+Other Extraction: 
+\code{\link{clr_extract_red}()},
+\code{\link{clr_extract}()}
+}
+\concept{Extraction}
