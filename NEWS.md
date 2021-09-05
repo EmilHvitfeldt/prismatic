@@ -1,5 +1,7 @@
 # prismatic (development version)
 
+* Add extraction functions.
+
 # prismatic 1.0.0
 
 * All functions now accepts zero length input.
