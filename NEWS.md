@@ -1,6 +1,7 @@
 # prismatic (development version)
 
 * Add extraction functions.
+* `best_contrast()` has been added, and can be used to find the best contrasted colors.
 
 # prismatic 1.0.0
 
