@@ -1,14 +1,32 @@
-test_length(clr_grayscale)
-test_length(clr_greyscale)
+test_that("clr_grayscale() perserves length", {
+  expect_length(clr_grayscale(rainbow(0)), 0)
+  expect_length(clr_grayscale(rainbow(1)), 1)
+  expect_length(clr_grayscale(rainbow(10)), 10)
+})
 
-test_color_class(clr_grayscale)
-test_color_class(clr_greyscale)
+test_that("clr_greyscale() perserves length", {
+  expect_length(clr_greyscale(rainbow(0)), 0)
+  expect_length(clr_greyscale(rainbow(1)), 1)
+  expect_length(clr_greyscale(rainbow(10)), 10)
+})
 
-test_wrong_input(clr_grayscale)
-test_wrong_input(clr_greyscale)
+test_that("clr_grayscale()'s output has colors class", {
+  expect_s3_class(clr_grayscale(rainbow(10)), "colors")
+})
 
-test_zero_length_input(clr_grayscale)
-test_zero_length_input(clr_greyscale)
+test_that("clr_greyscale()'s output has colors class", {
+  expect_s3_class(clr_greyscale(rainbow(10)), "colors")
+})
+
+test_that("clr_grayscale() complains when col type is wrong.", {
+  expect_error(clr_grayscale("not a color"))
+  expect_error(clr_grayscale(list(pal = "#000000")))
+})
+
+test_that("clr_greyscale() complains when col type is wrong.", {
+  expect_error(clr_greyscale("not a color"))
+  expect_error(clr_greyscale(list(pal = "#000000")))
+})
 
 test_that("result is grayscale", {
   methods <- c(

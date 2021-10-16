@@ -1,11 +1,22 @@
-test_color_class(color)
-test_color_class(colour)
+test_that("color()'s output has colors class", {
+  expect_s3_class(color(rainbow(10)), "colors")
+})
 
-test_length(color)
-test_length(colour)
+test_that("colour()'s output has colors class", {
+  expect_s3_class(colour(rainbow(10)), "colors")
+})
 
-test_zero_length_input(color)
-test_zero_length_input(colour)
+test_that("color() perserves length", {
+  expect_length(color(rainbow(0)), 0)
+  expect_length(color(rainbow(1)), 1)
+  expect_length(color(rainbow(10)), 10)
+})
+
+test_that("colour() perserves length", {
+  expect_length(colour(rainbow(0)), 0)
+  expect_length(colour(rainbow(1)), 1)
+  expect_length(colour(rainbow(10)), 10)
+})
 
 test_that("is_color is working", {
   expect_true(is_color(color(rainbow(10))))
@@ -29,5 +40,12 @@ test_that("subsetting works", {
   expect_s3_class(colors[6:8], "colors")
 })
 
-test_wrong_input(color)
-test_wrong_input(colour)
+test_that("color() complains when col type is wrong.", {
+  expect_error(color("not a color"))
+  expect_error(color(list(pal = "#000000")))
+})
+
+test_that("colour() complains when col type is wrong.", {
+  expect_error(colour("not a color"))
+  expect_error(colour(list(pal = "#000000")))
+})

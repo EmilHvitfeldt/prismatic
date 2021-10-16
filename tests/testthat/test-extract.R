@@ -10,10 +10,25 @@ test_that("extract_rgb functions work", {
   expect_equal(clr_extract_alpha(rgb_cols), 31:40)
 })
 
-test_wrong_input(clr_extract_red)
-test_wrong_input(clr_extract_green)
-test_wrong_input(clr_extract_blue)
-test_wrong_input(clr_extract_alpha)
+test_that("clr_extract_red() complains when col type is wrong.", {
+  expect_error(clr_extract_red("not a color"))
+  expect_error(clr_extract_red(list(pal = "#000000")))
+})
+
+test_that("clr_extract_green() complains when col type is wrong.", {
+  expect_error(clr_extract_green("not a color"))
+  expect_error(clr_extract_green(list(pal = "#000000")))
+})
+
+test_that("clr_extract_blue() complains when col type is wrong.", {
+  expect_error(clr_extract_blue("not a color"))
+  expect_error(clr_extract_blue(list(pal = "#000000")))
+})
+
+test_that("clr_extract_alpha() complains when col type is wrong.", {
+  expect_error(clr_extract_alpha("not a color"))
+  expect_error(clr_extract_alpha(list(pal = "#000000")))
+})
 
 test_that("extract_rgb functions work", {
   colors <- topo.colors(10)
@@ -25,9 +40,20 @@ test_that("extract_rgb functions work", {
   expect_equal(clr_extract_lightness(colors), hsl_cols[, "l"])
 })
 
-test_wrong_input(clr_extract_hue)
-test_wrong_input(clr_extract_saturation)
-test_wrong_input(clr_extract_lightness)
+test_that("clr_extract_hue() complains when col type is wrong.", {
+  expect_error(clr_extract_hue("not a color"))
+  expect_error(clr_extract_hue(list(pal = "#000000")))
+})
+
+test_that("clr_extract_saturation() complains when col type is wrong.", {
+  expect_error(clr_extract_saturation("not a color"))
+  expect_error(clr_extract_saturation(list(pal = "#000000")))
+})
+
+test_that("clr_extract_lightness() complains when col type is wrong.", {
+  expect_error(clr_extract_lightness("not a color"))
+  expect_error(clr_extract_lightness(list(pal = "#000000")))
+})
 
 test_that("extract_rgb functions work", {
   colors <- topo.colors(10)
@@ -39,5 +65,12 @@ test_that("extract_rgb functions work", {
   expect_equal(clr_extract_luminance(colors), hcl_cols[, "l"])
 })
 
-test_wrong_input(clr_extract_chroma)
-test_wrong_input(clr_extract_luminance)
+test_that("clr_extract_chroma() complains when col type is wrong.", {
+  expect_error(clr_extract_chroma("not a color"))
+  expect_error(clr_extract_chroma(list(pal = "#000000")))
+})
+
+test_that("clr_extract_luminance() complains when col type is wrong.", {
+  expect_error(clr_extract_luminance("not a color"))
+  expect_error(clr_extract_luminance(list(pal = "#000000")))
+})
