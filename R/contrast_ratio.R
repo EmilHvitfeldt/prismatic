@@ -50,19 +50,21 @@ contrast_ratio <- function(x, y) {
 #'
 #' Finds the color in `y` with the highest contrast to the color `x`.
 #'
-#' @param x Single color
+#' @param x Multiple colors
 #' @param y Multiple colors
 #'
 #' @return The elements of `y` with highest contrast to `x`.
+#' @export
 #'
 #' @examples
 #' best_contrast("red")
 #' best_contrast("grey20")
 #' best_contrast("white")
-#' @noRd
+#'
+#' best_contrast(rainbow(10), rainbow(3))
 best_contrast <- function(x, y = c("#010101", "#FFFFFF")) {
-  constracts <- contrast_ratio(x, y)
-  y[max(constracts) == constracts][1]
+  constracts <- sapply(x, contrast_ratio, y)
+  y[apply(constracts, 2, function(x) which(max(x) == x))]
 }
 
 rel_l <- function(x) {

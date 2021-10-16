@@ -3,6 +3,7 @@
 S3method("[",colors)
 S3method(plot,colors)
 S3method(print,colors)
+export(best_contrast)
 export(check_color_blindness)
 export(clr_alpha)
 export(clr_darken)

@@ -40,6 +40,7 @@ reference:
       - check_color_blindness
   - title: "Color Contrast"
     contents:
+      - best_contrast
       - contrast_ratio
   - title: "Extract Components"
     contents:
