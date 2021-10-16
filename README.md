@@ -8,13 +8,13 @@
 [![R build
 status](https://github.com/EmilHvitfeldt/prismatic/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/prismatic/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badge.svg)](https://codecov.io/gh/EmilHvitfeldt/prismatic?branch=master)
+coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badge.svg)](https://app.codecov.io/gh/EmilHvitfeldt/prismatic?branch=master)
 [![CRAN
 status](http://www.r-pkg.org/badges/version/prismatic)](https://CRAN.R-project.org/package=prismatic)
 [![Downloads](http://cranlogs.r-pkg.org/badges/prismatic)](https://CRAN.R-project.org/package=prismatic)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/badge/latestdoi/205078698)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/record/4420786)
 <!-- badges: end -->
 
 The goal of prismatic is to provide color manipulation tools in R, in a

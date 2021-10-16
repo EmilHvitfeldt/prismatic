@@ -2,10 +2,7 @@ Package: prismatic
 Title: Color Manipulation Tools
 Version: 1.0.0.9000
 Authors@R: 
-    person(given = "Emil",
-           family = "Hvitfeldt",
-           role = c("aut", "cre"),
-           email = "emilhhvitfeldt@gmail.com",
+    person("Emil", "Hvitfeldt", , "emilhhvitfeldt@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0679-1945"))
 Description: Manipulate and visualize colors in a intuitive,
     low-dependency and functional way.
@@ -15,7 +12,9 @@ BugReports: https://github.com/EmilHvitfeldt/prismatic/issues
 Depends: 
     R (>= 3.2)
 Imports: 
-    farver (>= 2.0.1)
+    graphics,
+    farver (>= 2.0.1),
+    grDevices
 Suggests: 
     covr,
     crayon,

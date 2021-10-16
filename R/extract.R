@@ -86,7 +86,7 @@ clr_extract_hue <- function(col, space = c("HSL", "HCL")) {
   space <- match.arg(space)
 
   col <- color(col)
-  switch (space,
+  switch(space,
     HSL = extract_hsl(col)[["hue_hsl"]],
     HCL = extract_hcl(col)[["hue_hcl"]]
   )
@@ -194,9 +194,11 @@ extract_hcl <- function(col) {
 #' clr_extract(rainbow(10))
 #'
 #' clr_extract(rainbow(10), c("hue_hsl", "saturation"))
-clr_extract <- function(col, components = c("red", "green", "blue", "hue_hsl",
-                                            "saturation", "lightness",
-                                            "hue_hcl", "chroma", "luminance")) {
+clr_extract <- function(col, components = c(
+                          "red", "green", "blue", "hue_hsl",
+                          "saturation", "lightness",
+                          "hue_hcl", "chroma", "luminance"
+                        )) {
   components <- match.arg(components, several.ok = TRUE)
   col <- color(col)
   cbind(
