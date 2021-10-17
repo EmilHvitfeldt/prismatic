@@ -5,8 +5,7 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/EmilHvitfeldt/prismatic/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/prismatic/actions)
+[![R-CMD-check](https://github.com/EmilHvitfeldt/prismatic/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/prismatic/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/EmilHvitfeldt/prismatic/branch/master/graph/badge.svg)](https://app.codecov.io/gh/EmilHvitfeldt/prismatic?branch=master)
 [![CRAN
