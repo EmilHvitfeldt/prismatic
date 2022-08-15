@@ -6,7 +6,7 @@
 \alias{prismatic-package}
 \title{prismatic: Color Manipulation Tools}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
 Manipulate and visualize colors in a intuitive, low-dependency and functional way.
 }

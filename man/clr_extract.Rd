@@ -6,8 +6,8 @@
 \usage{
 clr_extract(
   col,
-  components = c("red", "green", "blue", "hue_hsl", "saturation", "lightness",
-    "hue_hcl", "chroma", "luminance")
+  components = c("red", "green", "blue", "hue_hsl", "saturation", "lightness", "hue_hcl",
+    "chroma", "luminance")
 )
 }
 \arguments{

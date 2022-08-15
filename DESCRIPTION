@@ -20,5 +20,5 @@ Suggests:
     crayon,
     testthat (>= 3.0.0)
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1.9000
 Config/testthat/edition: 3
