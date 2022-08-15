@@ -1,5 +1,7 @@
 # prismatic (development version)
 
+* Fixed documentation to be HTML5 friendly.
+
 # prismatic 1.1.0
 
 * Add extraction functions.
