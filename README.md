@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# prismatic <img src='man/figures/logo.png' align="right" height="139" />
+# prismatic <img src='man/figures/logo.png' height="139" style="float:right" />
 
 <!-- badges: start -->
 
@@ -131,6 +131,7 @@ clr_rotate(ddd, 180) %>% plot()
 <img src="man/figures/README-unnamed-chunk-3-8.png" width="100%" />
 
 ``` r
+
 clr_protan(ddd) %>% plot()
 ```
 

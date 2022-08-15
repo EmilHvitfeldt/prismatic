@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# prismatic <img src='man/figures/logo.png' align="right" height="139" />
+# prismatic <img src='man/figures/logo.png' height="139" style="float:right" />
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/EmilHvitfeldt/prismatic/workflows/R-CMD-check/badge.svg)](https://github.com/EmilHvitfeldt/prismatic/actions)
