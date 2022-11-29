@@ -30,9 +30,12 @@
 color <- function(col) {
   if (is.list(col)) stop("`col` must not be a list.")
   if (length(col) < 0) stop("The length of `col` must be positive.")
-  col <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
-  attr(col, "class") <- "colors"
-  col
+  colors <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
+  if (has_names(col)) {
+    names(colors) <- names(col)
+  }
+  attr(colors, "class") <- "colors"
+  colors
 }
 
 #' @rdname color
