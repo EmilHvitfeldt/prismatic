@@ -60,3 +60,8 @@ test_that("color() retains names", {
   z <- c("#0000FF", "#FF0000")
   expect_null(names(color(z)))
 })
+
+test_that("plot.color() errors with bad label input", {
+  expect_error(plot(color(rainbow(10)), labels = 1:3))
+  expect_error(plot(color(rainbow(10)), labels = paste(1:3)))
+})
