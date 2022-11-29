@@ -15,3 +15,7 @@ rgb_norm <- function(x) {
 pro_transform <- function(data, value, ratio) {
   value * ratio + data * (1 - ratio)
 }
+
+has_names <- function(x) {
+  !is.null(names(x)) || any(nzchar(names(x)))
+}

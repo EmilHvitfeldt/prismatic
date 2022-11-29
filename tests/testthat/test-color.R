@@ -49,3 +49,19 @@ test_that("colour() complains when col type is wrong.", {
   expect_error(colour("not a color"))
   expect_error(colour(list(pal = "#000000")))
 })
+
+test_that("color() retains names", {
+  x <- c(blue = "#0000FF", red = "#FF0000")
+  expect_equal(names(color(x)), names(x))
+
+  y <- c(blue = "#0000FF", "#FF0000")
+  expect_equal(names(color(y)), names(y))
+
+  z <- c("#0000FF", "#FF0000")
+  expect_null(names(color(z)))
+})
+
+test_that("plot.color() errors with bad label input", {
+  expect_error(plot(color(rainbow(10)), labels = 1:3))
+  expect_error(plot(color(rainbow(10)), labels = paste(1:3)))
+})
