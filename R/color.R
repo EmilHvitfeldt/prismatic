@@ -70,9 +70,20 @@ plot.colors <- function(x, labels = FALSE, ...) {
     xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
     ytop = 1, col = x, border = NA
   )
-  if (labels) {
+  if (is.logical(labels)) {
+    color_labels <- if (has_names(x)) names(x) else x
+    show_labels <- isTRUE(labels)
+  } else {
+    stopifnot(
+      "`labels` must be a character" = is.character(labels),
+      "`labels` must be the same length as `x`" = length(x) == length(labels)
+    )
+    color_labels <- labels
+    show_labels <- TRUE
+  }
+  if (show_labels) {
     label_col <- vapply(x, best_contrast, FUN.VALUE = character(1))
-    text(x = seq_along(x), y = 0.5, labels = x, srt = 90, col = label_col)
+    text(x = seq_along(x), y = 0.5, labels = color_labels, srt = 90, col = label_col)
   }
   rect(xleft = 0.5, ybottom = 0, xright = length(x) + 0.5, ytop = 1)
 }
