@@ -82,6 +82,8 @@ plot.colors <- function(x, labels = FALSE, ...) {
     show_labels <- TRUE
   }
   if (show_labels) {
+    # Fill missing color labels with the color hex value
+    color_labels[!nzchar(color_labels)] <- x[!nzchar(color_labels)]
     label_col <- vapply(x, best_contrast, FUN.VALUE = character(1))
     text(x = seq_along(x), y = 0.5, labels = color_labels, srt = 90, col = label_col)
   }
