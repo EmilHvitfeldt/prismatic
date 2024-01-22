@@ -7,7 +7,7 @@ Authors@R:
 Description: Manipulate and visualize colors in a intuitive,
     low-dependency and functional way.
 License: MIT + file LICENSE
-URL: https://github.com/EmilHvitfeldt/prismatic
+URL: https://emilhvitfeldt.github.io/prismatic/, https://github.com/EmilHvitfeldt/prismatic
 BugReports: https://github.com/EmilHvitfeldt/prismatic/issues
 Depends: 
     R (>= 3.2)
