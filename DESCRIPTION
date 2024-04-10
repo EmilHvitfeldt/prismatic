@@ -17,7 +17,7 @@ Imports:
     grDevices
 Suggests: 
     covr,
-    crayon,
+    cli,
     testthat (>= 3.0.0)
 Encoding: UTF-8
 RoxygenNote: 7.2.1.9000
