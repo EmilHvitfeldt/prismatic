@@ -48,8 +48,8 @@ clr_extract_lightness(rainbow(100))
 }
 \seealso{
 Other Extraction: 
+\code{\link{clr_extract}()},
 \code{\link{clr_extract_chroma}()},
-\code{\link{clr_extract_red}()},
-\code{\link{clr_extract}()}
+\code{\link{clr_extract_red}()}
 }
 \concept{Extraction}

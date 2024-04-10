@@ -15,7 +15,7 @@
 #'   Cylindrical HCL space. Where the color adjusting is happening HLS is copied
 #'   to the values in the HCL transformation. Thus the "combined" transformation
 #'   adjusts the luminance in HCL space and chroma in HSL space. For more
-#'   information regarding use of color spaces, please refer to the {colorspace}
+#'   information regarding use of color spaces, please refer to the colorspace
 #'   paper \url{https://arxiv.org/abs/1903.06490}.
 #'
 #' @source \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
@@ -113,7 +113,7 @@ clr_lighten <- function(col, shift = 0.5, space = c("HCL", "HSL", "combined")) {
 #'   Cylindrical HCL space. Where the color adjusting is happening HLS is copied
 #'   to the values in the HCL transformation. Thus the "combined" transformation
 #'   adjusts the luminance in HCL space and chroma in HSL space. For more
-#'   information regarding use of color spaces, please refer to the {colorspace}
+#'   information regarding use of color spaces, please refer to the colorspace
 #'   paper \url{https://arxiv.org/abs/1903.06490}.
 #'
 #' @source \url{https://en.wikipedia.org/wiki/HSL_and_HSV}

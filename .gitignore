@@ -4,3 +4,7 @@
 .Ruserdata
 docs/
 .DS_Store
+revdep/checks.noindex
+revdep/library.noindex
+revdep/data.sqlite
+revdep/cloud.noindex/*

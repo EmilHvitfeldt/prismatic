@@ -47,7 +47,7 @@ If space = "HSL" then the colors are transformed to HSL space where
   Cylindrical HCL space. Where the color adjusting is happening HLS is copied
   to the values in the HCL transformation. Thus the "combined" transformation
   adjusts the luminance in HCL space and chroma in HSL space. For more
-  information regarding use of color spaces, please refer to the {colorspace}
+  information regarding use of color spaces, please refer to the colorspace
   paper \url{https://arxiv.org/abs/1903.06490}.
 }
 \examples{
