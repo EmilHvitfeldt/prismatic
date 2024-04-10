@@ -19,12 +19,12 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 The goal of prismatic is to provide color manipulation tools in R, in a
 intuitive, low-dependency and functional way.
 
--   **intuitive** All the working functions are prefixed with `clr_`
-    (**c**o**l**o**r**) allowing for easy autocompletion.
--   **low-dependency** Only depends on
-    [farver](https://github.com/thomasp85/farver).
--   **functional** All functions have consistent inputs and outputs and
-    are thus fully pipeable.
+- **intuitive** All the working functions are prefixed with `clr_`
+  (**c**o**l**o**r**) allowing for easy autocompletion.
+- **low-dependency** Only depends on
+  [farver](https://github.com/thomasp85/farver).
+- **functional** All functions have consistent inputs and outputs and
+  are thus fully pipeable.
 
 ## Installation
 
@@ -67,10 +67,10 @@ terrain_color
 plot(terrain_color)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-terraincols-1.png" width="100%" />
 
-If [crayon](https://github.com/r-lib/crayon) is available the print
-method will do its best to represent the colors.
+If [cli](https://github.com/r-lib/cli) is available the print method
+will do its best to represent the colors.
 
 ![](man/figures/sceenshot.png)
 
@@ -86,68 +86,68 @@ ddd
 plot(ddd)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-plotcols-1.png" width="100%" />
 
 ``` r
 clr_grayscale(ddd) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
+<img src="man/figures/README-plotcols-2.png" width="100%" />
 
 ``` r
 clr_lighten(ddd, 0.7) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-3.png" width="100%" />
+<img src="man/figures/README-plotcols-3.png" width="100%" />
 
 ``` r
 clr_darken(ddd, 0.5) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-4.png" width="100%" />
+<img src="man/figures/README-plotcols-4.png" width="100%" />
 
 ``` r
 clr_saturate(ddd, 0.5) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-5.png" width="100%" />
+<img src="man/figures/README-plotcols-5.png" width="100%" />
 
 ``` r
 clr_desaturate(ddd, 0.5) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-6.png" width="100%" />
+<img src="man/figures/README-plotcols-6.png" width="100%" />
 
 ``` r
 clr_negate(ddd) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-7.png" width="100%" />
+<img src="man/figures/README-plotcols-7.png" width="100%" />
 
 ``` r
 clr_rotate(ddd, 180) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-8.png" width="100%" />
+<img src="man/figures/README-plotcols-8.png" width="100%" />
 
 ``` r
 
 clr_protan(ddd) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-9.png" width="100%" />
+<img src="man/figures/README-plotcols-9.png" width="100%" />
 
 ``` r
 clr_tritan(ddd) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-10.png" width="100%" />
+<img src="man/figures/README-plotcols-10.png" width="100%" />
 
 ``` r
 clr_deutan(ddd) %>% plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-11.png" width="100%" />
+<img src="man/figures/README-plotcols-11.png" width="100%" />
 
 ## Related work
 
