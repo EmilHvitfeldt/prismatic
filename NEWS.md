@@ -2,6 +2,8 @@
 
 * `color()` now maintains the names of the input vector, allowing `plot()` to use the color names rather than the hex values when `label = TRUE`. You can also provide `label` with a custom set of color labels. Unnamed colors are labelled with their hex values (@gadenbuie #27).
 
+* Printing color objects is now powered by `{cli}`, which has superseded `{crayon}` (#28).
+
 # prismatic 1.1.1
 
 * Fixed documentation to be HTML5 friendly.
