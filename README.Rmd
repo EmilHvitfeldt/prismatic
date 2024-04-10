@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r opts, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -48,7 +48,7 @@ devtools::install_github("EmilHvitfeldt/prismatic")
 
 All **prismatic** functions returns a `colors` object, which includes a new printing method and plotting method for quickly visualizing the colors.
 
-```{r, dpi=320}
+```{r terraincols, dpi=320}
 library(prismatic)
 library(magrittr)
 
@@ -63,11 +63,11 @@ terrain_color
 plot(terrain_color)
 ```
 
-If [crayon](https://github.com/r-lib/crayon) is available the print method will do its best to represent the colors.
+If [cli](https://github.com/r-lib/cli) is available the print method will do its best to represent the colors.
 
 ![](man/figures/sceenshot.png)
 
-```{r, dpi=320}
+```{r plotcols, dpi=320}
 library(prismatic)
 library(magrittr)
 ddd <- color(terrain.colors(10))

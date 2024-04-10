@@ -91,10 +91,10 @@ plot.colors <- function(x, labels = FALSE, ...) {
 }
 
 color_styler <- function(x) {
-  text <- crayon::make_style(best_contrast(x), bg = FALSE)
-  background <- crayon::make_style(x, bg = TRUE, colors = 256, grey = FALSE)
+  text <- cli::make_ansi_style(best_contrast(x), bg = FALSE)
+  background <- cli::make_ansi_style(x, bg = TRUE, colors = 256, grey = FALSE)
 
-  crayon::combine_styles(text, background)(x)
+  cli::combine_ansi_styles(text, background)(x)
 }
 
 pretty_print <- function(x) {
@@ -105,7 +105,7 @@ pretty_print <- function(x) {
 #' @export
 print.colors <- function(x, ...) {
   cat("<colors>\n")
-  if (requireNamespace("crayon", quietly = TRUE)) {
+  if (requireNamespace("cli", quietly = TRUE)) {
     pretty_print(x)
   } else {
     print(unclass(x))
