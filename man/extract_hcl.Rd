@@ -35,8 +35,8 @@ clr_extract_luminance(rainbow(100))
 }
 \seealso{
 Other Extraction: 
+\code{\link{clr_extract}()},
 \code{\link{clr_extract_hue}()},
-\code{\link{clr_extract_red}()},
-\code{\link{clr_extract}()}
+\code{\link{clr_extract_red}()}
 }
 \concept{Extraction}

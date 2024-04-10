@@ -40,8 +40,8 @@ clr_extract_alpha(rainbow(100))
 }
 \seealso{
 Other Extraction: 
+\code{\link{clr_extract}()},
 \code{\link{clr_extract_chroma}()},
-\code{\link{clr_extract_hue}()},
-\code{\link{clr_extract}()}
+\code{\link{clr_extract_hue}()}
 }
 \concept{Extraction}

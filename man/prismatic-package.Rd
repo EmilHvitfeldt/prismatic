@@ -13,6 +13,7 @@ Manipulate and visualize colors in a intuitive, low-dependency and functional wa
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://emilhvitfeldt.github.io/prismatic/}
   \item \url{https://github.com/EmilHvitfeldt/prismatic}
   \item Report bugs at \url{https://github.com/EmilHvitfeldt/prismatic/issues}
 }
