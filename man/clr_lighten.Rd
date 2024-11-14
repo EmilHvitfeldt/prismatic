@@ -2,7 +2,7 @@
 % Please edit documentation in R/lightness.R
 \name{clr_lighten}
 \alias{clr_lighten}
-\title{Make a color more light}
+\title{Make a color lighter}
 \source{
 \url{https://en.wikipedia.org/wiki/HSL_and_HSV}
 
@@ -14,41 +14,41 @@
 clr_lighten(col, shift = 0.5, space = c("HCL", "HSL", "combined"))
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{shift}{Numeric between 0 and 1, 0 will do zero lightening, 1 will do
-complete lightening turning the color to white. Defaults to 0.5.}
+\item{shift}{A number between 0 and 1. 0 will do zero lightening, and 1 will
+do complete lightening, turning the color to white. Defaults to 0.5.}
 
-\item{space}{character string specifying the color space in which adjustment
+\item{space}{A character string specifying the color space in which adjustment
 happens. Can be either "HCL", "HSL" or "combined". Defaults to "HCL".}
 }
 \value{
-a colors object of same length as col.
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
-Make a color more light
+Make a color lighter
 }
 \details{
 The colors will be transformed to HSL color space (hue, saturation,
- lightness) where the lightness of the color will  be modified. The lightness
- of a color takes a value between 0 and 1, with 0 being black and 1 being
- white. The \code{shift} argument takes a value between 0 and 1, where 0
- means that the lightness stays unchanged and 1 means completely white. As an
- example, if the lightness of the color is 0.6 and shift is 0.5, then the
- lightness be set to the halfway point between 0.6 and 1 which is 0.8.
+lightness) where the lightness of the color will  be modified. The lightness
+of a color takes a value between 0 and 1, with 0 being black and 1 being
+white. \code{shift} takes a value between 0 and 1, where 0 means the lightness
+stays unchanged and 1 means completely white. As an example, if the lightness
+of the color is 0.6 and \code{shift} is 0.5, the lightness will be set to the
+halfway point between 0.6 and 1 which is 0.8.
 
-If space = "HSL" then the colors are transformed to HSL space where
-  the lightness value L is adjusted. If space = "HCL" then the colors are
-  transformed to Cylindrical HCL space where the luminance value L is
-  adjusted. If space = "combined" then the colors are transformed into HSL and
-  Cylindrical HCL space. Where the color adjusting is happening HLS is copied
-  to the values in the HCL transformation. Thus the "combined" transformation
-  adjusts the luminance in HCL space and chroma in HSL space. For more
-  information regarding use of color spaces, please refer to the colorspace
-  paper \url{https://arxiv.org/abs/1903.06490}.
+If \code{space = "HSL"} then the colors are transformed to HSL space where
+the lightness value L is adjusted. If \code{space = "HCL"} then the colors are
+transformed to Cylindrical HCL space where the luminance value L is adjusted.
+If \code{space = "combined"} then the colors are transformed into HSL and
+Cylindrical HCL space. Where the color adjusting is happening HLS is copied
+to the values in the HCL transformation. Thus, the "combined" transformation
+adjusts the luminance in HCL space and chroma in HSL space. For more
+information regarding use of color spaces, please refer to the colorspace
+paper \url{https://arxiv.org/abs/1903.06490}.
 }
 \examples{
 # Using linear shift
@@ -60,7 +60,8 @@ plot(clr_lighten(terrain.colors(10)))
 
 # Using exponential shifts
 plot(clr_lighten(rep("red", 11), shift = log(seq(1, exp(1), length.out = 11))))
+
 }
 \seealso{
-clr_darken
+\code{\link[=clr_darken]{clr_darken()}}
 }

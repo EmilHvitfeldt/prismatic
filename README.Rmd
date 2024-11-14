@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/record/4420786)
 <!-- badges: end -->
 
-The goal of prismatic is to provide color manipulation tools in R, in a intuitive, low-dependency and functional way.
+The goal of prismatic is to provide color manipulation tools in R, in an intuitive, low-dependency and functional way.
 
 - **intuitive** All the working functions are prefixed with `clr_` (**c**o**l**o**r**) allowing for easy autocompletion.
 - **low-dependency** Only depends on [farver](https://github.com/thomasp85/farver).
@@ -46,11 +46,10 @@ devtools::install_github("EmilHvitfeldt/prismatic")
 ```
 ## Examples
 
-All **prismatic** functions returns a `colors` object, which includes a new printing method and plotting method for quickly visualizing the colors.
+All **prismatic** function return a `colors` object, which includes a new printing method and plotting method for quickly visualizing the colors.
 
 ```{r terraincols, dpi=320}
 library(prismatic)
-library(magrittr)
 
 terrain10 <- terrain.colors(10)
 
@@ -68,24 +67,21 @@ If [cli](https://github.com/r-lib/cli) is available the print method will do its
 ![](man/figures/sceenshot.png)
 
 ```{r plotcols, dpi=320}
-library(prismatic)
-library(magrittr)
 ddd <- color(terrain.colors(10))
-
 ddd
 
 plot(ddd)
-clr_grayscale(ddd) %>% plot()
-clr_lighten(ddd, 0.7) %>% plot()
-clr_darken(ddd, 0.5) %>% plot()
-clr_saturate(ddd, 0.5) %>% plot()
-clr_desaturate(ddd, 0.5) %>% plot()
-clr_negate(ddd) %>% plot()
-clr_rotate(ddd, 180) %>% plot()
+clr_grayscale(ddd) |> plot()
+clr_lighten(ddd, 0.7) |> plot()
+clr_darken(ddd, 0.5) |> plot()
+clr_saturate(ddd, 0.5) |> plot()
+clr_desaturate(ddd, 0.5) |> plot()
+clr_negate(ddd) |> plot()
+clr_rotate(ddd, 180) |> plot()
 
-clr_protan(ddd) %>% plot()
-clr_tritan(ddd) %>% plot()
-clr_deutan(ddd) %>% plot()
+clr_protan(ddd) |> plot()
+clr_tritan(ddd) |> plot()
+clr_deutan(ddd) |> plot()
 ```
 
 ## Related work
@@ -94,4 +90,4 @@ This package is hugely inspired by the JavaScript library [Qix-/color](https://g
 
 ## Code of Conduct
 
-Please note that the 'prismatic' project is released with a [Contributor Code of Conduct](https://github.com/EmilHvitfeldt/prismatic/blob/main/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+Please note that the **prismatic** project is released with a [Contributor Code of Conduct](https://github.com/EmilHvitfeldt/prismatic/blob/main/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

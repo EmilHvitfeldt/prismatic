@@ -1,23 +1,24 @@
-#' Modify Individual HCL Axes
+#' Modify individual HCL axes
 #'
 #' This function lets you modify individual axes of a color in HCL color space.
 #'
 #' The expression used in `h`, `c`, and `l` is evaluated in the `hcl` space and
-#' and you have access to `h`, `c`, and `l` as vectors along with vectors in the
+#' you have access to `h`, `c`, and `l` as vectors along with vectors in the
 #' calling environment.
 #'
-#' `h` ranges from 0 to 360, `l` ranges from 0 to 100, and `c` while depended on
-#' `h` and `l` will roughly be within 0 and 180, but often on a narrower range.
-#' Colors after modification will be adjusted to fit within the color space.
+#' `h` ranges from 0 to 360, `l` ranges from 0 to 100, and `c` while dependent
+#' on `h` and `l` will roughly be within 0 and 180, but often on a narrower
+#' range. Colors after modification will be adjusted to fit within the color
+#' space.
 #'
 #' @inheritParams color
-#' @param h Expression to modify the hue of `col`
-#' @param c Expression to modify the chroma of `col`
-#' @param l Expression to modify the luminance of `col`
+#' @param h Expression to modify the hue of `col`.
+#' @param c Expression to modify the chroma of `col`.
+#' @param l Expression to modify the luminance of `col`.
 #'
 #' @source \url{https://en.wikipedia.org/wiki/HCL_color_space}
 #'
-#' @return a colors object.
+#' @return A `colors` object.
 #' @export
 #'
 #' @examples

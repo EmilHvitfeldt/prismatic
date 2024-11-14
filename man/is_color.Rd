@@ -2,16 +2,16 @@
 % Please edit documentation in R/color.R
 \name{is_color}
 \alias{is_color}
-\title{Test if the object is a color}
+\title{Test if object is a \code{colors} object}
 \usage{
 is_color(x)
 }
 \arguments{
-\item{x}{An object}
+\item{x}{An object.}
 }
 \value{
-TRUE if the object inherits from the color class.
+\code{TRUE} if the object inherits from the \code{colors} class, else \code{FALSE}.
 }
 \description{
-Test if the object is a color
+Test if object is a \code{colors} object
 }

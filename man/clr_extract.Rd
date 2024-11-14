@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract.R
 \name{clr_extract}
 \alias{clr_extract}
-\title{Extract Multiple Components}
+\title{Extract multiple components}
 \usage{
 clr_extract(
   col,
@@ -11,35 +11,37 @@ clr_extract(
 )
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{components}{character, components that should be extracted. See details
-for allowed components.}
+\item{components}{A character vector of components that should be extracted.
+See \emph{Details} for allowed components.}
 }
 \value{
-data.frame of components
+A \link{data.frame} of components.
 }
 \description{
 Extract multiple color components at the same time.
 }
 \details{
-The allowed values for `components` are
+The allowed values for \code{components} are:
+\itemize{
+\item red
+\item green
+\item blue
+\item hue_hsl
+\item saturation
+\item lightness
+\item hue_hcl
+\item chroma
+\item luminance
+}
 
-- red
-- green
-- blue
-- hue_hsl
-- saturation
-- lightness
-- hue_hcl
-- chroma
-- luminance
-
-This function is to be preferred if you need to extract multiple components
-at the same time, since it doesn't need repeat transformations.
+\code{clr_extract()} is to be preferred over other extraction functions if you
+need to extract multiple components at the same time, since it doesn't
+repeat transformations.
 }
 \examples{
 clr_extract(rainbow(10))
@@ -50,6 +52,6 @@ clr_extract(rainbow(10), c("hue_hsl", "saturation"))
 Other Extraction: 
 \code{\link{clr_extract_chroma}()},
 \code{\link{clr_extract_hue}()},
-\code{\link{clr_extract_red}()}
+\code{\link{extract_rgba}()}
 }
 \concept{Extraction}
