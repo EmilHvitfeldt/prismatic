@@ -16,24 +16,26 @@ clr_deutan(col, severity = 1)
 clr_tritan(col, severity = 1)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{severity}{A numeric, Severity of the color vision defect, a number
-between 0 and 1. 0 means no deficiency, 1 means complete deficiency. Defaults
- to 1.}
+\item{severity}{A numeric indicating the severity of the color vision defect.
+Must be a number between 0 and 1, where 0 means no deficiency, and 1 means
+complete deficiency. Defaults to 1.}
 }
 \value{
-a colors object of same length as col.
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
 Simulate color vision deficiency
 }
 \details{
-The matrices uses to perform transformations have been taken as the
- 1.0 value in table 1 in \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}.
+The matrices used to perform transformations have been taken as the
+1.0 value in table 1 in
+\url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}.
+Values for \code{severity} values between 0 and 1 will be linearly interpolated.
 }
 \examples{
 rainbow_colors <- color(rainbow(10))
@@ -54,7 +56,7 @@ plot(clr_tritan(viridis_colors))
 }
 \references{
 Gustavo M. Machado, Manuel M. Oliveira, and Leandro A. F. Fernandes "A
- Physiologically-based Model for Simulation of Color Vision Deficiency". IEEE
- Transactions on Visualization and Computer Graphics. Volume 15 (2009),
- Number 6, November/December 2009. pp. 1291-1298.
+Physiologically-based Model for Simulation of Color Vision Deficiency". IEEE
+Transactions on Visualization and Computer Graphics. Volume 15 (2009),
+Number 6, November/December 2009. pp. 1291-1298.
 }

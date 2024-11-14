@@ -1,10 +1,11 @@
-#' Contrast Ratio Between Colors
+#' Contrast ratio between colors
 #'
-#' Calculates the contrast ratio between `x` and the colors `y`. Contrast ratios
-#' can range from 1 to 21 with 1 being no contrast (same color) and 21 being
-#' highest contrast.
+#' `contrast_ratio()` calculates the contrast ratio between the color `x` and
+#' the color(s) `y`. Contrast ratios can range from 1 to 21 with 1 being no
+#' contrast (i.e., same color) and 21 being highest contrast.
 #'
-#' The formula for calculating contract ratio is
+#' @details
+#' The formula used for calculating a contrast ratio between two colors is
 #'
 #' \deqn{(L1 + 0.05) / (L2 + 0.05)}
 #'
@@ -18,16 +19,17 @@
 #' Relative luminance is calculated according to
 #' \url{https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef}.
 #'
-#' @param x A color object or vector of length 1 of any of the three kinds of R
-#' color specifications, i.e., either a color name (as listed by colors()), a
-#' hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-#' positive integer i meaning palette()[i].
-#' @param y A color object or vector of any of the three kinds of R color
-#' specifications, i.e., either a color name (as listed by colors()), a
-#' hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-#' positive integer i meaning palette()[i].
+#' @param x A length 1 color object (see [color()]) or a length 1 vector of any
+#'  of the three kinds of R color specifications, i.e., either a color name (as
+#'  listed by [grDevices::colors()]), a hexadecimal string (see [col2rgb()]), or
+#'  a positive integer `i` meaning [grDevices::palette()]`[i]`.
+#' @param y A color object (see [color()]) or a vector of any of the three kinds
+#'  of R color specifications, i.e., either a color name (as listed by
+#'  [grDevices::colors()]), a hexadecimal string (see [col2rgb()]), or a
+#'  positive integer `i` meaning [grDevices::palette()]`[i]`.
 #'
-#' @return The elements of `y` with highest contrast to `x`.
+#' @return A numerical vector of the same length as `y` of the calculated
+#'  contrast ratios.
 #' @export
 #'
 #' @source \url{https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html}
@@ -37,7 +39,7 @@
 #' contrast_ratio("white", c("white", "black"))
 contrast_ratio <- function(x, y) {
   if (length(x) != 1) {
-    stop(paste0("`x` must have length 1. Length was: ", length(x)))
+    stop(paste0("`x` must have length 1. Length was: ", length(x), "."))
   }
   x_l <- rel_l(x)
   y_l <- rel_l(y)
@@ -48,12 +50,16 @@ contrast_ratio <- function(x, y) {
 
 #' Find highest contrast color
 #'
-#' Finds the color in `y` with the highest contrast to the color `x`.
+#' `best_contrast()` finds the color in `y` with the highest contrast to the
+#' color `x`.
 #'
-#' @param x Multiple colors
-#' @param y Multiple colors
+#' @param x A vector of colors as described in `col` of [color()]. Must not
+#'  contain any `NA`.
+#' @param y A vector of colors as described in `col` of [color()]. Must not
+#'  contain any `NA`.
 #'
-#' @return The elements of `y` with highest contrast to `x`.
+#' @return A vector of the same length as `x` with, for each element of `x`, the
+#'  element of `y` that has the highest contrast to `x`.
 #' @export
 #'
 #' @examples
@@ -63,6 +69,14 @@ contrast_ratio <- function(x, y) {
 #'
 #' best_contrast(rainbow(10), rainbow(3))
 best_contrast <- function(x, y = c("#010101", "#FFFFFF")) {
+  if (any(is.na(x)) || any(is.na(y))) {
+    stop("`x` and `y` must not contain any `NA`.")
+  }
+
+  if (length(unique(y)) != length(y)) {
+    stop("Elements in `y` must be unique.")
+  }
+
   constracts <- sapply(x, contrast_ratio, y)
   y[apply(constracts, 2, function(x) which(max(x) == x))]
 }

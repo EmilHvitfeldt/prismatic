@@ -7,19 +7,18 @@
 check_color_blindness(col)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].
-
-This function will showcase the effect of all 3 kinds of color vision
-deficiency at the same time side by side.}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 }
 \value{
-Nothing
+Invisibly \code{col}.
 }
 \description{
-Visualize color vision deficiency
+\code{check_color_blindness()} will showcase the effect of the three kinds of
+color vision deficiency, Deuteranopia, Protanopia, and Tritanopia, at the
+same time side by side in a plot.
 }
 \examples{
 check_color_blindness(rainbow(10))

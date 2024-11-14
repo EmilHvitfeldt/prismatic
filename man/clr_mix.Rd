@@ -2,30 +2,27 @@
 % Please edit documentation in R/mix.R
 \name{clr_mix}
 \alias{clr_mix}
-\title{Mixes a color into}
+\title{Mix color into color(s)}
 \usage{
 clr_mix(col, mix_in, ratio = 0.5)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{mix_in}{A single color any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{mix_in}{Same as \code{col}.}
 
-\item{ratio}{Numeric between 0 and 1. 0 will result on no mixing. 1 results
-in all the colors turning to mix_in. Must be of length 1 or same length
-as col.}
+\item{ratio}{Numeric between 0 and 1. 0 will result in \code{col}. 1 results in
+all the colors turning to \code{mix_in}. Must be of length 1 or the same length
+as \code{col}.}
 }
 \value{
-a colors object
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
-Mixes a color into
+Mix color into color(s)
 }
 \examples{
 plot(clr_mix(rainbow(10), "blue"))

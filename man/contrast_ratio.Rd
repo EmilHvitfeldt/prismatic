@@ -2,7 +2,7 @@
 % Please edit documentation in R/contrast_ratio.R
 \name{contrast_ratio}
 \alias{contrast_ratio}
-\title{Contrast Ratio Between Colors}
+\title{Contrast ratio between colors}
 \source{
 \url{https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html}
 }
@@ -10,26 +10,27 @@
 contrast_ratio(x, y)
 }
 \arguments{
-\item{x}{A color object or vector of length 1 of any of the three kinds of R
-color specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{x}{A length 1 color object (see \code{\link[=color]{color()}}) or a length 1 vector of any
+of the three kinds of R color specifications, i.e., either a color name (as
+listed by \code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or
+a positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{y}{A color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{y}{A color object (see \code{\link[=color]{color()}}) or a vector of any of the three kinds
+of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 }
 \value{
-The elements of `y` with highest contrast to `x`.
+A numerical vector of the same length as \code{y} of the calculated
+contrast ratios.
 }
 \description{
-Calculates the contrast ratio between `x` and the colors `y`. Contrast ratios
-can range from 1 to 21 with 1 being no contrast (same color) and 21 being
-highest contrast.
+\code{contrast_ratio()} calculates the contrast ratio between the color \code{x} and
+the color(s) \code{y}. Contrast ratios can range from 1 to 21 with 1 being no
+contrast (i.e., same color) and 21 being highest contrast.
 }
 \details{
-The formula for calculating contract ratio is
+The formula used for calculating a contrast ratio between two colors is
 
 \deqn{(L1 + 0.05) / (L2 + 0.05)}
 

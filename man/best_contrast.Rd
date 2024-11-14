@@ -7,15 +7,19 @@
 best_contrast(x, y = c("#010101", "#FFFFFF"))
 }
 \arguments{
-\item{x}{Multiple colors}
+\item{x}{A vector of colors as described in \code{col} of \code{\link[=color]{color()}}. Must not
+contain any \code{NA}.}
 
-\item{y}{Multiple colors}
+\item{y}{A vector of colors as described in \code{col} of \code{\link[=color]{color()}}. Must not
+contain any \code{NA}.}
 }
 \value{
-The elements of `y` with highest contrast to `x`.
+A vector of the same length as \code{x} with, for each element of \code{x}, the
+element of \code{y} that has the highest contrast to \code{x}.
 }
 \description{
-Finds the color in `y` with the highest contrast to the color `x`.
+\code{best_contrast()} finds the color in \code{y} with the highest contrast to the
+color \code{x}.
 }
 \examples{
 best_contrast("red")

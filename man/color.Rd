@@ -3,27 +3,28 @@
 \name{color}
 \alias{color}
 \alias{colour}
-\title{Turn vector to color vector}
+\title{Turn vector of colors to \code{color} vector}
 \usage{
 color(col)
 
 colour(col)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 }
 \value{
-a colors object.
+A \code{colors} object of the same length as \code{col}. Returns hex 8 digits
+form "#rrggbbaa". See \emph{Details}.
 }
 \description{
-Turn vector to color vector
+Turn vector of colors to \code{color} vector
 }
 \details{
-Alpha values will be automatically  added to hexcodes. If none at
-present it will default to no alpha (FF).
+Alpha values will be automatically added to hexcodes. If no alpha
+value is present in \code{col}, it will default to no alpha (FF).
 }
 \examples{
 terrain_10 <- color(terrain.colors(10))
