@@ -42,7 +42,7 @@ where
 }
 
 Relative luminance is calculated according to
-\url{https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef}.
+\url{https://www.w3.org/TR/WCAG21/#dfn-relative-luminance}.
 }
 \examples{
 contrast_ratio("red", "blue")

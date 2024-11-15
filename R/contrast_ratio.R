@@ -17,7 +17,7 @@
 #' }
 #'
 #' Relative luminance is calculated according to
-#' \url{https://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef}.
+#' \url{https://www.w3.org/TR/WCAG21/#dfn-relative-luminance}.
 #'
 #' @param x A length 1 color object (see [color()]) or a length 1 vector of any
 #'  of the three kinds of R color specifications, i.e., either a color name (as
@@ -81,9 +81,10 @@ best_contrast <- function(x, y = c("#010101", "#FFFFFF")) {
   y[apply(constracts, 2, function(x) which(max(x) == x))]
 }
 
+# Source: https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
 rel_l <- function(x) {
   scale <- function(x) {
-    ifelse(x <= 0.03928, x / 12.92, ((x + 0.055) / 1.055)^2.4)
+    ifelse(x <= 0.04045, x / 12.92, ((x + 0.055) / 1.055)^2.4)
   }
   rgb <- decode_colour(x) / 255
   0.2126 * scale(rgb[, 1]) + 0.7152 * scale(rgb[, 2]) + 0.0722 * scale(rgb[, 3])
