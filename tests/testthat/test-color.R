@@ -6,19 +6,19 @@ test_that("colour()'s output has colors class", {
   expect_s3_class(colour(rainbow(10)), "colors")
 })
 
-test_that("color() perserves length", {
+test_that("color() preserves length", {
   expect_length(color(rainbow(0)), 0)
   expect_length(color(rainbow(1)), 1)
   expect_length(color(rainbow(10)), 10)
 })
 
-test_that("colour() perserves length", {
+test_that("colour() preserves length", {
   expect_length(colour(rainbow(0)), 0)
   expect_length(colour(rainbow(1)), 1)
   expect_length(colour(rainbow(10)), 10)
 })
 
-test_that("is_color is working", {
+test_that("is_color() is working", {
   expect_true(is_color(color(rainbow(10))))
   expect_false(is_color(rainbow(10)))
 })
@@ -26,6 +26,8 @@ test_that("is_color is working", {
 test_that("plotting returns the data invisibly", {
   expect_invisible(plot(color(rainbow(10))))
   expect_invisible(plot(colour(rainbow(10))))
+  res <- expect_invisible(plot(color(c("#D3D5D0", "#76716E"))))
+  expect_equal(res, color(c("#D3D5D0", "#76716E")))
 })
 
 test_that("printing works", {
@@ -40,12 +42,12 @@ test_that("subsetting works", {
   expect_s3_class(colors[6:8], "colors")
 })
 
-test_that("color() complains when col type is wrong.", {
+test_that("color() complains when `col` is wrong", {
   expect_error(color("not a color"))
   expect_error(color(list(pal = "#000000")))
 })
 
-test_that("colour() complains when col type is wrong.", {
+test_that("colour() complains when `col` is wrong", {
   expect_error(colour("not a color"))
   expect_error(colour(list(pal = "#000000")))
 })
@@ -62,6 +64,11 @@ test_that("color() retains names", {
 })
 
 test_that("plot.color() errors with bad label input", {
-  expect_error(plot(color(rainbow(10)), labels = 1:3))
-  expect_error(plot(color(rainbow(10)), labels = paste(1:3)))
+  expect_error(
+    plot(color(rainbow(10)), labels = 1:3), "`labels` must be a character."
+  )
+  expect_error(
+    plot(color(rainbow(10)), labels = paste(1:3)),
+    "`labels` must be the same length as `x`."
+  )
 })

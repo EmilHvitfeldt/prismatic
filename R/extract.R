@@ -4,16 +4,17 @@
 #'
 #' @inheritParams color
 #'
-#' @rdname extract_rgb
+#' @name extract_rgba
+#' @rdname extract_rgba
 #'
 #' @details
 #' The values of the output will range between 0 and 255.
 #'
-#' Use [clr_extract()] if you are planning to extraction multiple components.
+#' Use [clr_extract()] if you are planning to extract multiple components.
 #'
 #' @family Extraction
 #'
-#' @return Numeric vector of values.
+#' @return A numeric vector giving the extracted values.
 #' @export
 #'
 #' @examples
@@ -21,33 +22,37 @@
 #' clr_extract_green(rainbow(100))
 #' clr_extract_blue(rainbow(100))
 #' clr_extract_alpha(rainbow(100))
+NULL
+
+#' @rdname extract_rgba
+#' @export
 clr_extract_red <- function(col) {
   col <- color(col)
-  extract_rgb(col)[["red"]]
+  extract_rgba(col)[["red"]]
 }
 
-#' @rdname extract_rgb
+#' @rdname extract_rgba
 #' @export
 clr_extract_green <- function(col) {
   col <- color(col)
-  extract_rgb(col)[["green"]]
+  extract_rgba(col)[["green"]]
 }
 
-#' @rdname extract_rgb
+#' @rdname extract_rgba
 #' @export
 clr_extract_blue <- function(col) {
   col <- color(col)
-  extract_rgb(col)[["blue"]]
+  extract_rgba(col)[["blue"]]
 }
 
-#' @rdname extract_rgb
+#' @rdname extract_rgba
 #' @export
 clr_extract_alpha <- function(col) {
   col <- color(col)
-  extract_rgb(col)[["alpha"]]
+  extract_rgba(col)[["alpha"]]
 }
 
-extract_rgb <- function(col) {
+extract_rgba <- function(col) {
   as.data.frame(t(col2rgb(col, alpha = TRUE)))
 }
 
@@ -57,19 +62,20 @@ extract_rgb <- function(col) {
 #' colors.
 #'
 #' @inheritParams color
-#'
-#' @param space character string specifying the color space where hue is
-#'     extracted from. Can be either "HCL" or "HSL".
+#' @param space A character string specifying the color space where hue is
+#'  extracted from. Can be either "HCL" or "HSL" (default).
 #'
 #' @rdname extract_hsl
 #'
 #' @details
-#' The range of the value are
+#' The range of the value are:
 #'
-#' - hue ranges from 0 to 360. in a circular fashion such that 0 and 360 are
-#'   near identical. 0 is red
-#' - saturation ranges from 0 to 100. 100 is full saturation, 0 is no saturation
-#' - lightness ranges from 0 to 100. 100 is full lightness, 0 is no lightness
+#' - From 0 to 360 for hue. This in a circular fashion such that 0 and 360 are
+#'   near identical. 0 is red.
+#' - From 0 to 100 for saturation where 100 is full saturation and 0 is no
+#'   saturation.
+#' - From 0 to 100 for lightness where 100 is full lightness and 0 is no
+#'   lightness.
 #'
 #' Use [clr_extract()] if you are planning to extraction multiple components.
 #'
@@ -87,8 +93,8 @@ clr_extract_hue <- function(col, space = c("HSL", "HCL")) {
 
   col <- color(col)
   switch(space,
-    HSL = extract_hsl(col)[["hue_hsl"]],
-    HCL = extract_hcl(col)[["hue_hcl"]]
+         HSL = extract_hsl(col)[["hue_hsl"]],
+         HCL = extract_hcl(col)[["hue_hcl"]]
   )
 }
 
@@ -124,11 +130,12 @@ extract_hsl <- function(col) {
 #' @rdname extract_hcl
 #'
 #' @details
-#' The range of the value are
+#' The range of the value are:
 #'
-#' - hue ranges from 0 to 360
-#' - luminance ranges from 0 to 100
-#' - chroma while depended on hue and luminance will roughly be within 0 and 180
+#' - Hue is ranging from 0 to 360.
+#' - Luminance is ranging from 0 to 100.
+#' - Chroma, while dependent on hue and luminance, will roughly be within 0 and
+#'   180.
 #'
 #' Use [clr_extract()] if you are planning to extraction multiple components.
 #'
@@ -161,16 +168,16 @@ extract_hcl <- function(col) {
   hcl
 }
 
-#' Extract Multiple Components
+#' Extract multiple components
 #'
 #' Extract multiple color components at the same time.
 #'
 #' @inheritParams color
-#' @param components character, components that should be extracted. See details
-#'   for allowed components.
+#' @param components A character vector of components that should be extracted.
+#'  See *Details* for allowed components.
 #'
 #' @details
-#' The allowed values for `components` are
+#' The allowed values for `components` are:
 #'
 #' - red
 #' - green
@@ -182,27 +189,27 @@ extract_hcl <- function(col) {
 #' - chroma
 #' - luminance
 #'
-#' This function is to be preferred if you need to extract multiple components
-#' at the same time, since it doesn't need repeat transformations.
+#' `clr_extract()` is to be preferred over other extraction functions if you
+#' need to extract multiple components at the same time, since it doesn't
+#' repeat transformations.
 #'
 #' @family Extraction
 #'
-#' @return data.frame of components
+#' @return A [data.frame] of components.
 #' @export
 #'
 #' @examples
 #' clr_extract(rainbow(10))
 #'
 #' clr_extract(rainbow(10), c("hue_hsl", "saturation"))
-clr_extract <- function(col, components = c(
-                          "red", "green", "blue", "hue_hsl",
-                          "saturation", "lightness",
-                          "hue_hcl", "chroma", "luminance"
-                        )) {
+clr_extract <- function(col,
+                        components = c("red", "green", "blue", "hue_hsl",
+                                       "saturation", "lightness", "hue_hcl",
+                                       "chroma", "luminance")) {
   components <- match.arg(components, several.ok = TRUE)
   col <- color(col)
   cbind(
-    extract_rgb(col),
+    extract_rgba(col),
     extract_hsl(col),
     extract_hcl(col)
   )[components]

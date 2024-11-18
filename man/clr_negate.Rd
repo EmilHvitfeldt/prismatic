@@ -2,29 +2,31 @@
 % Please edit documentation in R/negate.R
 \name{clr_negate}
 \alias{clr_negate}
-\title{Negates colors in RGB space}
+\title{Negate colors in RGB space}
 \usage{
 clr_negate(col)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 }
 \value{
-a colors object of same length as col.
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
-Negates colors in RGB space
+Negate colors in RGB space
 }
 \details{
 The negation of color is happening in the red-green-blue colorspace
-RGB. Meaning that if we take the specification for Orange which is
-rgb(255, 165, 0), then we negate by taking the oppesite number on the scale
-from 0 to 255, leaving us with rgb(0, 90, 255) which is a shade of blue.
+RGB. This means if we take the specification for orange which is
+rgb(255, 165, 0), then we negate by taking the opposite number on the scale
+from 0 to 255, leaving us with rgb(0, 90, 255), which is a shade of blue.
 }
 \examples{
+clr_negate("orange")
+
 terr <- color(terrain.colors(10))
 
 terr

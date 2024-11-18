@@ -16,7 +16,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![DOI](https://zenodo.org/badge/205078698.svg)](https://zenodo.org/record/4420786)
 <!-- badges: end -->
 
-The goal of prismatic is to provide color manipulation tools in R, in a
+The goal of prismatic is to provide color manipulation tools in R, in an
 intuitive, low-dependency and functional way.
 
 - **intuitive** All the working functions are prefixed with `clr_`
@@ -44,13 +44,12 @@ devtools::install_github("EmilHvitfeldt/prismatic")
 
 ## Examples
 
-All **prismatic** functions returns a `colors` object, which includes a
+All **prismatic** function return a `colors` object, which includes a
 new printing method and plotting method for quickly visualizing the
 colors.
 
 ``` r
 library(prismatic)
-library(magrittr)
 
 terrain10 <- terrain.colors(10)
 
@@ -75,10 +74,7 @@ will do its best to represent the colors.
 ![](man/figures/sceenshot.png)
 
 ``` r
-library(prismatic)
-library(magrittr)
 ddd <- color(terrain.colors(10))
-
 ddd
 #> <colors>
 #> #00A600FF #2DB600FF #63C600FF #A0D600FF #E6E600FF #E8C32EFF #EBB25EFF #EDB48EFF #F0C9C0FF #F2F2F2FF
@@ -89,62 +85,62 @@ plot(ddd)
 <img src="man/figures/README-plotcols-1.png" width="100%" />
 
 ``` r
-clr_grayscale(ddd) %>% plot()
+clr_grayscale(ddd) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-2.png" width="100%" />
 
 ``` r
-clr_lighten(ddd, 0.7) %>% plot()
+clr_lighten(ddd, 0.7) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-3.png" width="100%" />
 
 ``` r
-clr_darken(ddd, 0.5) %>% plot()
+clr_darken(ddd, 0.5) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-4.png" width="100%" />
 
 ``` r
-clr_saturate(ddd, 0.5) %>% plot()
+clr_saturate(ddd, 0.5) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-5.png" width="100%" />
 
 ``` r
-clr_desaturate(ddd, 0.5) %>% plot()
+clr_desaturate(ddd, 0.5) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-6.png" width="100%" />
 
 ``` r
-clr_negate(ddd) %>% plot()
+clr_negate(ddd) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-7.png" width="100%" />
 
 ``` r
-clr_rotate(ddd, 180) %>% plot()
+clr_rotate(ddd, 180) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-8.png" width="100%" />
 
 ``` r
 
-clr_protan(ddd) %>% plot()
+clr_protan(ddd) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-9.png" width="100%" />
 
 ``` r
-clr_tritan(ddd) %>% plot()
+clr_tritan(ddd) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-10.png" width="100%" />
 
 ``` r
-clr_deutan(ddd) %>% plot()
+clr_deutan(ddd) |> plot()
 ```
 
 <img src="man/figures/README-plotcols-11.png" width="100%" />
@@ -156,7 +152,7 @@ This package is hugely inspired by the JavaScript library
 
 ## Code of Conduct
 
-Please note that the ‘prismatic’ project is released with a [Contributor
-Code of
+Please note that the **prismatic** project is released with a
+[Contributor Code of
 Conduct](https://github.com/EmilHvitfeldt/prismatic/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.

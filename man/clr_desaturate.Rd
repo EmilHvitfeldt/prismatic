@@ -10,29 +10,28 @@
 clr_desaturate(col, shift = 0.5)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{shift}{Numeric between 0 and 1, 0 will do zero desaturation, 1 will do
-complete desaturation. Defaults to 0.5.}
+\item{shift}{A numeric between 0 and 1. 0 will do zero desaturation, 1 will
+do complete desaturation. Defaults to 0.5.}
 }
 \value{
-a colors object of same length as col.
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
 Make a color more desaturated
 }
 \details{
 The colors will be transformed to HSL color space (hue, saturation,
- lightness) where the saturation of the color will  be modified. The
- saturation of a color takes a value between 0 and 1, with 0 being black and
- 1 being white. The \code{shift} argument takes a value between 0 and 1,
- where 0 means that the saturation stays unchanged and 1 means completely
- desaturated. As an example, if the saturation of the color is 0.6 and shift
- is 0.5, then the saturation be set to the halfway point between 0.6 and 0
- which is 0.3.
+lightness) where the saturation of the color will  be modified. The
+saturation of a color takes a value between 0 and 1, with 0 being black and
+1 being white. \code{shift} takes a value between 0 and 1, where 0 means that the
+saturation stays unchanged and 1 means completely desaturated. As an example,
+if the saturation of the color is 0.6 and \code{shift} is 0.5, then the
+saturation will be set to the halfway point between 0.6 and 0 which is 0.3.
 }
 \examples{
 
@@ -43,5 +42,5 @@ plot(clr_desaturate(terrain.colors(10), shift = 0.9))
 plot(clr_desaturate(rep("firebrick", 11), shift = seq(0, 1, 0.1)))
 }
 \seealso{
-clr_saturate
+\code{\link[=clr_saturate]{clr_saturate()}}
 }

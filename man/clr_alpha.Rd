@@ -2,24 +2,24 @@
 % Please edit documentation in R/alpha.R
 \name{clr_alpha}
 \alias{clr_alpha}
-\title{Sets alpha in color}
+\title{Set alpha in color}
 \usage{
 clr_alpha(col, alpha = 0.5)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
 \item{alpha}{Numeric between 0 and 1. 0 will result in full transparency and
-1 results in no transparency.}
+1 in no transparency.}
 }
 \value{
-a colors object
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
-Sets alpha in color
+Set alpha in color
 }
 \examples{
 plot(clr_alpha(rainbow(10), 0.5))

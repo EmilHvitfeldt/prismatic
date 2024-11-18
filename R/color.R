@@ -1,14 +1,15 @@
-#' Turn vector to color vector
+#' Turn vector of colors to `color` vector
 #'
-#' @details Alpha values will be automatically  added to hexcodes. If none at
-#' present it will default to no alpha (FF).
+#' @details Alpha values will be automatically added to hexcodes. If no alpha
+#'  value is present in `col`, it will default to no alpha (FF).
 #'
-#' @param col a color object or vector of any of the three kinds of R color
-#' specifications, i.e., either a color name (as listed by colors()), a
-#' hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-#' positive integer i meaning palette()[i].
+#' @param col A `colors` object (see [color()]) or a vector of any of the three
+#'  kinds of R color specifications, i.e., either a color name (as listed by
+#'  [grDevices::colors()]), a hexadecimal string (see [col2rgb()]), or a
+#'  positive integer `i` meaning [grDevices::palette()]`[i]`.
 #'
-#' @return a colors object.
+#' @return A `colors` object of the same length as `col`. Returns hex 8 digits
+#'  form "#rrggbbaa". See *Details*.
 #' @export
 #'
 #' @rdname color
@@ -28,12 +29,18 @@
 #'
 #' plot(grey_10, labels = TRUE)
 color <- function(col) {
-  if (is.list(col)) stop("`col` must not be a list.")
-  if (length(col) < 0) stop("The length of `col` must be positive.")
+  if (is.list(col)) {
+    stop("`col` must not be a list.")
+  }
+  if (length(col) < 0) {
+    stop("The length of `col` must be positive.")
+  }
+
   colors <- rgb2col(col2rgb(col, alpha = TRUE), alpha = TRUE)
   if (has_names(col)) {
     names(colors) <- names(col)
   }
+
   attr(colors, "class") <- "colors"
   colors
 }
@@ -44,11 +51,11 @@ colour <- function(col) {
   color(col)
 }
 
-#' Test if the object is a color
+#' Test if object is a `colors` object
 #'
-#' @param x An object
+#' @param x An object.
 #'
-#' @return TRUE if the object inherits from the color class.
+#' @return `TRUE` if the object inherits from the `colors` class, else `FALSE`.
 #' @export
 is_color <- function(x) {
   inherits(x, "colors")
@@ -63,8 +70,8 @@ is_color <- function(x) {
 #' @export
 plot.colors <- function(x, labels = FALSE, ...) {
   plot(0,
-    type = "n", axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
-    ylim = c(-0.1, 1.1), mar = rep(0, 4)
+       type = "n", axes = FALSE, ann = FALSE, xlim = c(0, length(x) + 1),
+       ylim = c(-0.1, 1.1), mar = rep(0, 4)
   )
   rect(
     xleft = seq_along(x) - 0.5, ybottom = 0, xright = seq_along(x) + 0.5,
@@ -75,8 +82,8 @@ plot.colors <- function(x, labels = FALSE, ...) {
     show_labels <- isTRUE(labels)
   } else {
     stopifnot(
-      "`labels` must be a character" = is.character(labels),
-      "`labels` must be the same length as `x`" = length(x) == length(labels)
+      "`labels` must be a character." = is.character(labels),
+      "`labels` must be the same length as `x`." = length(x) == length(labels)
     )
     color_labels <- labels
     show_labels <- TRUE
@@ -88,6 +95,7 @@ plot.colors <- function(x, labels = FALSE, ...) {
     text(x = seq_along(x), y = 0.5, labels = color_labels, srt = 90, col = label_col)
   }
   rect(xleft = 0.5, ybottom = 0, xright = length(x) + 0.5, ytop = 1)
+  invisible(x)
 }
 
 color_styler <- function(x) {

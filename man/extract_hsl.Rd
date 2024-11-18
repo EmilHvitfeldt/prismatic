@@ -16,13 +16,13 @@ clr_extract_lightness(col)
 clr_extract_luminance(col)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{space}{character string specifying the color space where hue is
-extracted from. Can be either "HCL" or "HSL".}
+\item{space}{A character string specifying the color space where hue is
+extracted from. Can be either "HCL" or "HSL" (default).}
 }
 \value{
 Numeric vector of values.
@@ -32,14 +32,17 @@ Extract the hue, saturation, or lightness color components from a vector of
 colors.
 }
 \details{
-The range of the value are
+The range of the value are:
+\itemize{
+\item From 0 to 360 for hue. This in a circular fashion such that 0 and 360 are
+near identical. 0 is red.
+\item From 0 to 100 for saturation where 100 is full saturation and 0 is no
+saturation.
+\item From 0 to 100 for lightness where 100 is full lightness and 0 is no
+lightness.
+}
 
-- hue ranges from 0 to 360. in a circular fashion such that 0 and 360 are
-  near identical. 0 is red
-- saturation ranges from 0 to 100. 100 is full saturation, 0 is no saturation
-- lightness ranges from 0 to 100. 100 is full lightness, 0 is no lightness
-
-Use [clr_extract()] if you are planning to extraction multiple components.
+Use \code{\link[=clr_extract]{clr_extract()}} if you are planning to extraction multiple components.
 }
 \examples{
 clr_extract_hue(rainbow(100), "HSL")
@@ -50,6 +53,6 @@ clr_extract_lightness(rainbow(100))
 Other Extraction: 
 \code{\link{clr_extract}()},
 \code{\link{clr_extract_chroma}()},
-\code{\link{clr_extract_red}()}
+\code{\link{extract_rgba}()}
 }
 \concept{Extraction}

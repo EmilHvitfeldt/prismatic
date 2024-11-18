@@ -3,7 +3,7 @@
 \name{clr_grayscale}
 \alias{clr_grayscale}
 \alias{clr_greyscale}
-\title{Transform colors to greyscale}
+\title{Transform colors to grayscale}
 \source{
 \url{https://tannerhelland.com/3643/grayscale-image-algorithm-vb6/}
 
@@ -23,35 +23,34 @@ clr_greyscale(
 )
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{method}{character string specifying the grayscaling method. Can be one
-of "luma", "averaging", "min_decomp",  "max_decomp", "red_channel",
+\item{method}{A character string specifying the grayscaling method. Can be
+one of "luma", "averaging", "min_decomp", "max_decomp", "red_channel",
 "green_channel" and "blue_channel". Defaults to "luma".}
 }
 \value{
-a colors object of same length as col.
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
-This function has a selection of different methods to turn colors into
+\code{clr_grayscale()} has a selection of different methods to turn colors into
 grayscale.
 }
 \details{
-if method = "averaging" then the red, green and blue have been
+If \code{method = "averaging"} then the red, green and blue will be
 averaged together to create the grey value. This method does a poor job of
-representing the way the  human eye sees color.
-If method = "luma" (the default) then then a weighted average is used to
-calculate the grayscale values. The BT. 709 method from the ITU
-Radiocommunication Sector have determined the weights.
-It method = "min_decomp" or method = "max_decomp", then a decomposition
+representing the way the human eye sees color. If \code{method = "luma"} (the
+default), a weighted average is used to calculate the grayscale values. The
+BT. 709 method from the ITU Radiocommunication Sector have determined the
+weights. If \code{method} is \code{"min_decomp"} or \code{"max_decomp"}, then a decomposition
 method is used where the minimum or maximum color value have been selected
-for the color value. So the color rgb(60, 120, 40) would have the min_decomp
-value of 40 and max_decomp value of 120.
-If method is "red_channel", "green_channel" or "blue_channel", then the
-corresponding color channel been selected for the values of grayscale.
+for the color value. So the color rgb(60, 120, 40) would have the "min_decomp"
+value of 40 and "max_decomp" value of 120. If method is \code{"red_channel"},
+\code{"green_channel"} or \code{"blue_channel"}, then the corresponding color channel
+will be selected for the values of grayscale.
 }
 \examples{
 

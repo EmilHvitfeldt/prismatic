@@ -7,10 +7,10 @@
 clr_extract_chroma(col)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 }
 \value{
 Numeric vector of values.
@@ -20,13 +20,15 @@ Extract the hue, chroma, or luminance color components from a vector of
 colors.
 }
 \details{
-The range of the value are
+The range of the value are:
+\itemize{
+\item Hue is ranging from 0 to 360.
+\item Luminance is ranging from 0 to 100.
+\item Chroma, while dependent on hue and luminance, will roughly be within 0 and
+180.
+}
 
-- hue ranges from 0 to 360
-- luminance ranges from 0 to 100
-- chroma while depended on hue and luminance will roughly be within 0 and 180
-
-Use [clr_extract()] if you are planning to extraction multiple components.
+Use \code{\link[=clr_extract]{clr_extract()}} if you are planning to extraction multiple components.
 }
 \examples{
 clr_extract_hue(rainbow(100), "HCL")
@@ -37,6 +39,6 @@ clr_extract_luminance(rainbow(100))
 Other Extraction: 
 \code{\link{clr_extract}()},
 \code{\link{clr_extract_hue}()},
-\code{\link{clr_extract_red}()}
+\code{\link{extract_rgba}()}
 }
 \concept{Extraction}

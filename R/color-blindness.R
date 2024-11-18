@@ -1,16 +1,18 @@
 #' Simulate color vision deficiency
 #'
-#' @details The matrices uses to perform transformations have been taken as the
-#'  1.0 value in table 1 in \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}.
+#' @details The matrices used to perform transformations have been taken as the
+#'  1.0 value in table 1 in
+#'  \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}.
+#'  Values for `severity` values between 0 and 1 will be linearly interpolated.
 #'
 #' @rdname colorblindness
 #'
 #' @inheritParams color
-#' @param severity A numeric, Severity of the color vision defect, a number
-#' between 0 and 1. 0 means no deficiency, 1 means complete deficiency. Defaults
-#'  to 1.
+#' @param severity A numeric indicating the severity of the color vision defect.
+#'  Must be a number between 0 and 1, where 0 means no deficiency, and 1 means
+#'  complete deficiency. Defaults to 1.
 #'
-#' @return a colors object of same length as col.
+#' @return A `colors` object of the same length as `col`.
 #' @export
 #'
 #' @source \url{http://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html}
@@ -38,11 +40,12 @@
 #' plot(clr_deutan(viridis_colors))
 #' plot(clr_tritan(viridis_colors))
 clr_protan <- function(col, severity = 1) {
-  col <- color(col)
-  range_check(severity)
+  check_severity_range(severity)
   if (!(length(severity) == 1)) {
     stop("`severity` must be of length 1.")
   }
+
+  col <- color(col)
 
   rgb <- decode_colour(col) %*%
     t((diag(3) * (1 - severity) + protan_matrix * (severity)))
@@ -52,11 +55,12 @@ clr_protan <- function(col, severity = 1) {
 #' @rdname colorblindness
 #' @export
 clr_deutan <- function(col, severity = 1) {
-  col <- color(col)
-  range_check(severity)
+  check_severity_range(severity)
   if (!(length(severity) == 1)) {
     stop("`severity` must be of length 1.")
   }
+
+  col <- color(col)
 
   rgb <- decode_colour(col) %*%
     t((diag(3) * (1 - severity) + deutan_matrix * (severity)))
@@ -66,18 +70,19 @@ clr_deutan <- function(col, severity = 1) {
 #' @rdname colorblindness
 #' @export
 clr_tritan <- function(col, severity = 1) {
-  col <- color(col)
-  range_check(severity)
+  check_severity_range(severity)
   if (!(length(severity) == 1)) {
     stop("`severity` must be of length 1.")
   }
+
+  col <- color(col)
 
   rgb <- decode_colour(col) %*%
     t((diag(3) * (1 - severity) + tritan_matrix * (severity)))
   color(encode_colour(rgb_norm(rgb)))
 }
 
-range_check <- function(x) {
+check_severity_range <- function(x) {
   if (!all(x >= 0 & x <= 1)) {
     stop("`severity` must be between 0 and 1.")
   }
@@ -112,15 +117,13 @@ tritan_matrix <- matrix(
 
 #' Visualize color vision deficiency
 #'
-#' @param col a color object or vector of any of the three kinds of R color
-#' specifications, i.e., either a color name (as listed by colors()), a
-#' hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-#' positive integer i meaning palette()[i].
+#' `check_color_blindness()` will showcase the effect of the three kinds of
+#' color vision deficiency, Deuteranopia, Protanopia, and Tritanopia, at the
+#' same time side by side in a plot.
 #'
-#' This function will showcase the effect of all 3 kinds of color vision
-#' deficiency at the same time side by side.
+#' @inheritParams color
 #'
-#' @return Nothing
+#' @return Invisibly `col`.
 #' @export
 #'
 #' @examples
@@ -129,8 +132,8 @@ tritan_matrix <- matrix(
 #' check_color_blindness(terrain.colors(10))
 check_color_blindness <- function(col) {
   plot(NULL,
-    xlim = c(-0.1, 4.1), ylim = c(0, length(col) + 2),
-    xaxs = "i", yaxs = "i", mar = rep(0, 4), axes = FALSE, ann = FALSE
+       xlim = c(-0.1, 4.1), ylim = c(0, length(col) + 2),
+       xaxs = "i", yaxs = "i", mar = rep(0, 4), axes = FALSE, ann = FALSE
   )
 
   rect(
@@ -159,4 +162,7 @@ check_color_blindness <- function(col) {
     x = 1:4 - 0.5, y = length(col) + 1,
     labels = c("Normal", "Deuteranopia", "Protanopia", "Tritanopia")
   )
+
+  invisible(col)
 }
+

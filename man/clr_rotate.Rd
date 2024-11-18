@@ -10,23 +10,23 @@
 clr_rotate(col, degrees = 0)
 }
 \arguments{
-\item{col}{a color object or vector of any of the three kinds of R color
-specifications, i.e., either a color name (as listed by colors()), a
-hexadecimal string of the form "#rrggbb" or "#rrggbbaa" (see rgb), or a
-positive integer i meaning palette()[i].}
+\item{col}{A \code{colors} object (see \code{\link[=color]{color()}}) or a vector of any of the three
+kinds of R color specifications, i.e., either a color name (as listed by
+\code{\link[grDevices:colors]{grDevices::colors()}}), a hexadecimal string (see \code{\link[=col2rgb]{col2rgb()}}), or a
+positive integer \code{i} meaning \code{\link[grDevices:palette]{grDevices::palette()}}\verb{[i]}.}
 
-\item{degrees}{Numeric between 0 and 360, denoting the amount of degrees the
+\item{degrees}{A number between 0 and 360, denoting the amount of degrees the
 colors should be rotated. Defaults to 0.}
 }
 \value{
-a colors object of same length as col.
+A \code{colors} object of the same length as \code{col}.
 }
 \description{
 Rotate the colors around the hue wheel
 }
 \details{
 The colors will be transformed to HCL color space
-(Hue-Chroma-Luminance) where the hue of the color will be rotation.
+(Hue-Chroma-Luminance) where the hue of the color will be rotated.
 }
 \examples{
 plot(clr_rotate(terrain.colors(10)))
